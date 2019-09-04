@@ -1,0 +1,39 @@
+@import './_colors.scss';
+@import './fonts.scss';
+
+.header {
+    $header-color: $color-1;
+    
+    @include font-1;
+    background-color: $header-color;
+    padding: .5em;
+
+    .navbar {
+        .navbar-logo {
+            $size: 60px;
+            width: $size;
+            height: $size;
+            color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            .logo {
+                margin-right: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                svg {
+                    width: $size - 5px;
+                    stroke: white;
+                    stroke-width: 45px;
+                }
+            }
+        }
+    }
+}

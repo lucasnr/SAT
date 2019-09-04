@@ -1,0 +1,66 @@
+.main {
+  flex: 1;
+  background-color: #EEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.side-image {
+  display: block;
+  max-width: 600px;
+  min-width: 300px;
+  width: 50vw;
+  margin: 0 1.5em; }
+
+@font-face {
+  src: url(../../font/Aprova-Regular.woff2);
+  font-family: 'Aprova'; }
+.loginForm {
+  background-color: white;
+  padding: 3em 2em;
+  border-radius: 5px;
+  box-shadow: -1px 1px 10px #aaa; }
+  .loginForm .loginForm-header {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Aprova'; }
+    .loginForm .loginForm-header .loginForm-header-logo {
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin: auto; }
+      .loginForm .loginForm-header .loginForm-header-logo .bottom {
+        stroke: #1881be !important; }
+      .loginForm .loginForm-header .loginForm-header-logo .top {
+        stroke: #28a745 !important; }
+    .loginForm .loginForm-header .loginForm-header-description {
+      margin: 2em 0; }
+    .loginForm .loginForm-header .loginForm-header-title {
+      font-size: 3em;
+      font-weight: bold;
+      color: #28a745 !important; }
+    .loginForm .loginForm-header .loginForm-header-subtitle {
+      color: #1881be !important; }
+  .loginForm .loginForm-group {
+    margin-bottom: 1em; }
+  .loginForm .loginForm-input {
+    padding: .75em 1.5em;
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid #aaa;
+    outline: none; }
+  .loginForm .loginForm-btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 999px;
+    width: 100%;
+    padding: .75em;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Aprova';
+    background-color: #1881be !important; }
+
+/*# sourceMappingURL=loginForm.css.map */
