@@ -17,6 +17,7 @@
   src: url(../../font/Aprova-Regular.woff2);
   font-family: 'Aprova'; }
 .loginForm {
+  margin: 1.5em;
   background-color: white;
   padding: 3em 2em;
   border-radius: 5px;
