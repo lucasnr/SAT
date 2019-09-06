@@ -1,10 +1,14 @@
 @font-face {
-  src: url(../../font/Aprova-Regular.woff2);
+  src: url(../font/Aprova-Regular.woff2);
   font-family: 'Aprova'; }
 .header {
   font-family: 'Aprova';
   background-color: #1881be !important;
-  padding: .5em; }
+  padding: .5em;
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .header {
+      display: block; } }
   .header .navbar .navbar-logo {
     width: 60px;
     height: 60px;

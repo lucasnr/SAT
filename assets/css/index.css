@@ -1,0 +1,23 @@
+.main {
+  background-color: #EEE;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column; }
+  @media only screen and (min-width: 1024px) {
+    .main {
+      flex-direction: row; } }
+
+.side-image {
+  display: none;
+  max-width: 600px;
+  min-width: 300px;
+  width: 50vw;
+  margin: 1.5em; }
+  @media only screen and (min-width: 1024px) {
+    .side-image {
+      display: block; } }
+
+/*# sourceMappingURL=index.css.map */

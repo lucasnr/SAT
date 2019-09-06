@@ -1,5 +1,6 @@
 @import './_colors.scss';
 @import './fonts.scss';
+@import './media-queries.scss';
 
 .header {
     $header-color: $color-1;
@@ -7,6 +8,10 @@
     @include font-1;
     background-color: $header-color;
     padding: .5em;
+    display: none;
+    @include media-query('tablet') {
+        display: block;
+    }
 
     .navbar {
         .navbar-logo {

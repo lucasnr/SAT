@@ -1,27 +1,21 @@
-.main {
-  flex: 1;
-  background-color: #EEE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; }
-
-.side-image {
-  display: block;
-  max-width: 600px;
-  min-width: 300px;
-  width: 50vw;
-  margin: 1.5em; }
-
 @font-face {
-  src: url(../../font/Aprova-Regular.woff2);
+  src: url(../font/Aprova-Regular.woff2);
   font-family: 'Aprova'; }
 .loginForm {
-  margin: 1.5em;
   background-color: white;
   padding: 3em 2em;
   border-radius: 5px;
-  box-shadow: -1px 1px 10px #aaa; }
+  box-shadow: -1px 1px 10px #aaa;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  @media only screen and (min-width: 768px) {
+    .loginForm {
+      flex: 0;
+      margin: 1.5em; } }
   .loginForm .loginForm-header {
     text-transform: uppercase;
     text-align: center;
@@ -34,17 +28,18 @@
       .loginForm .loginForm-header .loginForm-header-logo .bottom {
         stroke: #1881be !important; }
       .loginForm .loginForm-header .loginForm-header-logo .top {
-        stroke: #28a745 !important; }
+        stroke: #6ECBFF !important; }
     .loginForm .loginForm-header .loginForm-header-description {
       margin: 2em 0; }
     .loginForm .loginForm-header .loginForm-header-title {
       font-size: 3em;
       font-weight: bold;
-      color: #28a745 !important; }
+      color: #6ECBFF !important; }
     .loginForm .loginForm-header .loginForm-header-subtitle {
       color: #1881be !important; }
   .loginForm .loginForm-group {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    width: 100%; }
   .loginForm .loginForm-input {
     padding: .75em 1.5em;
     width: 100%;

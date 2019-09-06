@@ -1,0 +1,29 @@
+@import './media-queries';
+
+@mixin center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background-color: #EEE;
+    flex: 1;
+    @include center-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @include media-query('tablet-wide') {
+        flex-direction: row;
+    }
+}
+
+.side-image {
+    display: none;
+    max-width: 600px;
+    min-width: 300px;
+    width: 50vw;
+    margin: 1.5em;
+    @include media-query('tablet-wide') {
+        display: block;
+    }
+}
