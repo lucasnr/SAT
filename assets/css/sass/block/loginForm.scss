@@ -8,15 +8,17 @@
     border-radius: 5px;
     box-shadow: -1px 1px 10px #aaa;
     flex: 1;
-    @include media-query('tablet') {
-        flex: 0;
-        margin: 1.5em;
-    }
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @include media-query('tablet') {
+        flex: 0;
+        margin: 1.5em;
+        width: 372px;
+    }
 
     .loginForm-header {
         text-transform: uppercase;
@@ -29,11 +31,11 @@
             display: block;
             margin: auto;
             
-            .bottom {
+            .top {
                 stroke: $color-1;
             }
 
-            .top {
+            .bottom {
                 stroke: $color-2;
             }
         }

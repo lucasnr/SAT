@@ -19,10 +19,8 @@
 
 .side-image {
     display: none;
-    max-width: 600px;
-    min-width: 300px;
-    width: 50vw;
-    margin: 1.5em;
+    width: 550px;
+    margin: 1em 3em;
     @include media-query('tablet-wide') {
         display: block;
     }
