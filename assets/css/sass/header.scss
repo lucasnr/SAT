@@ -1,13 +1,14 @@
 @import './colors';
 @import './fonts';
 @import './media-queries';
+@import './flexbox';
 
 .header {
     $header-color: $color-1;
     
     @include font-1;
     background-color: $header-color;
-    padding: .5em;
+    padding: 0.15em 1em;
     display: none;
     @include media-query('tablet') {
         display: block;
@@ -20,8 +21,7 @@
             height: $size;
             color: white;
             position: relative;
-            display: flex;
-            align-items: center;
+            @include center-align-flex;
             text-decoration: none;
             font-size: 2em;
             font-weight: bold;
@@ -29,9 +29,7 @@
 
             .logo {
                 margin-right: 7px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include center-flex;
                 
                 svg {
                     width: $size - 5px;

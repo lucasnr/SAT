@@ -1,17 +1,10 @@
 @import './media-queries';
-
-@mixin center-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@import './flexbox';
 
 .main {
     background-color: #EEE;
     flex: 1;
-    @include center-flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    @include center-flex-column-wrap;
     @include media-query('tablet-wide') {
         flex-direction: row;
     }

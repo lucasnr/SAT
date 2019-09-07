@@ -5,17 +5,19 @@ const senha = form.querySelector("#senha");
 
 form.onsubmit = event => {
     event.preventDefault();
-    document.location.href = "home.html";
 
-    // messages.innerHTML = ""; //clear messages
-    // const usuario = { matricula: matricula.value, senha: senha.value };
-    // if (usuario.matricula.startsWith("201611640100") && usuario.senha === "ifrn.2019") {
-    //     document.location.href = "aluno/home.html";
-    //     return;
-    // }
+    messages.innerHTML = ""; //clear messages
+    const usuario = { matricula: matricula.value, senha: senha.value };
+    if (usuario.matricula.startsWith("aluno")) {
+        document.location.href = "home_aluno.html";
+        return;
+    } else if (usuario.matricula.startsWith("instrutor")) {
+        document.location.href = "home_instrutor.html";
+        return;
+    }
 
-    // addErrorMessage("Erro ao realizar login, certifique-se de que suas credenciais estão corretas e tente novamente");
-    // matricula.focus();
+    addErrorMessage("Erro ao realizar login, certifique-se de que suas credenciais estão corretas e tente novamente");
+    matricula.focus();
 }
 
 function addErrorMessage(message) {

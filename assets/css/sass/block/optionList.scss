@@ -1,0 +1,33 @@
+@import '../fonts';
+@import '../colors';
+
+$border-color: #d9d9d9;
+
+.optionList {
+    color: $color-1;
+
+    .optionList-list {
+
+        .optionList-list-item {
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            margin-bottom: 1em;
+            display: flex;
+            @include font-1;
+        }
+        
+        .optionList-list-link {
+            padding: .75em;
+            text-decoration: none; 
+            width: 100%;
+            color: inherit;
+            text-transform: capitalize;
+        }
+
+        .optionList-list-icon {
+            padding-right: 1em;
+            margin-right: 1em;
+            border-right: 1px solid $border-color;
+        }
+    }
+}
