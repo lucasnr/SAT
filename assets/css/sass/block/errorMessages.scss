@@ -11,9 +11,8 @@
             margin-bottom: 1em;
             padding: 1em;
             border-radius: 5px;
-            // background-color: $color-error;
-            // color: white;
-            color: $color-error;
+            background-color: $color-error;
+            color: white;
             @include font-1;
         }
     }

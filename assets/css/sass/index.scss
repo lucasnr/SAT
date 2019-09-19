@@ -2,11 +2,15 @@
 @import './flexbox';
 
 .main {
-    background-color: #EEE;
+    background-color: #FCFCFC;
     flex: 1;
     @include center-flex-column-wrap;
     @include media-query('tablet-wide') {
         flex-direction: row;
+    }
+
+    .loginForm {
+        box-shadow: 0px 1px 4px #aaa;
     }
 }
 
