@@ -1,0 +1,47 @@
+@font-face {
+  src: url(../font/Aprova-Regular.woff2);
+  font-family: "Aprova";
+}
+.main {
+  flex: 1;
+  background-color: #EEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .main {
+    padding: 1.5em 0;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 992px;
+  background-color: white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2em;
+}
+
+.welcome {
+  font-family: "Aprova";
+  margin-bottom: 2em;
+}
+.welcome .welcome-text {
+  color: #1881be !important;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.welcome .welcome-user {
+  color: #232323;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_template.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="index.css" library="css"/>
+		<h:outputStylesheet name="loginForm.css" library="css/block"/>
+		<h:outputStylesheet name="errorMessages.css" library="css/block"/>
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		<h:form styleClass="loginForm">
+            <figure class="loginForm-header">
+                <svg class="loginForm-header-logo" viewBox="0 0 378.7 291.3"><style type="text/css">.st0{fill:none;stroke-width:11;stroke-miterlimit:10;}.st1{fill:none;stroke-width:16;stroke-linecap:round;stroke-miterlimit:10;}.st2{fill:none;stroke-width:11;stroke-miterlimit:10;}.st3{fill:none;stroke-width:16;stroke-miterlimit:10;}.st4{fill:none;stroke-width:16;stroke-linecap:round;stroke-miterlimit:10;}</style><g class="bottom"><path class="st0" d="M144.3,79.5h1.1h85.2c8.8,0,15.9,7.2,15.9,15.9V157"/><path class="st0" d="M246.5,205.3v30.3c0,8.8-7.2,15.9-15.9,15.9H24.4c-8.8,0-15.9-7.2-15.9-15.9V95.4c0-8.8,7.2-15.9,15.9-15.9h96.5"/><line class="st1" x1="97" y1="280" x2="155" y2="280"/><circle class="st0" cx="132.5" cy="79.5" r="11"/></g><g class="top"><path class="st2" d="M133,55.6V24.4c0-8.8,7.2-15.9,15.9-15.9h206.2c8.8,0,15.9,7.2,15.9,15.9v140.2c0,8.8-7.2,15.9-15.9,15.9h-95.8"/><path class="st2" d="M232.8,180.5h-2H149c-8.8,0-15.9-7.2-15.9-15.9v-61.8"/><circle class="st2" cx="246.5" cy="180.5" r="11"/><line class="st3" x1="262.3" y1="208" x2="282" y2="208"/><line class="st4" x1="271" y1="208" x2="282" y2="208"/></g></svg>
+
+                <figcaption class="loginForm-header-description">
+                    <h1 class="loginForm-header-title">Telecentro</h1>
+                    <h4 class="loginForm-header-subtitle">São Gonçalo do Amarante-RN</h4>
+                </figcaption>
+            </figure>
+
+            <div class="errorMessages">
+	            <h:messages globalOnly="true" styleClass="errorMessages-list" errorClass="errorMessages-list-item"/>
+            </div>
+
+            <fieldset class="loginForm-group">
+            
+	            <div class="errorMessages">
+		            <h:messages for="matricula" styleClass="errorMessages-list" errorClass="errorMessages-list-item"/>
+	            </div>
+                <p:inputText id="matricula" styleClass="loginForm-input" value="#{loginBean.credenciais.matricula}" 
+                	required="true" requiredMessage="Digite uma matrícula" />
+            </fieldset>
+            
+            <fieldset class="loginForm-group">
+	            <div class="errorMessages">
+		            <h:messages for="senha" styleClass="errorMessages-list" errorClass="errorMessages-list-item"/>
+	            </div>
+                <h:inputSecret id="senha" styleClass="loginForm-input" value="#{loginBean.credenciais.senha}" 
+                	required="true" requiredMessage="Digite uma senha"/>
+            </fieldset>
+
+            <p:commandButton action="#{loginBean.logar}" styleClass="loginForm-btn" value="Acessar" process="@form" update="@form" />
+        </h:form>
+        
+        <h:graphicImage name="logo-prefeitura.png" library="img" styleClass="side-image"/>
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,18 @@
+@font-face {
+  src: url(../font/Aprova-Regular.woff2);
+  font-family: "Aprova";
+}
+.errorMessages .errorMessages-list {
+  list-style: none;
+  text-align: center;
+}
+.errorMessages .errorMessages-list .errorMessages-list-item {
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #dc3545 !important;
+  color: white;
+  font-family: "Aprova";
+}
+
+/*# sourceMappingURL=errorMessages.css.map */
