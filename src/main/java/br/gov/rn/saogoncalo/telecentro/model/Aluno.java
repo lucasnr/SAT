@@ -1,26 +1,24 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude= {"turmas"}, callSuper=false)
-@ToString(exclude= {"turmas"})
-public class Instrutor extends Usuario {
+@EqualsAndHashCode(exclude = {"turma"}, callSuper=false)
+public class Aluno extends Usuario {
 
 	private Long id;
-	private List<Turma> turmas;
+	private Turma turma;
 
 	@Builder
-	public Instrutor(Long idUsuario, String matricula, String senha, Pessoa pessoa) {
+	public Aluno(Long idUsuario, String matricula, String senha, Pessoa pessoa, Turma turma) {
 		super(idUsuario, matricula, senha, pessoa);
+		this.turma = turma;
 	}
+	
 }

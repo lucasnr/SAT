@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
-public class Coordenador extends Usuario {
+public class CoordenadorUnidade extends Coordenador {
 
-	private Long id;
+	private Long idCoordenadorUnidade;
+	private Unidade unidade;
 	
 }

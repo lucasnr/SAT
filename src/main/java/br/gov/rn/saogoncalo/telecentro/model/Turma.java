@@ -2,40 +2,22 @@ package br.gov.rn.saogoncalo.telecentro.model;
 
 import java.time.LocalDate;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Turma {
 
-	private final String nome;
-	private final Turno turno;
-	private final LocalDate dataInicio;
-	private final LocalDate dataFim;
-	private final Unidade unidade;
-	
-	public Turma(String nome, Turno turno, LocalDate dataInicio, LocalDate dataFim, Unidade unidade) {
-		this.nome = nome;
-		this.turno = turno;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.unidade = unidade;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public Turno getTurno() {
-		return turno;
-	}
-
-	public LocalDate getDataInicio() {
-		return dataInicio;
-	}
-
-	public LocalDate getDataFim() {
-		return dataFim;
-	}
-
-	public Unidade getUnidade() {
-		return unidade;
-	}
-	
+	private Long id;
+	private String codigo;
+	private Turno turno;
+	private LocalDate dataInicio;
+	private LocalDate dataFim;
+	private Unidade unidade;
+	private Instrutor instrutor;
 }
