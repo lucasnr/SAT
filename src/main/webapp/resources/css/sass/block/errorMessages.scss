@@ -2,16 +2,18 @@
 @import "../fonts";
 
 .errorMessages {
+	width: 100%;
     
     .errorMessages-list {
         list-style: none;
-        text-align: center;
+        text-align: left;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        padding: 0 1em;
+        background-color: $color-danger;
         
         .errorMessages-list-item {            
-            margin-bottom: 1em;
-            padding: 1em;
-            border-radius: 5px;
-            background-color: $color-danger;
+            padding: 1em 0;
             color: white;
             @include font-1;
         }
