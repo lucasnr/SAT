@@ -16,7 +16,6 @@ import lombok.ToString;
 @ToString(exclude= {"turmas"})
 public class Instrutor extends Usuario {
 
-	private Long id;
 	private List<Turma> turmas;
 
 	@Builder

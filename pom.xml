@@ -21,12 +21,31 @@
 			<artifactId>primefaces</artifactId>
 			<version>7.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.8</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -49,5 +68,8 @@
 		<jsf.version>2.2.9</jsf.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<springboot.version>2.1.4.RELEASE</springboot.version>
+		<mysql.connector.version>8.0.15</mysql.connector.version>
+		<hibernate.version>5.3.7.Final</hibernate.version>
 	</properties>
 </project>

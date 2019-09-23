@@ -4,11 +4,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import br.gov.rn.saogoncalo.telecentro.model.dto.CredenciaisDTO;
+import lombok.Getter;
+import lombok.Setter;
 
 @ManagedBean(name = "loginBean")
 public class LoginBean {
 
-	private CredenciaisDTO credenciais;
+	@Getter @Setter private CredenciaisDTO credenciais;
 	
 	@PostConstruct
 	private void init() {
@@ -16,16 +18,8 @@ public class LoginBean {
 	}
 
 	public String logar() {
-		System.out.println(credenciais.getMatricula());
+		System.out.println(credenciais);
 		return null;
-	}
-
-	public CredenciaisDTO getCredenciais() {
-		return credenciais;
-	}
-
-	public void setCredenciais(CredenciaisDTO login) {
-		this.credenciais = login;
 	}
 
 }
