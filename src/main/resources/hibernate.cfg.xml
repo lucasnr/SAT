@@ -24,6 +24,11 @@
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Contato" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Pessoa" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Usuario" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Instrutor" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Unidade" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Modulo" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Turma" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Aluno" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Coordenador" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.CoordenadorGeral" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.CoordenadorUnidade" />

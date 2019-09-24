@@ -51,7 +51,7 @@ public class Pessoa {
 	@PrimaryKeyJoinColumn
 	private Contato contato;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
 
