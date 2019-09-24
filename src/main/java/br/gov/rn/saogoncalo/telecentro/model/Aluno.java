@@ -1,6 +1,5 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -47,7 +46,7 @@ public class Aluno extends Usuario {
 	}
 	
 	public boolean isAtivo() {
-		return hojeEstaEntreInicioEFim();
+		return this.turma.isAtiva();
 	}
 	
 	public Double frequencia() {
@@ -63,11 +62,6 @@ public class Aluno extends Usuario {
 		return boletins.stream().mapToDouble(Boletim::getNota).average().getAsDouble();
 	}
 
-	private boolean hojeEstaEntreInicioEFim() {
-		LocalDate hoje = LocalDate.now();
-		return hoje.isAfter(this.turma.getDataInicio()) && hoje.isBefore(this.turma.getDataFim());
-	}
-	
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();

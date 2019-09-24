@@ -73,4 +73,13 @@ public class Turma {
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TURMA_ID")
 	private List<Aula> aulas;
+
+	public boolean isAtiva() {
+		return hojeEstaEntreInicioEFim();
+	}
+	
+	private boolean hojeEstaEntreInicioEFim() {
+		LocalDate hoje = LocalDate.now();
+		return hoje.isAfter(this.getDataInicio()) && hoje.isBefore(this.getDataFim());
+	}
 }

@@ -15,7 +15,8 @@
 	</ui:define>
 	
 	<ui:define name="conteudo">
-		<h:form styleClass="loginForm">
+        <h:graphicImage name="logo-prefeitura.png" library="img" styleClass="side-image"/>
+        <h:form styleClass="loginForm">
             <figure class="loginForm-header">
 				<sat:logo styleClass="loginForm-header-logo" />
                 <figcaption class="loginForm-header-description">
@@ -42,8 +43,6 @@
 
             <p:commandButton action="#{loginBean.logar}" styleClass="loginForm-btn" value="Acessar" process="@form" update="@form" />
         </h:form>
-        
-        <h:graphicImage name="logo-prefeitura.png" library="img" styleClass="side-image"/>
 	</ui:define>
 
 </ui:composition>
