@@ -28,6 +28,9 @@
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Unidade" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Modulo" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Turma" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Aula" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.RegistroAula" />
+		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Boletim" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Aluno" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Coordenador" />
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.CoordenadorGeral" />
