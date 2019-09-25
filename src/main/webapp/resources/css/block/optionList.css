@@ -1,28 +1,23 @@
 @font-face {
   src: url(../font/Aprova-Regular.woff2);
-  font-family: "Aprova";
-}
+  font-family: 'Aprova'; }
 .optionList {
-  color: #1881be !important;
-}
-.optionList .optionList-list .optionList-list-item {
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  margin-bottom: 1em;
-  display: flex;
-  font-family: "Aprova";
-}
-.optionList .optionList-list .optionList-list-link {
-  padding: 0.75em;
-  text-decoration: none;
-  width: 100%;
-  color: inherit;
-  text-transform: capitalize;
-}
-.optionList .optionList-list .optionList-list-icon {
-  padding-right: 1em;
-  margin-right: 1em;
-  border-right: 1px solid #d9d9d9;
-}
+  color: #1881be !important; }
+  .optionList .optionList-list .optionList-list-item {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    display: flex;
+    font-family: 'Aprova'; }
+  .optionList .optionList-list .optionList-list-link {
+    padding: .75em;
+    text-decoration: none;
+    width: 100%;
+    color: inherit;
+    text-transform: capitalize; }
+  .optionList .optionList-list .optionList-list-icon {
+    padding-right: 1em;
+    margin-right: 1em;
+    border-right: 1px solid #d9d9d9; }
 
 /*# sourceMappingURL=optionList.css.map */

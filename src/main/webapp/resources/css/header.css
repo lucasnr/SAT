@@ -1,40 +1,33 @@
 @font-face {
   src: url(../font/Aprova-Regular.woff2);
-  font-family: "Aprova";
-}
+  font-family: 'Aprova'; }
 .header {
-  font-family: "Aprova";
+  font-family: 'Aprova';
   background-color: #1881be !important;
   padding: 0.15em 1em;
-  display: none;
-}
-@media only screen and (min-width: 768px) {
-  .header {
-    display: block;
-  }
-}
-.header .navbar .navbar-logo {
-  width: 60px;
-  height: 60px;
-  color: white;
-  position: relative;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 2em;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.header .navbar .navbar-logo .logo {
-  margin-right: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.header .navbar .navbar-logo .logo svg {
-  width: 55px;
-  stroke: white;
-  stroke-width: 45px;
-}
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .header {
+      display: block; } }
+  .header .navbar .navbar-logo {
+    width: 60px;
+    height: 60px;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .header .navbar .navbar-logo .logo {
+      margin-right: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .header .navbar .navbar-logo .logo svg {
+        width: 55px;
+        stroke: white;
+        stroke-width: 45px; }
 
 /*# sourceMappingURL=header.css.map */

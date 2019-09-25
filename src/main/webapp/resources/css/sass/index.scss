@@ -1,8 +1,9 @@
 @import './media-queries';
 @import './flexbox';
+@import './colors';
 
 .main {
-    background-color: #FCFCFC;
+    background-color: $bg-main-color;
     flex: 1;
     @include center-flex-column-wrap;
     @include media-query('tablet-wide') {
