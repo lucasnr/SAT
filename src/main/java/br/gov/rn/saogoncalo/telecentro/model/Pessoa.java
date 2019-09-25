@@ -55,4 +55,7 @@ public class Pessoa {
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
 
+	public boolean isMulher() {
+		return this.sexo == Sexo.FEMININO;
+	}
 }
