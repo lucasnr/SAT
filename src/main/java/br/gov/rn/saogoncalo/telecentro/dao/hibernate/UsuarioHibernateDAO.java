@@ -9,7 +9,7 @@ import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 
 public class UsuarioHibernateDAO<T extends Usuario> extends EntidadeHibernateDAO<T> implements UsuarioDAO<T> {
 
-	protected UsuarioHibernateDAO(Class<T> type) {
+	public UsuarioHibernateDAO(Class<T> type) {
 		super(type);
 	}
 	
@@ -25,5 +25,4 @@ public class UsuarioHibernateDAO<T extends Usuario> extends EntidadeHibernateDAO
 		parametros.put("senha", senha);
 		return super.buscarPorVariosCampos(parametros);
 	}
-
 }
