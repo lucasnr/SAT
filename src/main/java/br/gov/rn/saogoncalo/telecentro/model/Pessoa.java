@@ -44,7 +44,7 @@ public class Pessoa {
 	@Column(name = "DATA_CADASTRO")
 	private LocalDateTime dataCadastro;
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('MASCULINO','FEMININO')")
+	@Column(columnDefinition = "ENUM('MASCULINO','FEMININO', 'OUTRO')")
 	private Sexo sexo;
 
 	@OneToOne(fetch = FetchType.LAZY)
