@@ -1,8 +1,9 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
+import java.io.Serializable;
 import java.util.Optional;
 
-import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -13,30 +14,35 @@ import br.gov.rn.saogoncalo.telecentro.util.FacesMessageUtil;
 import lombok.Getter;
 import lombok.Setter;
 
-@Named("loginBean")
-public class LoginBean {
+@Named
+@RequestScoped
+public class LoginBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Getter @Setter 
+	@Inject
 	private CredenciaisDTO credenciais;
-	
 	@Inject
 	private LoginService loginService;
 	
-	@PostConstruct
-	private void init() {
-		this.credenciais = new CredenciaisDTO();
-	}
-
 	public String logar() {
-		Optional<Usuario> login = loginService.login(credenciais);
-		if (login.isPresent()) {
-			System.out.println(login);
-			return "bemvindo.xhmtl?faces-redirect=true";
+		Optional<Usuario> optional = loginService.login(credenciais);
+		if (optional.isPresent()) {
+			logarUsuario(optional.get());
+			return "home?faces-redirect=true";
 		}
 		
 		String mensagemDeErro = "As credenciais informadas não são inválidas, certifique-se de que as digitou corretamente e tente novamente";
 		FacesMessageUtil.addErrorMessage(mensagemDeErro);
 		return null;
+	}
+
+	@Inject
+	private LogadoBean logadoBean;
+	
+	private void logarUsuario(Usuario usuario) {
+		logadoBean.logar(usuario);
 	}
 
 }
