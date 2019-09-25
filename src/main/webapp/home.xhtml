@@ -6,11 +6,49 @@
 
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
+	<ui:define name="estilos">
+		<h:outputStylesheet name="home.css" library="css"/>
+		<h:outputStylesheet name="optionList.css" library="css/block"/>
+	</ui:define>
+
 	<ui:define name="conteudo">
-		<h:outputText value="#{logadoBean.usuario.nome}"/>
-		(
-		<h:outputText value="#{logadoBean.usuario.cpf}"/>
-		)
+		<div class="container">
+            <div class="welcome">
+                <h6 class="welcome-text">#{logadoBean.usuario.isMulher() ? 'Bem-vinda' : 'Bem-vindo'}</h6>
+                <span class="welcome-user">#{logadoBean.usuario.nome}</span>
+            </div>
+            <div class="optionList">
+                <ul class="optionList-list">
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Meus dados
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-book-open optionList-list-icon"></i>
+                            Minha turma
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fab fa-google optionList-list-icon"></i>
+                            Google sala de aula
+                        </a>
+                    </li>
+
+                    <li class="optionList-list-item">
+                        <h:form style="display: flex; width: 100%">
+	                        <h:commandLink action="#{logadoBean.deslogar}" styleClass="optionList-list-link">
+	                            <i class="fas fa-sign-out-alt optionList-list-icon"></i>
+	                            Sair
+	                        </h:commandLink>
+                        </h:form>
+                    </li>
+                </ul>
+            </div>
+        </div>
 	</ui:define>
 </ui:composition>
 </html>

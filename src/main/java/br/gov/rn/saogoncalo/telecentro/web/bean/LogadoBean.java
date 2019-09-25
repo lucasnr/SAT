@@ -22,8 +22,9 @@ public class LogadoBean implements Serializable {
 		this.usuario = usuario;
 	}
 	
-	public void deslogar() {
+	public String deslogar() {
 		this.usuario = null;
+		return "index?faces-redirect=true";
 	}
 
 }
