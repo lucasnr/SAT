@@ -5,7 +5,7 @@ import java.util.Optional;
 import br.gov.rn.saogoncalo.telecentro.dao.ModuloDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Modulo;
 
-public class ModuloHibernateDAO extends EntidadeHibernateDAO<Modulo> implements ModuloDAO {
+public class ModuloHibernateDAO extends AbstractHibernateDAO<Modulo, Long> implements ModuloDAO {
 
 	public ModuloHibernateDAO() {
 		super(Modulo.class);

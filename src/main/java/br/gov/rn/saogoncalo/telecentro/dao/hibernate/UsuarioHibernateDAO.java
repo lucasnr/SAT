@@ -7,7 +7,7 @@ import java.util.Optional;
 import br.gov.rn.saogoncalo.telecentro.dao.UsuarioDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 
-public class UsuarioHibernateDAO<T extends Usuario> extends EntidadeHibernateDAO<T> implements UsuarioDAO<T> {
+public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO<T, Long> implements UsuarioDAO<T> {
 
 	public UsuarioHibernateDAO(Class<T> type) {
 		super(type);
@@ -23,6 +23,6 @@ public class UsuarioHibernateDAO<T extends Usuario> extends EntidadeHibernateDAO
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("matricula", matricula);
 		parametros.put("senha", senha);
-		return super.buscarPorVariosCampos(parametros);
+		return super.buscarPorCamposUnicos(parametros);
 	}
 }

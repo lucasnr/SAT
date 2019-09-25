@@ -7,7 +7,7 @@ import java.util.Optional;
 import br.gov.rn.saogoncalo.telecentro.dao.EnderecoDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Endereco;
 
-public class EnderecoHibernateDAO extends EntidadeHibernateDAO<Endereco> implements EnderecoDAO {
+public class EnderecoHibernateDAO extends AbstractHibernateDAO<Endereco, Long> implements EnderecoDAO {
 
 	public EnderecoHibernateDAO() {
 		super(Endereco.class);
@@ -25,7 +25,7 @@ public class EnderecoHibernateDAO extends EntidadeHibernateDAO<Endereco> impleme
 		parametros.put("logradouro", logradouro);
 		parametros.put("numero", numero);
 		
-		return super.buscarPorVariosCampos(parametros);
+		return super.buscarPorCamposUnicos(parametros);
 	}
 	
 }

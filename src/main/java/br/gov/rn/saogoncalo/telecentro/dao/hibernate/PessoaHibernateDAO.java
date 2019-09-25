@@ -5,7 +5,7 @@ import java.util.Optional;
 import br.gov.rn.saogoncalo.telecentro.dao.PessoaDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Pessoa;
 
-public class PessoaHibernateDAO extends EntidadeHibernateDAO<Pessoa> implements PessoaDAO {
+public class PessoaHibernateDAO extends AbstractHibernateDAO<Pessoa, Long> implements PessoaDAO {
 
 	public PessoaHibernateDAO() {
 		super(Pessoa.class);

@@ -8,5 +8,4 @@ public class CoordenadorUnidadeHibernateDAO extends CoordenadorHibernateDAO<Coor
 	public CoordenadorUnidadeHibernateDAO() {
 		super(CoordenadorUnidade.class);
 	}
-
 }

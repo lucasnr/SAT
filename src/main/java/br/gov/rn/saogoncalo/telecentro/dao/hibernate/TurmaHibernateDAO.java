@@ -5,7 +5,7 @@ import java.util.Optional;
 import br.gov.rn.saogoncalo.telecentro.dao.TurmaDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Turma;
 
-public class TurmaHibernateDAO extends EntidadeHibernateDAO<Turma> implements TurmaDAO {
+public class TurmaHibernateDAO extends AbstractHibernateDAO<Turma, Long> implements TurmaDAO {
 
 	public TurmaHibernateDAO() {
 		super(Turma.class);

@@ -17,7 +17,7 @@ import org.hibernate.query.Query;
 
 import br.gov.rn.saogoncalo.telecentro.dao.AbstractDAO;
 
-public class AbstractHibernateDAO<T> implements AbstractDAO<T> {
+public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 
 	protected SessionFactory sessionFactory;
 	protected Class<T> type;
@@ -29,7 +29,7 @@ public class AbstractHibernateDAO<T> implements AbstractDAO<T> {
 
 	@Override
 	public boolean salvar(T obj) {
-		Session session = sessionFactory.openSession();
+		Session session = getSession();
 		session.getTransaction().begin();
 		session.save(obj);
 		session.getTransaction().commit();
@@ -38,7 +38,7 @@ public class AbstractHibernateDAO<T> implements AbstractDAO<T> {
 
 	@Override
 	public boolean deletar(T obj) {
-		Session session = sessionFactory.openSession();
+		Session session = getSession();
 		session.getTransaction().begin();
 		session.delete(obj);
 		session.getTransaction().commit();
@@ -47,16 +47,27 @@ public class AbstractHibernateDAO<T> implements AbstractDAO<T> {
 
 	@Override
 	public List<T> listar(int offset, int limit) {
-		Session session = sessionFactory.openSession();
+		Session session = getSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
 		CriteriaQuery<T> criteriaQuery = builder.createQuery(type);
 		criteriaQuery.from(type);
 		Query<T> query = session.createQuery(criteriaQuery);
 		return query.list();
 	}
+	
+	@Override
+	public Optional<T> buscarPorPK(PK primaryKey) {
+		Session session = getSession();
+		T obj = session.find(type, primaryKey);
+		return Optional.ofNullable(obj);
+	}
+
+	private Session getSession() {
+		return sessionFactory.openSession();
+	}
 
 	protected Optional<T> buscarPorCampoUnico(String campo, Object valor) {
-		Session session = sessionFactory.openSession();
+		Session session = getSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
 		CriteriaQuery<T> criteria = builder.createQuery(type);
 
@@ -70,8 +81,8 @@ public class AbstractHibernateDAO<T> implements AbstractDAO<T> {
 		return Optional.ofNullable(resultado);
 	}
 	
-	protected Optional<T> buscarPorVariosCampos(Map<String, Object> parametros) {
-		Session session = sessionFactory.openSession();
+	protected Optional<T> buscarPorCamposUnicos(Map<String, Object> parametros) {
+		Session session = getSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
 		CriteriaQuery<T> criteria = builder.createQuery(type);
 		Root<T> root = criteria.from(type);
