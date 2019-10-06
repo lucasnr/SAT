@@ -7,15 +7,14 @@ import javax.inject.Named;
 
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 import lombok.Getter;
-import lombok.Setter;
 
 @Named
 @SessionScoped
-public class LogadoBean implements Serializable {
+public class SessionBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Getter @Setter
+	@Getter
 	private Usuario usuario;
 
 	public void logar(Usuario usuario) {

@@ -39,10 +39,10 @@ public class LoginBean implements Serializable {
 	}
 
 	@Inject
-	private LogadoBean logadoBean;
+	private SessionBean sessionBean;
 	
 	private void logarUsuario(Usuario usuario) {
-		logadoBean.logar(usuario);
+		sessionBean.logar(usuario);
 	}
 
 }

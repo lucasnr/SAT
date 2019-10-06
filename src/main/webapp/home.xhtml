@@ -14,8 +14,8 @@
 	<ui:define name="conteudo">
 		<div class="container">
             <div class="welcome">
-                <h6 class="welcome-text">#{logadoBean.usuario.isMulher() ? 'Bem-vinda' : 'Bem-vindo'}</h6>
-                <span class="welcome-user">#{logadoBean.usuario.nome}</span>
+                <h6 class="welcome-text">#{sessionBean.usuario.isMulher() ? 'Bem-vinda' : 'Bem-vindo'}</h6>
+                <span class="welcome-user">#{sessionBean.usuario.nome}</span>
             </div>
             <div class="optionList">
                 <ul class="optionList-list">
@@ -40,7 +40,7 @@
 
                     <li class="optionList-list-item">
                         <h:form style="display: flex; width: 100%">
-	                        <h:commandLink action="#{logadoBean.deslogar}" styleClass="optionList-list-link">
+	                        <h:commandLink action="#{sessionBean.deslogar}" styleClass="optionList-list-link">
 	                            <i class="fas fa-sign-out-alt optionList-list-icon"></i>
 	                            Sair
 	                        </h:commandLink>
