@@ -42,8 +42,10 @@ public class Usuario {
 	@Setter
 	private String senha;
 
+	@Getter
 	@Delegate
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PESSOA_ID")
 	private Pessoa pessoa;
+	
 }
