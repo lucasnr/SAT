@@ -87,11 +87,14 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		CriteriaQuery<T> criteria = builder.createQuery(type);
 		Root<T> root = criteria.from(type);
 
+		Predicate[] restrictions = new Predicate[parametros.size()];
+		int index = 0;
 		for (Entry<String, Object> parametro : parametros.entrySet()) {			
 			Path<T> path = root.get(parametro.getKey());
-			Predicate equal = builder.equal(path, parametro.getValue());
-			criteria = criteria.where(equal);
+			Predicate restriction = builder.equal(path, parametro.getValue());
+			restrictions[index++] = restriction;
 		}
+		criteria.where(restrictions);
 
 		Query<T> query = session.createQuery(criteria);
 		T resultado = query.uniqueResult();
