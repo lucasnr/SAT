@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -57,5 +58,10 @@ public class Pessoa {
 
 	public boolean isMulher() {
 		return this.sexo == Sexo.FEMININO;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		this.dataCadastro = LocalDateTime.now();
 	}
 }
