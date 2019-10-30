@@ -33,7 +33,7 @@ public class LoginBean implements Serializable {
 			return "home?faces-redirect=true";
 		}
 		
-		String mensagemDeErro = "As credenciais informadas não são inválidas, certifique-se de que as digitou corretamente e tente novamente";
+		String mensagemDeErro = "As credenciais informadas não são válidas, certifique-se de que as digitou corretamente e tente novamente";
 		FacesMessageUtil.addErrorMessage(mensagemDeErro);
 		return null;
 	}
