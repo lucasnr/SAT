@@ -14,4 +14,8 @@ public class FacesMessageUtil {
 	public static void addErrorMessage(String mensagem) {
 		addMessage(FacesMessage.SEVERITY_ERROR, mensagem);
 	}
+
+	public static void addSuccessMessage(String mensagem) {
+		addMessage(FacesMessage.SEVERITY_INFO, mensagem);
+	}
 }
