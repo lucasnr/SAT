@@ -19,8 +19,9 @@ import lombok.NoArgsConstructor;
 public class Contato {
 
 	@Id
-	@Column(name = "PESSOA_ID", columnDefinition="INT")
+	@Column(name = "PESSOA_ID", columnDefinition = "INT")
 	private Long id;
 	private String email;
 	private String telefone;
+
 }
