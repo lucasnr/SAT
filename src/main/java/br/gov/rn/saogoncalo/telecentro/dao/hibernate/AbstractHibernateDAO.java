@@ -28,12 +28,21 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 	}
 
 	@Override
-	public boolean salvar(T obj) {
+	public final boolean salvar(T obj) {
 		Session session = getSession();
 		session.getTransaction().begin();
+		try {
+			salva(session, obj);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+	}
+	
+	protected void salva(Session session, T obj) {
 		session.save(obj);
-		session.getTransaction().commit();
-		return true;
 	}
 
 	@Override
@@ -54,7 +63,7 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		Query<T> query = session.createQuery(criteriaQuery);
 		return query.list();
 	}
-	
+
 	@Override
 	public Optional<T> buscarPorPK(PK primaryKey) {
 		Session session = getSession();
@@ -62,7 +71,7 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		return Optional.ofNullable(obj);
 	}
 
-	private Session getSession() {
+	protected Session getSession() {
 		return sessionFactory.openSession();
 	}
 
@@ -80,7 +89,7 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		T resultado = query.uniqueResult();
 		return Optional.ofNullable(resultado);
 	}
-	
+
 	protected Optional<T> buscarPorCamposUnicos(Map<String, Object> parametros) {
 		Session session = getSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -89,7 +98,7 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 
 		Predicate[] restrictions = new Predicate[parametros.size()];
 		int index = 0;
-		for (Entry<String, Object> parametro : parametros.entrySet()) {			
+		for (Entry<String, Object> parametro : parametros.entrySet()) {
 			Path<T> path = root.get(parametro.getKey());
 			Predicate restriction = builder.equal(path, parametro.getValue());
 			restrictions[index++] = restriction;

@@ -14,19 +14,14 @@ public class InstrutorHibernateDAO extends UsuarioHibernateDAO<Instrutor> implem
 	}
 
 	@Override
-	public boolean salvar(Instrutor obj) {
-		Session session = super.sessionFactory.openSession();
-		session.getTransaction().begin();
-		
+	protected void salva(Session session, Instrutor obj) {
 		Pessoa pessoa = obj.getPessoa();
 		session.save(pessoa.getEndereco());
 		session.save(pessoa);
+		
 		Contato contato = pessoa.getContato();
 		contato.setId(pessoa.getId());
 		session.save(contato);
 		session.save(obj);
-		
-		session.getTransaction().commit();
-		return true;
 	}
 }
