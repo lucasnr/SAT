@@ -13,11 +13,9 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Entity
 @Table(name = "UNIDADE")
@@ -33,5 +31,9 @@ public class Unidade {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
+
+	public Unidade() {
+		this.endereco = new Endereco();
+	}
 
 }
