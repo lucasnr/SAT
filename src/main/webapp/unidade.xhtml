@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="container py-5">
+			<h:form styleClass="w-100">
+				<h:messages errorClass="text-danger" infoClass="text-success" />
+			
+				<div class="form-group">
+					<h:outputLabel value="CEP" />
+					<h:inputText value="#{unidadeBean.unidade.endereco.cep}" styleClass="form-control" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Bairro" />
+					<h:inputText value="#{unidadeBean.unidade.endereco.bairro}" styleClass="form-control" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Logradouro" />
+					<h:inputText value="#{unidadeBean.unidade.endereco.logradouro}" styleClass="form-control" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Número" />
+					<h:inputText value="#{unidadeBean.unidade.endereco.numero}" styleClass="form-control" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Nome" />
+					<h:inputText value="#{unidadeBean.unidade.nome}" styleClass="form-control" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Quantidade de Equipamentos" />
+					<h:inputText value="#{unidadeBean.unidade.quantidadeEquipamentos}" styleClass="form-control" />
+				</div>
+				
+				<h:commandButton actionListener="#{unidadeBean.salvar}" value="Salvar" styleClass="btn btn-success btn-block" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
