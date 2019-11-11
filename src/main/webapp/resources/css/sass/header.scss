@@ -3,40 +3,31 @@
 @import './media-queries';
 @import './flexbox';
 
-.header {
-    $header-color: $color-1;
-    
-    @include font-1;
+$header-color: $color-1;
+.header {    
     background-color: $header-color;
-    padding: 0.15em 1em;
     display: none;
+    padding: .75em 1em;
+
+    @include font-1;
     @include media-query('tablet') {
         display: block;
     }
 
-    .navbar {
-        .navbar-logo {
-            $size: 60px;
-            width: $size;
-            height: $size;
-            color: white;
-            position: relative;
-            @include center-align-flex;
-            text-decoration: none;
-            font-size: 2em;
-            font-weight: bold;
-            text-transform: uppercase;
+    .header__logo {
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include center-align-flex;
 
-            .logo {
-                margin-right: 7px;
-                @include center-flex;
-                
-                svg {
-                    width: $size - 5px;
-                    stroke: white;
-                    stroke-width: 45px;
-                }
-            }
+        svg {
+            margin-right: 7px;
+            stroke: white;
+            stroke-width: 45px;
+            width: 55px;
         }
     }
 }

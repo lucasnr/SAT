@@ -2,32 +2,26 @@
   src: url(../font/Aprova-Regular.woff2);
   font-family: 'Aprova'; }
 .header {
-  font-family: 'Aprova';
   background-color: #1881be !important;
-  padding: 0.15em 1em;
-  display: none; }
+  display: none;
+  padding: .75em 1em;
+  font-family: 'Aprova'; }
   @media only screen and (min-width: 768px) {
     .header {
       display: block; } }
-  .header .navbar .navbar-logo {
-    width: 60px;
-    height: 60px;
+  .header .header__logo {
     color: white;
-    position: relative;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
     font-size: 2em;
     font-weight: bold;
-    text-transform: uppercase; }
-    .header .navbar .navbar-logo .logo {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center; }
+    .header .header__logo svg {
       margin-right: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-      .header .navbar .navbar-logo .logo svg {
-        width: 55px;
-        stroke: white;
-        stroke-width: 45px; }
+      stroke: white;
+      stroke-width: 45px;
+      width: 55px; }
 
 /*# sourceMappingURL=header.css.map */

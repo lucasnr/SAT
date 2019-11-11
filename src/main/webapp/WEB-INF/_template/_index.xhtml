@@ -32,17 +32,10 @@
 </h:head>
 <h:body>
 	<header class="header">
-        <nav class="navbar">
-            <h:link outcome="index" styleClass="navbar-logo">
-                <div class="logo">
-                	<sat:logo />
-                </div>
-                Telecentro
-            </h:link>
-            <ul class="nav">
-                <!-- Some items here -->
-            </ul>
-        </nav>
+		<h:link outcome="index" styleClass="header__logo">
+			<sat:logo />
+			Telecentro
+		</h:link>
     </header>
     <main class="main">
     	<ui:insert name="conteudo"></ui:insert>
