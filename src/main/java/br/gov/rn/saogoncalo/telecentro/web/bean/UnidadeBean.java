@@ -33,7 +33,7 @@ public class UnidadeBean {
 			}
 			else 
 				FacesMessageUtil.addErrorMessage("Falha ao salvar!");
-		} catch (IllegalArgumentException e) {
+		} catch (Exception e) {
 			FacesMessageUtil.addErrorMessage(e.getMessage());
 		}
 	}

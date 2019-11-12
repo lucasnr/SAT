@@ -27,14 +27,13 @@ public class EnderecoBean {
 	
 	@Transactional
 	public void salvar() {
-		try {			
-			System.out.println(this.endereco);
+		try {
 			boolean salvou = this.service.salvar(this.endereco);
 			if(salvou)
 				FacesMessageUtil.addSuccessMessage("Salvo com sucesso");
 			else
 				FacesMessageUtil.addErrorMessage("Falha ao salvar");
-		} catch (IllegalArgumentException e) {
+		} catch (Exception e) {
 			FacesMessageUtil.addErrorMessage("Falha ao salvar: " + e.getMessage());
 		}
 	}
