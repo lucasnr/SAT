@@ -15,7 +15,6 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Delegate;
@@ -23,7 +22,6 @@ import lombok.experimental.Delegate;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -47,5 +45,9 @@ public class Usuario {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PESSOA_ID")
 	private Pessoa pessoa;
+	
+	public Usuario() {
+		this.pessoa = new Pessoa();
+	}
 	
 }

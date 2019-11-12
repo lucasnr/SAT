@@ -21,11 +21,9 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Entity
 @Table(name = "PESSOA")
@@ -55,6 +53,11 @@ public class Pessoa {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
+	
+	public Pessoa() {
+		this.contato = new Contato();
+		this.endereco = new Endereco();
+	}
 
 	public boolean isMulher() {
 		return this.sexo == Sexo.FEMININO;
