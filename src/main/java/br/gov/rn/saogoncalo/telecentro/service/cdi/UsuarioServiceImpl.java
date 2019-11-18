@@ -1,5 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 
 import br.gov.rn.saogoncalo.telecentro.dao.UsuarioDAO;
@@ -17,4 +19,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return dao.salvar(usuario);
 	}
 
+	public Optional<Usuario> buscarPorMatricula(String matricula) {
+		return dao.buscarPorMatricula(matricula);
+	}
+	
+	 public Optional<Usuario> buscarPorId(Long id) {
+		 return dao.buscarPorPK(id);
+	 }
+	
 }
