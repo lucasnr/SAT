@@ -1,7 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.service;
 
 import br.gov.rn.saogoncalo.telecentro.model.CoordenadorUnidade;
-import br.gov.rn.saogoncalo.telecentro.model.Instrutor;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 import br.gov.rn.saogoncalo.telecentro.util.DataUtil;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ public class GeradorDeMatriculaDeCoordenadorDeUnidade implements GeradorDeMatric
 	
 	@Override
 	public String gera(Usuario usuario) {
-		if(usuario instanceof Instrutor) {
+		if(usuario instanceof CoordenadorUnidade) {
 			CoordenadorUnidade coordenadorDeUnidade = (CoordenadorUnidade) usuario;
 			return gerarMatricula(coordenadorDeUnidade);
 		}

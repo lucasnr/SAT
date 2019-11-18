@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.service;
 
-import br.gov.rn.saogoncalo.telecentro.model.Instrutor;
+import br.gov.rn.saogoncalo.telecentro.model.CoordenadorGeral;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 import br.gov.rn.saogoncalo.telecentro.util.DataUtil;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ public class GeradorDeMatriculaDeCoordenadorGeral implements GeradorDeMatricula 
 
 	@Override
 	public String gera(Usuario usuario) {
-		if (usuario instanceof Instrutor)
+		if (usuario instanceof CoordenadorGeral)
 			return gerarMatricula();
 		else if (proximo != null)
 			return proximo.gera(usuario);
