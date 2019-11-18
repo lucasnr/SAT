@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:sat="http://xmlns.jcp.org/jsf/composite/component">  
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="index.css" library="css"/>
+		<h:outputStylesheet name="loginForm.css" library="css/block"/>
+		<h:outputStylesheet name="errorMessages.css" library="css/block"/>
+	</ui:define>
+	
+	<ui:define name="conteudo">
+	
+			<f:metadata>
+		        <f:viewParam name="idconsultado" value="#{usuarioBean.idconsultado}" />
+		    </f:metadata>
+
+            <div class="errorMessages">
+	            <h:messages styleClass="errorMessages-list" errorClass="errorMessages-list-item"/>
+            </div>
+
+           <form>
+           
+           
+           <h:outputLabel value="Id consultado: [ #{usuarioBean.idconsultado} ]"/>
+           
+           <h:outputLabel value="Nome:"/>
+           <h:inputText value="#{usuarioBean.usuario.pessoa.nome}"/>
+           
+           <h:outputLabel value="Data de Nascimento:"/>
+           <h:inputText value=""/>
+           
+           <h:outputLabel value="Email:"/>
+           <h:inputText value=""/>
+           
+           </form>
+           
+	</ui:define>
+
+</ui:composition>
+
+</html>
