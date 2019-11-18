@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+
+		<h:form styleClass="cadastrarUsuariosForm">
+			<h1 class="cadastrarUsuariosForm-header-title">CADASTRAR USUÁRIO</h1>
+
+			<div class="cadastrarUsuariosForm-group">
+				<div>
+					<h:outputLabel value="Perfil: " />
+					<h:selectOneMenu class="perfil"
+						value="#{selectOneMenuView.console}">
+						<f:selectItem itemLabel="Selecione um perfil" itemValue="" />
+						<f:selectItem itemLabel="Y" itemValue="" />
+						<f:selectItem itemLabel="Z" itemValue="" />
+						<f:selectItem itemLabel="A" itemValue="" />
+					</h:selectOneMenu>
+				</div>
+
+				<div>
+					<h:outputLabel value="Unidade: " />
+					<h:selectOneMenu class="unidade"
+						value="#{selectOneMenuView.console}">
+						<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
+						<f:selectItem itemLabel="Y" itemValue="" />
+						<f:selectItem itemLabel="Z" itemValue="" />
+						<f:selectItem itemLabel="A" itemValue="" />
+					</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="cadastrarUsuariosForm-group">
+				<div>
+					<h:outputLabel value="Nome: " />
+					<h:inputText class="nome" value="#{selectOneMenuView.console}" />
+				</div>
+			</div>
+
+			<div class="cadastrarUsuariosForm-group">
+				<div>
+					<p:outputLabel value="Data de nascimento: " />
+					<p:inputMask class="dataDeNsacimento" value="#{maskView.date}"
+						mask="99/99/9999" />
+				</div>
+
+				<div>
+					<h:outputLabel value="CPF: " />
+					<p:inputMask class="cpf" value="#{maskView.date}"
+						mask="999.999.999-99" />
+				</div>
+				<div>
+					<h:outputLabel value="RG: " />
+					<h:inputText class="rg" value="#{selectOneMenuView.console}" />
+				</div>
+			</div>
+
+			<div class="cadastrarUsuariosForm-group">
+				<div>
+					<h:outputLabel value="Bairro: " />
+					<h:inputText class="bairro" value="#{selectOneMenuView.console}" />
+				</div>
+				<div>
+					<h:outputLabel value="Logradouro: " />
+					<h:inputText class="logradouro"
+						value="#{selectOneMenuView.console}" />
+				</div>
+				<div>
+					<h:outputLabel value="Número: " />
+					<h:inputText class="numero" value="#{selectOneMenuView.console}" />
+				</div>
+			</div>
+
+			<div class="cadastrarUsuariosForm-group">
+				<div>
+					<h:outputLabel value="Telefone: " />
+					<p:inputMask class="telefone" value="#{maskView.date}"
+						mask="(99) 99999-9999" />
+				</div>
+
+				<div>
+					<h:outputLabel value="Email: " />
+					<h:inputText class="email" value="#{selectOneMenuView.console}" />
+				</div>
+
+				<div>
+					<h:outputLabel value="Sexo: " />
+					<h:selectOneMenu class="sexo" value="#{selectOneMenuView.console}">
+						<f:selectItem itemLabel="Selecione o sexo" itemValue="" />
+						<f:selectItem itemLabel="Feminino" itemValue="F" />
+						<f:selectItem itemLabel="Masculino" itemValue="M" />
+						<f:selectItem itemLabel="Outro" itemValue="O" />
+					</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="group-btn">
+				<p:commandButton action="#{loginBean.logar}"
+					styleClass="cancelar-btn" value="Cancelar" process="@form"
+					update="@form" />
+				<p:commandButton action="#{loginBean.logar}" styleClass="salvar-btn"
+					value="Salvar" process="@form" update="@form" />
+			</div>
+
+			<div class="errorMessages">
+				<h:messages styleClass="errorMessages-list"
+					errorClass="errorMessages-list-item" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

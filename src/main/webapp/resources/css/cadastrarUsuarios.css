@@ -1,0 +1,103 @@
+.main {
+	background-color: #FCFCFC;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.cadastrarUsuariosForm {
+	background: white;
+	box-shadow: 0px 1px 4px #aaa;
+	padding: 1em;
+}
+
+.cadastrarUsuariosForm-header-title {
+	text-align: center;
+	margin-bottom: 1.5em;
+	margin-top: 1em;
+	font-weight: bold;
+	font-size: 2em;
+	font-family: 'Aprova';
+}
+
+@media (min-width : 562px) {
+	.cadastrarUsuariosForm-group {
+		display: flex;
+	}
+}
+
+.cadastrarUsuariosForm-group {
+	color: #a9a9a9;
+	margin: 1em 0;
+}
+
+.cadastrarUsuariosForm-group div {
+	width: 100%;
+	padding: 0.5em;
+}
+
+.cadastrarUsuariosForm-group input {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.cadastrarUsuariosForm-group select {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.cadastrarUsuariosForm-group selectItem {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+label {
+	display: block;
+	margin-left: .5em;
+	margin-bottom: .2em;
+	font-family: 'Aprova';
+}
+
+.cancelar-btn {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	border-radius: 999px;
+	padding: .5em 4em !important;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Aprova';
+	background-color: #1881be !important;
+}
+
+.salvar-btn {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	border-radius: 999px;
+	padding: .5em 4em !important;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Aprova';
+	background-color: #1881be !important;
+}
+
+.group-btn {
+	margin-top: 2em;
+	margin-bottom: 2em; display : flex;
+	justify-content: space-between;
+	display: flex;
+}
