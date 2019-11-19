@@ -32,7 +32,7 @@ public class UsuarioBean {
 		if (optional.isPresent()) {
 			usuario = optional.get();
 		} else {
-			FacesMessageUtil.addErrorMessage("Nao encontroei");
+			FacesMessageUtil.addErrorMessage("Nao encontrei");
 		}
 		
 		return "atualizardadosusuario.xhtml?faces-redirect=true&includeViewParams=true";
