@@ -7,6 +7,7 @@ import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 public interface UsuarioService {
 
 	public boolean salvar(Usuario usuario);
+	public boolean atualizar(Usuario usuario);
 	
 	public Optional<Usuario> buscarPorMatricula(String matricula);
 	public Optional<Usuario> buscarPorId(Long id);
@@ -15,4 +16,5 @@ public interface UsuarioService {
 		String matriculaGerada = GeradorDeMatricula.gerar(usuario);
 		usuario.setMatricula(matriculaGerada);
 	}
+
 }

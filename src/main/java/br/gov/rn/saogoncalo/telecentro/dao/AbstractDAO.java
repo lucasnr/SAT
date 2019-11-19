@@ -7,6 +7,7 @@ public interface AbstractDAO<T, PK> {
 
 	public boolean salvar(T obj);
 	public boolean deletar(T obj);
+	public boolean atualizar(T obj);
 	public List<T> listar(int offset, int limit);
 	public Optional<T> buscarPorPK(PK primaryKey);
 }
