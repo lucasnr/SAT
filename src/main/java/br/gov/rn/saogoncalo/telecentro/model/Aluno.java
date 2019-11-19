@@ -14,6 +14,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import br.gov.rn.saogoncalo.telecentro.service.Visitable;
+import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "ALUNO")
 @PrimaryKeyJoinColumn(name = "USUARIO_ID")
-public class Aluno extends Usuario {
+public class Aluno extends Usuario implements Visitable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TURMA_ID")
@@ -71,6 +73,11 @@ public class Aluno extends Usuario {
 			System.out.println(aluno.media());
 			System.out.println(aluno.frequenciaEmPorcentagem());
 		}
+	}
+
+	@Override
+	public String accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 	
 }
