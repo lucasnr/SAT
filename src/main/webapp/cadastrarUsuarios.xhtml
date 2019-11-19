@@ -9,10 +9,10 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="errorMessages.css" library="css/block"/>
 	</ui:define>
 
 	<ui:define name="conteudo">
-
 
 		<h:form styleClass="cadastrarUsuariosForm">
 			<h1 class="cadastrarUsuariosForm-header-title">CADASTRAR USUÁRIO</h1>
@@ -21,92 +21,100 @@
 				<div>
 					<h:outputLabel value="Perfil: " />
 					<h:selectOneMenu class="perfil"
-						value="#{selectOneMenuView.console}">
-						<f:selectItem itemLabel="Selecione um perfil" itemValue="" />
-						<f:selectItem itemLabel="Y" itemValue="" />
-						<f:selectItem itemLabel="Z" itemValue="" />
-						<f:selectItem itemLabel="A" itemValue="" />
+						value="#{cadastrarUsuarioBean.usuario.perfil}" required="true" requiredMessage="Selecione um perfil">
+						<f:selectItem itemLabel="" noSelectionOption="true"/>
+						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
+						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
+						<f:selectItem itemLabel="Coordenador de unidade" itemValue="COORDENADOR_UNIDADE" />
+						<f:selectItem itemLabel="Coordenador geral" itemValue="COORDENADOR_GERAL" />
 					</h:selectOneMenu>
 				</div>
+				
 
 				<div>
 					<h:outputLabel value="Unidade: " />
-					<h:selectOneMenu class="unidade"
-						value="#{selectOneMenuView.console}">
-						<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
-						<f:selectItem itemLabel="Y" itemValue="" />
-						<f:selectItem itemLabel="Z" itemValue="" />
-						<f:selectItem itemLabel="A" itemValue="" />
-					</h:selectOneMenu>
+<!-- 					<h:selectOneMenu class="unidade" value=""> -->
+<!-- 						<f:selectItem itemLabel="Selecione uma unidade" noSelectionOption="true" /> -->
+<!-- 						<f:selectItems value="#{cadastrarUsuarioBean.unidades()}" var="unidade"  -->
+<!-- 							itemLabel="#{unidade.nome}" itemValue="#{unidade.id}" /> -->
+<!-- 					</h:selectOneMenu> -->
 				</div>
+				
+				
 			</div>
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Nome: " />
-					<h:inputText class="nome" value="#{selectOneMenuView.console}" />
+					<h:inputText class="nome" value="#{cadastrarUsuarioBean.usuario.nome}" required="true" requiredMessage="Preencha o campo nome" />
 				</div>
 			</div>
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<p:outputLabel value="Data de nascimento: " />
-					<p:inputMask class="dataDeNsacimento" value="#{maskView.date}"
-						mask="99/99/9999" />
+					<p:inputMask class="dataDeNsacimento" value="#{cadastrarUsuarioBean.dataNascimento}"
+						mask="99/99/9999" required="true" requiredMessage="Preencha o campo data de nascimento" validatorMessage="Informe uma data válida">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza"  />
+					</p:inputMask>
 				</div>
 
 				<div>
 					<h:outputLabel value="CPF: " />
-					<p:inputMask class="cpf" value="#{maskView.date}"
-						mask="999.999.999-99" />
+					<p:inputMask class="cpf" value="#{cadastrarUsuarioBean.usuario.cpf}"
+						mask="999.999.999-99" required="true" requiredMessage="Preencha o campo CPF"/>
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
-					<p:inputMask class="rg" value="#{maskView.date}"
-						mask="999.999.999" />
+					<p:inputMask class="rg" value="#{cadastrarUsuarioBean.usuario.rg}"
+						mask="999.999.999" required="true" requiredMessage="Preencha o campo RG"/>
 				</div>
 			</div>
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="CEP: " />
-					<p:inputMask class="cep" value="#{maskView.date}"
-						mask="99999-999" />
+					<p:inputMask class="cep" value="#{cadastrarUsuarioBean.usuario.endereco.cep}"
+						mask="99999-999" required="true" requiredMessage="Preencha o campo CEP"/>
 				</div>
 				<div>
 					<h:outputLabel value="Bairro: " />
-					<h:inputText class="bairro" value="#{selectOneMenuView.console}" />
+					<h:inputText class="bairro" value="#{cadastrarUsuarioBean.usuario.endereco.bairro}" required="true" requiredMessage="Preencha o campo bairro"/>
 				</div>
 				<div>
 					<h:outputLabel value="Logradouro: " />
 					<h:inputText class="logradouro"
-						value="#{selectOneMenuView.console}" />
+						value="#{cadastrarUsuarioBean.usuario.endereco.logradouro}" required="true" requiredMessage="Preencha o campo logradouro"/>
 				</div>
 				<div>
 					<h:outputLabel value="Número: " />
-					<h:inputText class="numero" value="#{selectOneMenuView.console}" />
+					<h:inputText class="numero" value="#{cadastrarUsuarioBean.usuario.endereco.numero}" required="true" requiredMessage="Preencha o campo número"/>
 				</div>
 			</div>
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Telefone: " />
-					<p:inputMask class="telefone" value="#{maskView.date}"
-						mask="(99) 99999-9999" />
+					<p:inputMask class="telefone" value="#{cadastrarUsuarioBean.usuario.contato.telefone}"
+						mask="(99) 99999-9999" required="true" requiredMessage="Preencha o campo telefone"/>
 				</div>
 
+
 				<div>
-					<h:outputLabel value="Email: " />
-					<h:inputText class="email" value="#{selectOneMenuView.console}" />
+					<h:outputLabel value="E-mail: " />
+					<h:inputText id="email" value="#{cadastrarUsuarioBean.usuario.contato.email}" 
+						required="true" requiredMessage="Preencha o campo e-email">
+						<f:validator validatorId="emailValidator" />
+					</h:inputText>
 				</div>
 
 				<div>
 					<h:outputLabel value="Sexo: " />
-					<h:selectOneMenu class="sexo" value="#{selectOneMenuView.console}">
-						<f:selectItem itemLabel="Selecione o sexo" itemValue="" />
-						<f:selectItem itemLabel="Feminino" itemValue="F" />
-						<f:selectItem itemLabel="Masculino" itemValue="M" />
-						<f:selectItem itemLabel="Outro" itemValue="O" />
+					<h:selectOneMenu class="sexo" value="#{cadastrarUsuarioBean.usuario.sexo}" required="true" requiredMessage="Selecione o sexo">
+						<f:selectItem itemLabel="" itemValue="" noSelectionOption="true"/>
+						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+						<f:selectItem itemLabel="Outro" itemValue="OUTRO" />
 					</h:selectOneMenu>
 				</div>
 			</div>
@@ -115,7 +123,7 @@
 				<p:commandButton action="#{loginBean.logar}"
 					styleClass="cancelar-btn" value="Cancelar" process="@form"
 					update="@form" />
-				<p:commandButton action="#{loginBean.logar}" styleClass="salvar-btn"
+				<p:commandButton action="#{cadastrarUsuarioBean.salvar}" styleClass="salvar-btn"
 					value="Salvar" process="@form" update="@form" />
 			</div>
 
