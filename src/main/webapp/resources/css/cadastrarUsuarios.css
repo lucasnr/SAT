@@ -11,7 +11,8 @@
 	background: white;
 	box-shadow: 0px 1px 4px #aaa;
 	padding: 1em;
-	width: 80%;
+	width: 100%;
+	max-width: 960px;
 }
 
 .cadastrarUsuariosForm-header-title {
@@ -64,20 +65,7 @@ label {
 	font-family: 'Aprova';
 }
 
-.cancelar-btn {
-	cursor: pointer;
-	outline: none;
-	border: none;
-	border-radius: 999px;
-	padding: .5em 4em !important;
-	font-size: 1em;
-	text-transform: uppercase;
-	color: white;
-	font-family: 'Aprova';
-	background-color: #1881be !important;
-}
-
-.salvar-btn {
+.cancelar-btn , .salvar-btn {
 	cursor: pointer;
 	outline: none;
 	border: none;
@@ -107,40 +95,52 @@ label {
 	.salvar-btn {
 		margin-top: 1em;
 		width: 19em;
+		margin: auto !important;
+	    display: block !important;
 	}
 	
 	.cancelar-btn {
 		width: 19em;
+		margin: 1em auto !important;
+	    display: block !important;
 	}
 }
 
 @media (max-width : 360px) {
 	.group-btn {
-		display: block;
+   		display: block;
 	}
 	
 	.salvar-btn {
 		margin-top: 1em;
 		width: 16em;
+		margin: auto !important;
+	    display: block !important;
 	}
 	
 	.cancelar-btn {
 		width: 16em;
+		margin: 1em auto !important;
+	    display: block !important;
 	}
 }
 
 @media (max-width : 320px) {
 	.group-btn {
-		display: block;
+    	display: block;
 	}
 	
 	.salvar-btn {
 		margin-top: 1em;
 		width: 14em !important;
+		margin: auto !important;
+   		display: block !important;
 	}
 	
 	.cancelar-btn {
 		width: 14em !important;
+		margin: 1em auto !important;
+    	display: block !important;
 	}
 }
 
@@ -152,10 +152,14 @@ label {
 	.salvar-btn {
 		margin-top: 1em;
 		width: 16.5em;
+		margin: auto !important;
+    	display: block !important;
 	}
 	
 	.cancelar-btn {
 		width: 16.5em;
+		margin: 1em auto !important;
+    	display: block !important;
 	}
 }
 

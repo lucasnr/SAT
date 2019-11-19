@@ -69,6 +69,11 @@
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
+					<h:outputLabel value="CEP: " />
+					<p:inputMask class="cep" value="#{maskView.date}"
+						mask="99999-999" />
+				</div>
+				<div>
 					<h:outputLabel value="Bairro: " />
 					<h:inputText class="bairro" value="#{selectOneMenuView.console}" />
 				</div>
