@@ -49,7 +49,7 @@ public class UsuarioBean implements Serializable {
 		if (optional.isPresent()) {
 			usuario = optional.get();
 		} else {
-			FacesMessageUtil.addErrorMessage("Nao encontroei");
+			FacesMessageUtil.addErrorMessage("Nao encontrei");
 		}
 		System.out.println(usuario.getNome());
 
