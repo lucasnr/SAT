@@ -12,6 +12,10 @@ import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 @PrimaryKeyJoinColumn(name = "COORDENADOR_ID")
 public class CoordenadorGeral extends Coordenador implements Visitable {
 
+	public CoordenadorGeral() {
+		super(Perfil.COORDENADOR_GERAL);
+	}
+
 	@Override
 	public String accept(Visitor visitor) {
 		return visitor.visit(this);

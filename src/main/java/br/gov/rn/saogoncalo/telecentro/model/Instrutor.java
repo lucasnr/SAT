@@ -15,11 +15,9 @@ import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"turmas"}, callSuper = false)
 @ToString(exclude = {"turmas"})
 @Entity
@@ -34,9 +32,13 @@ public class Instrutor extends Usuario implements Visitable {
 	@JoinColumn(name = "UNIDADE_ID")
 	private Unidade unidade;
 
+	public Instrutor() {
+		super(Perfil.INSTRUTOR);
+	}
+	
 	@Builder
 	public Instrutor(Long idUsuario, String matricula, String senha, Pessoa pessoa) {
-		super(idUsuario, matricula, senha, pessoa);
+		super(idUsuario, matricula, senha, pessoa, Perfil.INSTRUTOR);
 	}
 
 	@Override

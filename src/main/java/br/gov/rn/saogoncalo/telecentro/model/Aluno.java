@@ -20,11 +20,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"turma"}, callSuper=false)
 @Entity
 @Table(name = "ALUNO")
@@ -41,9 +39,13 @@ public class Aluno extends Usuario implements Visitable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "aluno")
 	private List<RegistroAula> registros;
 	
+	public Aluno() {
+		super(Perfil.ALUNO);
+	}
+	
 	@Builder
 	public Aluno(Long idUsuario, String matricula, String senha, Pessoa pessoa, Turma turma) {
-		super(idUsuario, matricula, senha, pessoa);
+		super(idUsuario, matricula, senha, pessoa, Perfil.ALUNO);
 		this.turma = turma;
 	}
 	

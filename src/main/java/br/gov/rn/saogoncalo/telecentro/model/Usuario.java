@@ -11,6 +11,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.gov.rn.saogoncalo.telecentro.service.Visitable;
 import br.gov.rn.saogoncalo.telecentro.service.Visitor;
@@ -48,8 +49,18 @@ public class Usuario implements Visitable {
 	@JoinColumn(name = "PESSOA_ID")
 	protected Pessoa pessoa;
 	
+	@Getter
+	@Setter
+	@Transient
+	private Perfil perfil;
+	
 	public Usuario() {
 		this.pessoa = new Pessoa();
+	}
+	
+	public Usuario(Perfil perfil) {
+		this.pessoa = new Pessoa();
+		this.perfil = perfil;
 	}
 
 	@Override

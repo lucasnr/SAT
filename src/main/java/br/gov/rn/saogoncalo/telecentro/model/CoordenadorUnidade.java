@@ -9,15 +9,11 @@ import javax.persistence.Table;
 
 import br.gov.rn.saogoncalo.telecentro.service.Visitable;
 import br.gov.rn.saogoncalo.telecentro.service.Visitor;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "COORDENADOR_UNIDADE")
@@ -28,8 +24,13 @@ public class CoordenadorUnidade extends Coordenador implements Visitable {
 	@JoinColumn(name = "UNIDADE_ID")
 	private Unidade unidade;
 
+	public CoordenadorUnidade() {
+		super(Perfil.COORDENADOR_UNIDADE);
+	}
+	
 	@Builder
 	public CoordenadorUnidade(Pessoa pessoa, Unidade unidade, String senha) {
+		super(Perfil.COORDENADOR_UNIDADE);
 		this.unidade = unidade;
 		super.pessoa = pessoa;
 		super.senha = senha;

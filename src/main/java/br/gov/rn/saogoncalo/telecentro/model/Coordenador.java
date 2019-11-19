@@ -14,4 +14,7 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "USUARIO_ID")
 public class Coordenador extends Usuario {
 
+	public Coordenador(Perfil perfil) {
+		super(perfil);
+	}
 }
