@@ -1,9 +1,11 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
-
+import java.io.Serializable;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,28 +16,61 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Named
-@RequestScoped
-public class UsuarioBean {
+@ViewScoped
+public class UsuarioBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private UsuarioService service;
 
-	@Getter @Setter
+	@Getter
+	@Setter
 	private Long idconsultado;
-	
-	@Getter @Setter
+
+	@Getter
+	@Setter
 	private Usuario usuario;
 
+	@Getter
+	@Setter
+	private Long id;
+
+	@Getter
+	@Setter
+	private Date dataNascimento;
+
 	public String buscarPorId() {
-		
+
 		Optional<Usuario> optional = service.buscarPorId(idconsultado);
 		if (optional.isPresent()) {
 			usuario = optional.get();
 		} else {
-			FacesMessageUtil.addErrorMessage("Nao encontroei");
+			FacesMessageUtil.addErrorMessage("Nao encontrei");
 		}
-		
-		return "atualizardadosusuario.xhtml?faces-redirect=true&includeViewParams=true";
+		System.out.println(usuario.getNome());
+
+		return "atualizarCadastroUsuario.xhtml?faces-redirect=true&id=" + usuario.getId();
+	}
+
+	public void carregarUsuario() {
+		Optional<Usuario> optional = service.buscarPorId(id);
+		if (optional.isPresent()) {
+			this.usuario = optional.get();
+			this.dataNascimento = Date
+					.from(usuario.getDataNascimento().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		}
+	}
+
+	public void atualizar() {
+		boolean atualizou = service.atualizar(usuario);
+		if (atualizou)
+			FacesMessageUtil.addSuccessMessage("Deu certo");
+		else
+			FacesMessageUtil.addErrorMessage("Deu ruim");
 	}
 
 }

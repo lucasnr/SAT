@@ -110,4 +110,13 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		return Optional.ofNullable(resultado);
 	}
 
+	@Override
+	public boolean atualizar(T obj) {
+		Session session = getSession();
+		session.getTransaction().begin();
+		session.update(obj);
+		session.getTransaction().commit();
+		return true;
+	}
+
 }
