@@ -11,6 +11,7 @@
 	background: white;
 	box-shadow: 0px 1px 4px #aaa;
 	padding: 1em;
+	width: 80%;
 }
 
 .cadastrarUsuariosForm-header-title {
@@ -20,12 +21,6 @@
 	font-weight: bold;
 	font-size: 2em;
 	font-family: 'Aprova';
-}
-
-@media (min-width : 562px) {
-	.cadastrarUsuariosForm-group {
-		display: flex;
-	}
 }
 
 .cadastrarUsuariosForm-group {
@@ -97,7 +92,76 @@ label {
 
 .group-btn {
 	margin-top: 2em;
-	margin-bottom: 2em; display : flex;
+	margin-bottom: 2em;
 	justify-content: space-between;
 	display: flex;
 }
+
+/* Responsividade */
+
+@media (max-width : 500px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 19em;
+	}
+	
+	.cancelar-btn {
+		width: 19em;
+	}
+}
+
+@media (max-width : 360px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16em;
+	}
+	
+	.cancelar-btn {
+		width: 16em;
+	}
+}
+
+@media (max-width : 320px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 14em !important;
+	}
+	
+	.cancelar-btn {
+		width: 14em !important;
+	}
+}
+
+@media (max-width : 375px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16.5em;
+	}
+	
+	.cancelar-btn {
+		width: 16.5em;
+	}
+}
+
+@media (min-width : 960px) {
+	.cadastrarUsuariosForm-group {
+		display: flex;
+	}
+}
+
