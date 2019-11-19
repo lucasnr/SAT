@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.gov.rn.saogoncalo.telecentro.service.Visitable;
+import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,7 +27,7 @@ import lombok.experimental.Delegate;
 @Entity
 @Table(name = "USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario {
+public class Usuario implements Visitable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,16 +40,21 @@ public class Usuario {
 
 	@Getter
 	@Setter
-	private String senha;
+	protected String senha;
 
 	@Getter
 	@Delegate
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PESSOA_ID")
-	private Pessoa pessoa;
+	protected Pessoa pessoa;
 	
 	public Usuario() {
 		this.pessoa = new Pessoa();
+	}
+
+	@Override
+	public String accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 	
 }

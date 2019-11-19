@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import br.gov.rn.saogoncalo.telecentro.service.Visitable;
+import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,7 +25,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "INSTRUTOR")
 @PrimaryKeyJoinColumn(name = "USUARIO_ID")
-public class Instrutor extends Usuario {
+public class Instrutor extends Usuario implements Visitable {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instrutor")
 	private List<Turma> turmas;
@@ -35,5 +37,10 @@ public class Instrutor extends Usuario {
 	@Builder
 	public Instrutor(Long idUsuario, String matricula, String senha, Pessoa pessoa) {
 		super(idUsuario, matricula, senha, pessoa);
+	}
+
+	@Override
+	public String accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 }
