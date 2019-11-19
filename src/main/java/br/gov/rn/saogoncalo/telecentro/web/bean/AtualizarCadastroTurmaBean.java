@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Named
 @RequestScoped
-public class AtualizarCadastroTurma {
+public class AtualizarCadastroTurmaBean {
 	
 	@Getter @Setter
 	private Turma turma;
@@ -21,7 +21,7 @@ public class AtualizarCadastroTurma {
 	@Getter @Setter
 	private Long id;
 
-	public AtualizarCadastroTurma() {
+	public AtualizarCadastroTurmaBean() {
 		turma = new Turma();
 	
 	}
