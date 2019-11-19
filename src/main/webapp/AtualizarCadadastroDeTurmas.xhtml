@@ -18,8 +18,8 @@
 	<ui:define name="conteudo">
 	
 	<f:metadata>
-		<f:viewParam name="id" value="#{atualizarCaTurBean.id}"></f:viewParam>
-		<f:event listener="#{atualizarCaTurBean.carregarTurma}" type="preRenderView"></f:event>
+		<f:viewParam name="id" value="#{atualizarCadastroTurmaBean.id}"></f:viewParam>
+	<f:event listener="#{atualizarCadastroTurmaBean.carregarTurma}" type="preRenderView"></f:event> 
 	</f:metadata>
 
 
@@ -49,8 +49,8 @@
 
 					<div class="a">
 						<h:outputLabel  value="Turno:"/>
-						<h:selectOneMenu value="#{atualizarCaTurBean.turma.turno}" > 
-							<f:selectItem itemLabel="selecione o turno" itemValue="" />
+						<h:selectOneMenu value="#{atualizarCadastroTurmaBean.turma.turno}" required="true" requiredMessage="Selecione o turno" > 
+							<f:selectItem itemLabel="" itemValue="" />
 							<f:selectItem itemLabel="Matutino" itemValue="MATUTINO" />
 							<f:selectItem itemLabel="Vespertino" itemValue="VESPERTINO" />
 							<f:selectItem itemLabel="Noturno" itemValue="NOTURNO" />
@@ -59,8 +59,8 @@
 					</div>
 
 					<div class="a">
-						<h:outputLabel  for="" value="">Matricula Instrutor:</h:outputLabel>
-						<h:inputText value="#{atualizarCaTurBean.turma.instrutor.matricula}"/>
+						<h:outputLabel  for="" value="Matrícula Instrutor:"/>
+						<h:inputText value="#{atualizarCadastroTurmaBean.turma.instrutor.matricula}" required="true" requiredMessage="Informe a matrícula do instrutor" />
 					</div>
 				</div>
 
@@ -71,8 +71,8 @@
 
 
 				<div class="DMatrA">
-					<h:outputLabel for="" value="">Matricula Aluno:</h:outputLabel>
-					<p:inputText placeholder="Matricula" />
+					<h:outputLabel for="" value="Matricula Aluno:"/>
+					<p:inputText placeholder="Matricula"/>
 					<p:commandButton icon="pi pi-search" styleClass="" />
 				</div>
 
