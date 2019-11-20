@@ -1,3 +1,8 @@
+/*
+* INFO4M - 20161164010034
+* @author Anderson dos Santos Lucio
+*/
+
 package br.gov.rn.saogoncalo.telecentro.web.validator;
 
 import javax.faces.application.FacesMessage;
@@ -15,7 +20,7 @@ public class EmailValidator implements Validator {
 		String email = (String) value;
 		if (email.indexOf('@') == -1) {
 			((UIInput) toValidate).setValid(false);
-			FacesMessage message = new FacesMessage("Informe um email válido");
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Informe um email válido", "Informe um email válido");
 			context.addMessage(toValidate.getClientId(context), message);
 		}
 	}
