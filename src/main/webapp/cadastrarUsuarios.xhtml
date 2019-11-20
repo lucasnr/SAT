@@ -26,10 +26,12 @@
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Perfil: " />
-					<h:selectOneMenu styleClass="perfil" onchange="exibir_ocultar(this)"
+					<h:selectOneMenu styleClass="perfil"
+						onchange="exibir_ocultar(this)"
 						value="#{cadastrarUsuarioBean.usuario.perfil}" required="true"
 						requiredMessage="Selecione um perfil">
-						<f:selectItem itemLabel="Selecione um perfil" noSelectionOption="true"/>
+						<f:selectItem itemLabel="Selecione um perfil"
+							noSelectionOption="true" />
 						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
 						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
 						<f:selectItem itemLabel="Coordenador de unidade"
@@ -80,7 +82,9 @@
 					<h:outputLabel value="CPF: " />
 					<p:inputMask class="cpf"
 						value="#{cadastrarUsuarioBean.usuario.cpf}" mask="999.999.999-99"
-						required="true" requiredMessage="Preencha o campo CPF" />
+						required="true" requiredMessage="Preencha o campo CPF" >
+						<f:validator validatorId="CpfValidator" />
+						</p:inputMask>
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
@@ -92,11 +96,11 @@
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
-					<h:outputLabel for="cep" value="CEP: " />
+					<h:outputLabel for="cep" value="CEP: "/>
 					<p:inputMask id="cep" styleClass="cep"
 						value="#{cadastrarUsuarioBean.usuario.endereco.cep}"
 						mask="99999-999" required="true"
-						requiredMessage="Preencha o campo CEP" />
+						requiredMessage="Preencha o campo CEP"/>
 				</div>
 				<div>
 					<h:outputLabel value="Bairro: " />
@@ -142,7 +146,8 @@
 					<h:selectOneMenu class="sexo"
 						value="#{cadastrarUsuarioBean.usuario.sexo}" required="true"
 						requiredMessage="Selecione o sexo">
-						<f:selectItem itemLabel="Selecione o sexo" itemValue="" noSelectionOption="true" />
+						<f:selectItem itemLabel="Selecione o sexo" itemValue=""
+							noSelectionOption="true" />
 						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
 						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
 						<f:selectItem itemLabel="Outro" itemValue="OUTRO" />
@@ -151,7 +156,8 @@
 			</div>
 
 			<div class="group-btn">
-				<h:button value="Cancelar" outcome="home.xhtml" styleClass="cancelar-btn"/>
+				<h:button value="Cancelar" outcome="home.xhtml"
+					styleClass="cancelar-btn" />
 				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
 					styleClass="salvar-btn" value="Salvar" process="@form"
 					update="@form" />
