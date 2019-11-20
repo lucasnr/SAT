@@ -37,13 +37,13 @@
 
 .meusDados-dados {
 	color: #221f23;
-	margin: 1em 4em 1em 4em;
+	margin: 1em 1em 1em 4em;
 	font-family: 'Aprova';
 	justify-content: space-between;
 }
 
 .meusDados-dados div {
-	width: 21%;
+	width: 30%;
 	padding: 0.5em;
 }
 
