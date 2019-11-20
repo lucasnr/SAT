@@ -18,6 +18,13 @@
 		<property name="show_sql">true</property>
 
 		<property name="hibernate.hbm2ddl.auto">validate</property>
+		
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		
+		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!-- Use Annotation-based mapping metadata -->
 		<mapping class="br.gov.rn.saogoncalo.telecentro.model.Endereco" />
