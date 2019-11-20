@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sat="http://xmlns.jcp.org/jsf/composite/component">
+
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="meusDados.css" library="css" />
+	</ui:define>
+
+	<!-- <f:metadata>
+			<f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam>
+			<f:event listener="#{usuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
+		</f:metadata> -->
+
+	<ui:define name="conteudo">
+		<div class="meusDados-bg">
+			<h3 class="meusDados-header">MEUS DADOS</h3>
+
+			<div class="meusDados-dados">
+				<div>
+					Perfil: <br /> <span>#{sessionBean.usuario.perfil}</span>
+				</div>
+
+				<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
+					<div>
+						Unidade:<br /> <span>#{sessionBean.usuario.turma.unidade.nome}</span>
+					</div>
+				</h:panelGroup>
+			</div>
+
+			<div class="meusDados-dados">
+				<div>
+					Nome:<br /> <span>#{sessionBean.usuario.nome}</span>
+				</div>
+			</div>
+
+			<div class="meusDados-dados">
+				<div>
+					Data de nascimento: <br />
+					<span>#{sessionBean.usuario.dataNascimento}</span>
+					<!-- Data de nascimento: <br /><p:inputMask class="dataDeNsacimento" value="#{usuarioBean.dataNascimento}" mask="99/99/9999">
+					<f:convertDateTime pattern="dd/MM/yyyy"/> 
+					</p:inputMask> -->
+
+				</div>
+				<div>
+					CPF:<br /> <span>#{sessionBean.usuario.cpf}</span>
+				</div>
+				<div>
+					RG:<br /> <span>#{sessionBean.usuario.rg}</span>
+				</div>
+			</div>
+
+			<div class="meusDados-dados">
+				<div>
+					Telefone:<br /> <span>#{sessionBean.usuario.pessoa.contato.telefone}</span>
+				</div>
+				<div>
+					Email:<br /> <span>#{sessionBean.usuario.pessoa.contato.email}</span>
+				</div>
+				<div>
+					Sexo:<br /> <span>#{sessionBean.usuario.sexo}</span>
+				</div>
+			</div>
+
+			<div class="meusDados-dados">
+				<div>
+					Matricula:<br /> <span>#{sessionBean.usuario.matricula}</span>
+				</div>
+
+				<h:panelGroup layout="block"
+					rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
+					<div>
+						Código da Turma: <br /> <span>#{sessionBean.usuario.turma.codigo}</span>
+					</div>
+				</h:panelGroup>
+			</div>
+
+
+			<h:button value="Voltar" outcome="home.xhtml" class="btn" />
+
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
