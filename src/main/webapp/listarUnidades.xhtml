@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="errorMessages.css" library="css/block" />
+	</ui:define>
+	
+	<f:metadata>
+			<!--  <f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam> -->
+			<f:event listener="#{listarUnidadesBean.carregarUnidades}" type="preRenderView"></f:event>		
+	</f:metadata>
+
+	<ui:define name="conteudo">
+
+		<h:form styleClass="cadastrarUsuariosForm">
+			<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO TELECENTRO</h1>
+
+			<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
+				
+				<div>
+					#{unidade.nome}
+					<h:		
+				</div>
+				
+				
+			</ui:repeat>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
