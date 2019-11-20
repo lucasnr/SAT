@@ -50,7 +50,6 @@
 .btn {
 	cursor: pointer;
 	outline: none;
-	margin-left: 40%;
 	border: none;
 	border-radius: 999px;
 	padding: .5em 4em !important;
@@ -59,4 +58,6 @@
 	color: white;
 	font-family: 'Aprova';
 	background-color: #1881be !important;
+	margin: auto;
+	display: block;
 }
