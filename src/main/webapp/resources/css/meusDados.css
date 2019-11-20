@@ -12,7 +12,7 @@
 	box-shadow: 0px 1px 4px #aaa;
 	padding: 1em;
 	width: 100%;
-	max-width: 1100px;
+	max-width: 900px;
 }
 
 .meusDados-bg span {
@@ -50,7 +50,6 @@
 .btn {
 	cursor: pointer;
 	outline: none;
-	margin-left: 40%;
 	border: none;
 	border-radius: 999px;
 	padding: .5em 4em !important;
@@ -59,4 +58,6 @@
 	color: white;
 	font-family: 'Aprova';
 	background-color: #1881be !important;
+	margin: auto;
+	display: block;
 }

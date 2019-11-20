@@ -1,6 +1,8 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
 import java.io.Serializable;
+import java.time.ZoneId;
+import java.util.Date;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -16,7 +18,7 @@ public class SessionBean implements Serializable {
 	
 	@Getter
 	private Usuario usuario;
-
+	
 	public void logar(Usuario usuario) {
 		this.usuario = usuario;
 	}
@@ -26,4 +28,7 @@ public class SessionBean implements Serializable {
 		return "index?faces-redirect=true";
 	}
 
+	public Date dataNascimento() {
+		return Date.from(usuario.getDataNascimento().atStartOfDay(ZoneId.systemDefault()).toInstant());
+	}
 }
