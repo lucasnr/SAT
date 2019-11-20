@@ -12,6 +12,11 @@ import br.gov.rn.saogoncalo.telecentro.service.Visitor;
 @PrimaryKeyJoinColumn(name = "COORDENADOR_ID")
 public class CoordenadorGeral extends Coordenador implements Visitable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CoordenadorGeral() {
 		super(Perfil.COORDENADOR_GERAL);
 	}

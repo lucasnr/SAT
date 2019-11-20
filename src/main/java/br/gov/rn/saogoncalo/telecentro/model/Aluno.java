@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,7 +28,12 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "ALUNO")
 @PrimaryKeyJoinColumn(name = "USUARIO_ID")
-public class Aluno extends Usuario implements Visitable {
+public class Aluno extends Usuario implements Visitable, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "TURMA_ID")

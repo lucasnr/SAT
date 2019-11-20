@@ -23,7 +23,12 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = { "aluno", "aula" })
 @Entity
 @Table(name = "REGISTRO_AULA")
-public class RegistroAula {
+public class RegistroAula implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private RegistroAulaId id;

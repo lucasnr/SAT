@@ -20,6 +20,10 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "COORDENADOR_ID")
 public class CoordenadorUnidade extends Coordenador implements Visitable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "UNIDADE_ID")
 	private Unidade unidade;

@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,12 @@ import lombok.ToString;
 @Entity
 @Table(name = "INSTRUTOR")
 @PrimaryKeyJoinColumn(name = "USUARIO_ID")
-public class Instrutor extends Usuario implements Visitable {
+public class Instrutor extends Usuario implements Visitable, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instrutor")
 	private List<Turma> turmas;
