@@ -27,6 +27,13 @@
 						Unidade:<br /> <span>#{sessionBean.usuario.turma.unidade.nome}</span>
 					</div>
 				</h:panelGroup>
+				<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'INSTRUTOR' or sessionBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+					<div>
+						Unidade:<br /> <span>#{sessionBean.usuario.unidade.nome}</span>
+					</div>
+				</h:panelGroup>
+				
+				
 			</div>
 
 			<div class="meusDados-dados">
@@ -37,7 +44,7 @@
 
 			<div class="meusDados-dados">
 				<div>
-					Data de nascimento: <br />
+					Data de Nascimento: <br />
 					<span>					
 						<h:outputText value="#{sessionBean.dataNascimento()}">
 							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza"/> 				
@@ -58,7 +65,7 @@
 					Telefone:<br /> <span>#{sessionBean.usuario.pessoa.contato.telefone}</span>
 				</div>
 				<div>
-					Email:<br /> <span>#{sessionBean.usuario.pessoa.contato.email}</span>
+					E-mail:<br /> <span>#{sessionBean.usuario.pessoa.contato.email}</span>
 				</div>
 				<div>
 					Sexo:<br /> <span>#{sessionBean.usuario.sexo}</span>
