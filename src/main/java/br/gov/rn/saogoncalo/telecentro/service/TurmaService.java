@@ -7,4 +7,6 @@ import br.gov.rn.saogoncalo.telecentro.model.Turma;
 public interface TurmaService {
 
 	public Optional<Turma> buscarPorId(Long id);
+
+	public Optional<Turma> buscarPorCodigo(String codigo);
 }

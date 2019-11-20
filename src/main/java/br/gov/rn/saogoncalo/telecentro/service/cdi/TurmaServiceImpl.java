@@ -17,5 +17,10 @@ public class TurmaServiceImpl implements TurmaService {
 	public Optional<Turma> buscarPorId(Long id) {
 		return dao.buscarPorPK(id);
 	}
+
+	@Override
+	public Optional<Turma> buscarPorCodigo(String codigo) {
+		return dao.buscarPorCodigo(codigo);
+	}
 	
 }
