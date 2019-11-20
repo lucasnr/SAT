@@ -1,0 +1,61 @@
+<!--  
+ * 
+ * @author 
+ *
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="transferirAluno.css" library="css" />
+		<h:outputStylesheet name="errorMessages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form styleClass="transferirALunoForm">
+			<h1 class="transferirALunoForm-header-title">TRANSFERIR ALUNO</h1>
+
+	
+
+			<div class="transferirALunoForm-group">
+				<div>
+					<h:outputLabel value="Matrícula do aluno: " />
+					<p:inputMask class="matricula"
+						value="#{transferirAlunoBean.matricula}" required="true"
+						requiredMessage="Preencha o campo código da turma" mask="99999999999999"/>
+				</div>
+			</div>
+			
+			<div class="transferirALunoForm-group">
+				<div>
+					<h:outputLabel value="Código da turma de destino: " />
+					<p:inputMask class="cod_turma_destino"
+						value="#{transferirAlunoBean.codigoDaTurma}" required="true"
+						requiredMessage="Preencha o campo código da turma" mask="9999999999"/>
+				</div>
+			</div>
+
+			<div class="group-btn">
+				<h:button value="Cancelar" outcome="home.xhtml"
+					styleClass="cancelar-btn" />
+				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
+					styleClass="salvar-btn" value="Salvar" process="@form"
+					update="@form" />
+			</div>
+
+			<div class="errorMessages">
+				<h:messages styleClass="errorMessages-list"
+					errorClass="errorMessages-list-item" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

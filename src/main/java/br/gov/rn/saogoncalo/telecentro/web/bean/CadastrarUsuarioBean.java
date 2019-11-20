@@ -38,13 +38,13 @@ public class CadastrarUsuarioBean {
 		usuario.setDataNascimento(localDate);
 		System.out.println(usuario);
 		
-//		boolean salvou = service.salvar(usuario);
-//		
-//		if(salvou) {
-//			System.out.println("Deu certo");
-//		} else {
-//			System.out.println("Deu ruim");
-//		}
+		boolean salvou = service.salvar(usuario);
+		
+		if(salvou) {
+			System.out.println("Deu certo");
+		} else {
+		System.out.println("Deu ruim");
+	}
 	}
 	
 
