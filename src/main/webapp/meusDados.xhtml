@@ -13,11 +13,6 @@
 		<h:outputStylesheet name="meusDados.css" library="css" />
 	</ui:define>
 
-	<!-- <f:metadata>
-			<f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam>
-			<f:event listener="#{usuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
-		</f:metadata> -->
-
 	<ui:define name="conteudo">
 		<div class="meusDados-bg">
 			<h3 class="meusDados-header">MEUS DADOS</h3>
@@ -43,10 +38,11 @@
 			<div class="meusDados-dados">
 				<div>
 					Data de nascimento: <br />
-					<span>#{sessionBean.usuario.dataNascimento}</span>
-					<!-- Data de nascimento: <br /><p:inputMask class="dataDeNsacimento" value="#{usuarioBean.dataNascimento}" mask="99/99/9999">
-					<f:convertDateTime pattern="dd/MM/yyyy"/> 
-					</p:inputMask> -->
+					<span>					
+						<h:outputText value="#{sessionBean.dataNascimento()}">
+							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza"/> 				
+						</h:outputText>
+					</span>
 
 				</div>
 				<div>
