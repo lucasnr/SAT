@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import br.gov.rn.saogoncalo.telecentro.dao.UsuarioDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
+import br.gov.rn.saogoncalo.telecentro.service.GeradorDeMatricula;
 import br.gov.rn.saogoncalo.telecentro.service.UsuarioService;
 
 public class UsuarioServiceImpl implements UsuarioService, Serializable {
@@ -19,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService, Serializable {
 	private UsuarioDAO<Usuario> dao;
 	
 	@Override
-	public boolean salvar(Usuario usuario) {
+	public final boolean salvar(Usuario usuario) {
 		gerarMatricula(usuario);
 		return dao.salvar(usuario);
 	}
@@ -35,6 +36,13 @@ public class UsuarioServiceImpl implements UsuarioService, Serializable {
 	@Override
 	public boolean atualizar(Usuario usuario) {
 		return dao.atualizar(usuario);
+	}
+
+	@Override
+	public void gerarMatricula(Usuario usuario) {
+		Long lastId = dao.buscarUltimoId();
+		String matriculaGerada = GeradorDeMatricula.gerar(usuario, lastId);
+		usuario.setMatricula(matriculaGerada);
 	}
 	
 }

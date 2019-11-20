@@ -12,9 +12,5 @@ public interface UsuarioService {
 	public Optional<Usuario> buscarPorMatricula(String matricula);
 	public Optional<Usuario> buscarPorId(Long id);
 	
-	public default void gerarMatricula(Usuario usuario) {
-		String matriculaGerada = GeradorDeMatricula.gerar(usuario);
-		usuario.setMatricula(matriculaGerada);
-	}
-
+	public void gerarMatricula(Usuario usuario);
 }
