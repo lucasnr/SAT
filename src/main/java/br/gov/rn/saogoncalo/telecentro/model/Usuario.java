@@ -45,7 +45,7 @@ public class Usuario implements Visitable {
 
 	@Getter
 	@Delegate
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PESSOA_ID")
 	protected Pessoa pessoa;
 	

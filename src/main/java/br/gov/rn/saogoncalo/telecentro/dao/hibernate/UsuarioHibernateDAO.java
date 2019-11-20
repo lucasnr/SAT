@@ -19,6 +19,18 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 	}
 	
 	@Override
+	public boolean atualizar(T obj) {
+		Pessoa pessoa = obj.getPessoa();
+		Contato contato = pessoa.getContato();
+		Session session = getSession();
+		session.getTransaction().begin();
+		session.update(pessoa);
+		session.update(contato);
+		session.getTransaction().commit();
+		return true;
+	}
+	
+	@Override
 	public Optional<T> buscarPorMatricula(String matricula) {
 		return super.buscarPorCampoUnico("matricula", matricula);
 	}

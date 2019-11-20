@@ -67,7 +67,9 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 	@Override
 	public Optional<T> buscarPorPK(PK primaryKey) {
 		Session session = getSession();
+		session.getTransaction().begin();
 		T obj = session.find(type, primaryKey);
+		session.getTransaction().commit();
 		return Optional.ofNullable(obj);
 	}
 
@@ -112,10 +114,11 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 
 	@Override
 	public boolean atualizar(T obj) {
-		Session session = getSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.getTransaction().begin();
 		session.update(obj);
 		session.getTransaction().commit();
+		session.close();
 		return true;
 	}
 
