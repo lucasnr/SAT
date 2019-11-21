@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		 
+		<f:metadata>
+			<f:viewParam name="id" value="#{exibirUnidadeBean.id}"></f:viewParam>
+			<f:event listener="#{exibirUnidadeBean.carregarUnidade}" type="preRenderView"></f:event>		
+		</f:metadata>
+	
+
+		<h:form styleClass="cadastrarUsuariosForm">
+
+			<div>	
+				<div class="col-md-2">
+			 			<h:outputLabel value="Nome:" />
+			 		</div>		
+				#{exibirUnidadeBean.unidade.nome}
+			</div>
+			
+			<div>
+				<div class="col-md-2">
+			 			<h:outputLabel value="Quant.Equipamentos:" />
+			 		</div>
+				#{exibirUnidadeBean.unidade.quantidadeEquipamentos}
+			</div>
+			<div>
+				<div class="col-md-2">
+			 			<h:outputLabel value="Cep:" />
+			 		</div>
+				#{exibirUnidadeBean.unidade.endereco.cep}
+			</div>
+			<div>
+				<div class="col-md-2">
+			 			<h:outputLabel value="Bairro:" />
+			 		</div>
+				#{exibirUnidadeBean.unidade.endereco.bairro}
+			</div>
+			<div>
+				<div class="col-md-2">
+			 			<h:outputLabel value="Logradouro:" />
+			 		</div>
+				#{exibirUnidadeBean.unidade.endereco.logradouro}
+			</div>
+			<div>
+				<div class="col-md-2">
+			 			<h:outputLabel value="Número:" />
+			 		</div>
+				#{exibirUnidadeBean.unidade.endereco.numero}
+			</div>
+			
+			 <ui:repeat var="turma" value="#{exibirUnidadeBean.unidade.turmas}">
+			 	<div class="row">
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Cód.:" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<h:outputText value="#{turma.codigo}" />
+			 		</div>
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Turno:" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<h:outputText value="#{turma.turno}" />
+			 		</div>
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Data de Inicio:" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<h:outputText id="dataInicio" value="#{turma.dataInicio}">
+			 				<f:converter converterId="localDateFacesConverter" for="dataInicio"/>
+			 			</h:outputText>
+			 		</div>
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Data de Termino :" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<h:outputText id="dataFim" value="#{turma.dataFim}">
+			 				<f:converter converterId="localDateFacesConverter" for="dataFim"/>
+			 			</h:outputText>
+			 		</div>
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Instrutor:" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<h:outputText value="#{turma.instrutor.nome}" />
+			 		</div>
+			 		<div class="col-md-2">
+			 			<h:outputLabel value="Alunos:" />
+			 		</div>
+			 		<div class="col-md-10">
+			 			<ui:repeat var="aluno" value="#{turma.alunos}">
+			 				<h:outputText value="#{aluno.nome}" />
+			 			</ui:repeat>
+			 		</div>
+			 		
+			 	</div>
+			 </ui:repeat>
+			 
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
