@@ -24,14 +24,14 @@ public final class GeradorDeMatricula implements Visitor {
 		Integer trimestre = DataUtil.getTrimestre();
 		Turma turmaDoAluno = aluno.getTurma();
 		Long idDaUnidade = turmaDoAluno.getUnidade().getId();
-		Long idDaTurma = turmaDoAluno.getId();
+		String codigoDaTurma = turmaDoAluno.getCodigo();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
 		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
 		matricula.append(String.format("%02d", idDaUnidade));
-		matricula.append(String.format("%03d", idDaTurma));
+		matricula.append(codigoDaTurma);
 		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
@@ -94,27 +94,27 @@ public final class GeradorDeMatricula implements Visitor {
 	
 	public static String gerarNovaMatricula(String matricula, String cod_turma_destino, String matriculaDoUltimoAluno) {
 
-		String numeroEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 4);
+		String numeroEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 2);
 		int ordemDoUltimoAluno = Integer.parseInt(numeroEmString);
-
+		
 		int ordemDoNovoAluno = ordemDoUltimoAluno + 1;
-
-		String ordemDoNovoAlunoString = String.format("%04d", ordemDoNovoAluno);
+		
+		String ordemDoNovoAlunoString = Integer.toString(ordemDoNovoAluno);
 		String ordem = ordemDoNovoAlunoString;
 		char[] ord = ordem.toCharArray();
-
-		// yyyy u t pp ss aa
-		// 2016 1 1 01 001 0001
+		
+		
+		// yyyy uu tt pp ss aa
+		// 2016 01 01 01 01 01
 		// ano tipoUsuario trimestre unidadeTelecentro ordemCadastroTurma
 		// ordemCadastroAluno
 
 		char[] mat = null;
 		String palavra = matricula;
 		mat = palavra.toCharArray();
-		System.out.println(mat.length);
 
-		// yyyy uu t ss
-		// 2016 02 2 002
+		// yyyy uu tt ss
+		// 2016 02 02 02
 		// ano unidadeTelecentro trimestre ordemCadastroTurma
 
 		char[] tur = null;
@@ -122,27 +122,26 @@ public final class GeradorDeMatricula implements Visitor {
 		tur = trasnferir.toCharArray();
 
 		// Alteração na unidade do Telecentro do aluno
-		mat[6] = tur[4];
-		mat[7] = tur[5];
+		mat[8] = tur[4];
+		mat[9] = tur[5];
 
 		// Alteração no trimestre do aluno
-		mat[5] = tur[6];
+		mat[6] = tur[6];
+		mat[7] = tur[7];
 
 		// Alteração na ordem de cadastro da turma do aluno
-		mat[8] = tur[7];
-		mat[9] = tur[8];
-		mat[10] = tur[9];
-
+		mat[10] = tur[8];
+		mat[11] = tur[9];
+		
 		// Alteração na ordem de cadastro do aluno
-		mat[11] = ord[0];
-		mat[12] = ord[1];
-		mat[13] = ord[2];
-		mat[14] = ord[3];
+		mat[12] = ord[0];
+		mat[13] = ord[1];
 
 		String novaMatricula = "";
 		for (int i = 0; i < mat.length; i++) {
 			novaMatricula += mat[i];
-		}
+		} 
 		return novaMatricula;
 	}
+	
 }
