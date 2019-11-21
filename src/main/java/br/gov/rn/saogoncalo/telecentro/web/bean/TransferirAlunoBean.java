@@ -31,25 +31,24 @@ public class TransferirAlunoBean {
 
 	@Inject
 	private AlunoService alunoService;
-	
+
 	public void transferir() {
 		Optional<Aluno> optional = alunoService.buscarPorMatricula(matricula);
-		if(optional.isPresent()) {
+		if (optional.isPresent()) {
 			Aluno aluno = optional.get();
-			
+
 			Optional<Turma> optionalDaTurma = turmaService.buscarPorCodigo(codigoDaTurma);
-			if(optionalDaTurma.isPresent()) {
+			if (optionalDaTurma.isPresent()) {
 				Optional<Aluno> ultimoAlunoDaTurma = alunoService.buscarUltimoAlunoDaTurma(codigoDaTurma);
 				if (ultimoAlunoDaTurma.isPresent()) {
-					String matriculaDoUltimoAluno = ultimoAlunoDaTurma.get().getMatricula();;
-					String novaMatricula = GeradorDeMatricula.gerarNovaMatricula(matricula, codigoDaTurma, matriculaDoUltimoAluno);
+					String matriculaDoUltimoAluno = ultimoAlunoDaTurma.get().getMatricula();
+					String novaMatricula = GeradorDeMatricula.gerarNovaMatricula(matricula, codigoDaTurma,
+							matriculaDoUltimoAluno);
 					aluno.setMatricula(novaMatricula);
 				}
-				
+
 			}
 		}
 	}
-
-	
 
 }
