@@ -29,8 +29,8 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = { "alunos", "instrutor", "modulos", "unidade" })
-@EqualsAndHashCode(exclude = { "alunos", "instrutor", "modulos", "unidade" })
+@ToString(exclude = { "alunos", "instrutor", "modulos" })
+@EqualsAndHashCode(exclude = { "alunos", "instrutor", "modulos" })
 @Builder
 @Entity
 @Table(name = "TURMA")

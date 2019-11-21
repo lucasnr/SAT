@@ -9,6 +9,8 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="cadastrarAula.css" library="css" />
+		<h:outputStylesheet name="notas.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<ui:define name="conteudo">
@@ -17,7 +19,23 @@
 
 			<div class="cadastrarAulaForm-group">
 				<h:outputLabel value="DESCRIÇÃO: " />
-				<input class="form-control" placeholder="Descrição da aula..." />
+				<h:inputText class="nome"
+					value="#{cadastrarUsuarioBean.usuario.nome}" required="true"
+					requiredMessage="Preencha o campo nome" />
+			</div>
+
+			<div class="divMax">
+				<ui:repeat var="aluno" value="#{AtribuirNotasBean.turma.alunos}">
+					#{aluno.nome} 	<h:inputText class="numero"/>
+				</ui:repeat>
+			</div>
+
+			<div class="group-btn">
+				<h:button value="Cancelar" outcome="home.xhtml"
+					styleClass="cancelar-btn" />
+				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
+					styleClass="salvar-btn" value="Salvar" process="@form"
+					update="@form" />
 			</div>
 		</h:form>
 	</ui:define>

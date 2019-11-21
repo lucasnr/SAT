@@ -1,21 +1,25 @@
 .main {
 	background-color: #FCFCFC;
 	flex: 1;
-	display: block;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
-.cadastrarAulaForm {
+.cadastrarUsuariosForm {
 	background: white;
 	box-shadow: 0px 1px 4px #aaa;
-	padding: 1em;
+	padding: 2em;
 	width: 100%;
 	max-width: 960px;
+	overflow-y: scroll;
+	border-radius: 10px;
+	border: 1px solid #a9a9a9;
+	
 }
 
-.cadastrarAulaForm-header-title {
+.cadastrarUsuariosForm-header-title {
 	text-align: center;
 	margin-bottom: 1.5em;
 	margin-top: 1em;
@@ -24,17 +28,17 @@
 	font-family: 'Aprova';
 }
 
-.cadastrarAulaForm-group {
+.cadastrarUsuariosForm-group {
 	color: #a9a9a9;
 	margin: 1em 0;
 }
 
-.cadastrarAulaForm-group div {
+.cadastrarUsuariosForm-group div {
 	width: 100%;
 	padding: 0.5em;
 }
 
-.cadastrarAulaForm-group input {
+.cadastrarUsuariosForm-group input {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -42,7 +46,7 @@
 	outline: none;
 }
 
-.cadastrarAulaForm-group select {
+.cadastrarUsuariosForm-group select {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -50,7 +54,7 @@
 	outline: none;
 }
 
-.cadastrarAulaForm-group selectItem {
+.cadastrarUsuariosForm-group selectItem {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -164,8 +168,58 @@ label {
 }
 
 @media (min-width : 960px) {
-	.cadastrarAulaForm-group {
-		display: block;
+	.cadastrarUsuariosForm-group {
+		display: flex;
 	}
+}
+
+.divEtapas {
+display: flex !important;
+}
+}
+
+.divMax {
+	height: 400px;
+	padding-top: 1em;
+	overflow-y: scroll;
+	border: 1px solid #a9a9a9;
+	border-radius: 10px;
+}
+
+.unidades { 
+	color: inherit;
+	text-decoration:none;
+	font-size: 1.8em;
+	font-family: 'Aprova';
+	font-weight: 300;
+	display: flex;
+	justify-content: space-between;	 
+} 
+
+.unidades1 {
+	color: inherit;
+	text-decoration: none;
+}
+
+.unidades-botton {
+	background-color: #d7d7d7;
+	padding: 0.6em;
+	border-radius: 10px;
+	margin-bottom: 1em;
+}
+
+.divUnidades {
+	border: 10px grey;
+}
+
+.subtitulos {
+	font-size: 1.3em;
+	font-family: 'Aprova';
+	color: #4c4c4c;
+	
+}
+
+.fas {
+	margin-top: 0.5em;
 }
 
