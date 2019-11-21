@@ -41,5 +41,10 @@ public class TurmaServiceImpl implements TurmaService, Serializable {
 		turma.setCodigo(codigoGerado);
 		return dao.salvar(turma);
 	}
+
+	@Override
+	public boolean atualizar(Turma turma) {
+		return dao.atualizar(turma);
+	}
 	
 }
