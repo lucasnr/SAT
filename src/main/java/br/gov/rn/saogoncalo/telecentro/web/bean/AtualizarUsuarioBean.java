@@ -17,7 +17,7 @@ import lombok.Setter;
 
 @Named
 @ViewScoped
-public class UsuarioBean implements Serializable {
+public class AtualizarUsuarioBean implements Serializable {
 
 	/**
 	 * 
@@ -68,9 +68,9 @@ public class UsuarioBean implements Serializable {
 	public void atualizar() {
 		boolean atualizou = service.atualizar(usuario);
 		if (atualizou)
-			FacesMessageUtil.addSuccessMessage("Deu certo");
+			FacesMessageUtil.addSuccessMessage("Usuário atualizado com sucesso");
 		else
-			FacesMessageUtil.addErrorMessage("Deu ruim");
+			FacesMessageUtil.addErrorMessage("Falha ao atualizar usuário");
 	}
 
 }

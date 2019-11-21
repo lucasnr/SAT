@@ -15,8 +15,8 @@
 	<ui:define name="conteudo">
 
 		<f:metadata>
-			<f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam>
-			<f:event listener="#{usuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
+			<f:viewParam name="id" value="#{atualizarUsuarioBean.id}"></f:viewParam>
+			<f:event listener="#{atualizarUsuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
 		</f:metadata>
 
 		<h:form styleClass="cadastrarUsuariosForm">
@@ -25,7 +25,7 @@
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Perfil: " />
-					<h:selectOneMenu class="perfil" value="#{usuarioBean.usuario.perfil}">
+					<h:selectOneMenu class="perfil" value="#{atualizarUsuarioBean.usuario.perfil}">
 						<f:selectItem itemLabel="Selecione um perfil" itemValue="" />
 						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
 						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
@@ -35,25 +35,25 @@
 
 				<div>
 				
-					<h:panelGroup layout="block" rendered="#{usuarioBean.usuario.perfil eq 'ALUNO'}">
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'ALUNO'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{usuarioBean.usuario.turma.unidade.id}">
+						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.turma.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
 					</h:panelGroup>
 					
-					<h:panelGroup layout="block" rendered="#{usuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{usuarioBean.usuario.unidade.id}">
+						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
 					</h:panelGroup>
 					
-					<h:panelGroup layout="block" rendered="#{usuarioBean.usuario.perfil eq 'INSTRUTOR'}">
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'INSTRUTOR'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{usuarioBean.usuario.unidade.id}">
+						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
@@ -65,7 +65,7 @@
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Nome: " />
-					<h:inputText class="nome" value="#{usuarioBean.usuario.nome}" />
+					<h:inputText class="nome" value="#{atualizarUsuarioBean.usuario.nome}" />
 					
 				</div>
 			</div>
@@ -73,7 +73,7 @@
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<p:outputLabel value="Data de nascimento:"/>
-					<p:inputMask class="dataDeNsacimento" value="#{usuarioBean.dataNascimento}" mask="99/99/9999">
+					<p:inputMask class="dataDeNsacimento" value="#{atualizarUsuarioBean.dataNascimento}" mask="99/99/9999">
 					<f:convertDateTime pattern="dd/MM/yyyy"/> 
 					</p:inputMask>
 					
@@ -82,11 +82,11 @@
 
 				<div>
 					<h:outputLabel value="CPF: " />
-					<p:inputMask mask="999.999.999-99" class="cpf" value="#{usuarioBean.usuario.cpf}"/>
+					<p:inputMask mask="999.999.999-99" class="cpf" value="#{atualizarUsuarioBean.usuario.cpf}"/>
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
-					<p:inputMask mask="999.999.999" class="rg" value="#{usuarioBean.usuario.rg}"/>
+					<p:inputMask mask="999.999.999" class="rg" value="#{atualizarUsuarioBean.usuario.rg}"/>
 				</div>
 			</div>
 
@@ -94,39 +94,39 @@
 				
 				<div>
 					<h:outputLabel value="CEP: " />
-					<p:inputMask mask="99999-999" class="cep" value="#{usuarioBean.usuario.endereco.cep}"/>
+					<p:inputMask mask="99999-999" class="cep" value="#{atualizarUsuarioBean.usuario.endereco.cep}"/>
 				</div>
 				
 				<div>
 					<h:outputLabel value="Bairro: " />
-					<h:inputText class="bairro" value="#{usuarioBean.usuario.endereco.bairro}" />
+					<h:inputText class="bairro" value="#{atualizarUsuarioBean.usuario.endereco.bairro}" />
 				</div>
 				<div>
 					<h:outputLabel value="Logradouro: " />
 					<h:inputText class="logradouro"
-						value="#{usuarioBean.usuario.endereco.logradouro}" />
+						value="#{atualizarUsuarioBean.usuario.endereco.logradouro}" />
 				</div>
 				<div>
 					<h:outputLabel value="Número: " />
-					<h:inputText class="numero" value="#{usuarioBean.usuario.endereco.numero}" />
+					<h:inputText class="numero" value="#{atualizarUsuarioBean.usuario.endereco.numero}" />
 				</div>
 			</div>
 
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Telefone: " />
-					<p:inputMask class="telefone" value="#{usuarioBean.usuario.contato.telefone}"
+					<p:inputMask class="telefone" value="#{atualizarUsuarioBean.usuario.contato.telefone}"
 						mask="(99) 99999-9999" />
 				</div>
 
 				<div>
 					<h:outputLabel value="Email: " />
-					<h:inputText class="email" value="#{usuarioBean.usuario.contato.email}" />
+					<h:inputText class="email" value="#{atualizarUsuarioBean.usuario.contato.email}" />
 				</div>
 
 				<div>
 					<h:outputLabel value="Sexo: " />
-					<h:selectOneMenu class="sexo" value="#{usuarioBean.usuario.sexo}">
+					<h:selectOneMenu class="sexo" value="#{atualizarUsuarioBean.usuario.sexo}">
 						<f:selectItem itemLabel="Selecione o sexo" itemValue="" />
 						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
 						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
@@ -136,7 +136,7 @@
 			</div>
 
 			<div class="group-btn">
-				<p:commandButton action="#{usuarioBean.atualizar}" styleClass="salvar-btn"
+				<p:commandButton action="#{atualizarUsuarioBean.atualizar}" styleClass="salvar-btn"
 					value="Atualizar" process="@form" update="@form" />
 			</div>
 
