@@ -30,21 +30,39 @@
 						onchange="perfilOnChangeAction()"
 						value="#{cadastrarUsuarioBean.usuario.perfil}" required="true"
 						requiredMessage="Selecione um perfil">
-						
-						<f:selectItem itemLabel="Selecione um perfil" noSelectionOption="true" />
+
+						<f:selectItem itemLabel="Selecione um perfil"
+							noSelectionOption="true" itemValue="null" />
 						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
 						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
-						<f:selectItem itemLabel="Coordenador de unidade" itemValue="COORDENADOR_UNIDADE" />
-						<f:selectItem itemLabel="Coordenador geral" itemValue="COORDENADOR_GERAL" />
+						<f:selectItem itemLabel="Coordenador de unidade"
+							itemValue="COORDENADOR_UNIDADE" />
+						<f:selectItem itemLabel="Coordenador geral"
+							itemValue="COORDENADOR_GERAL" />
 					</h:selectOneMenu>
 				</div>
 
 
 				<div class="divUnidade">
 					<h:outputLabel value="Unidade: " />
-					<h:selectOneMenu class="unidade" value="#{cadastrarUsuarioBean.unidadeId}">
-						<f:selectItem itemLabel="Selecione uma unidade" noSelectionOption="true" />
-						<f:selectItems value="#{cadastrarUsuarioBean.unidades()}" var="unidade" itemLabel="#{unidade.nome}" itemValue="#{unidade.id}" />
+					<h:selectOneMenu class="unidade"
+						value="#{cadastrarUsuarioBean.unidadeId}">
+						<f:selectItem itemLabel="Selecione uma unidade"
+							noSelectionOption="true" />
+						<f:selectItems value="#{cadastrarUsuarioBean.unidades()}"
+							var="unidade" itemLabel="#{unidade.nome}"
+							itemValue="#{unidade.id}" />
+					</h:selectOneMenu>
+				</div>
+
+				<div class="divTurma">
+					<h:outputLabel value="Turma: " />
+					<h:selectOneMenu class="turma"
+						value="#{cadastrarUsuarioBean.turmaId}">
+						<f:selectItem itemLabel="Selecione uma turma"
+							noSelectionOption="true" itemValue="NULL" />
+						<f:selectItems value="#{cadastrarUsuarioBean.turmas()}"
+							var="turma" itemLabel="#{turma.codigo}" itemValue="#{turma.id}" />
 					</h:selectOneMenu>
 				</div>
 
@@ -54,13 +72,15 @@
 			<div class="cadastrarUsuariosForm-group">
 				<div>
 					<h:outputLabel value="Nome: " />
-					<h:inputText class="nome" value="#{cadastrarUsuarioBean.usuario.nome}" 
-						required="true" requiredMessage="Preencha o campo nome" />
+					<h:inputText class="nome"
+						value="#{cadastrarUsuarioBean.usuario.nome}" required="true"
+						requiredMessage="Preencha o campo nome" />
 				</div>
 				<div>
 					<h:outputLabel value="Senha: " />
-					<h:inputSecret class="senha" value="#{cadastrarUsuarioBean.usuario.senha}" 
-						required="true" requiredMessage="Preencha o campo senha" />
+					<h:inputSecret class="senha"
+						value="#{cadastrarUsuarioBean.usuario.senha}" required="true"
+						requiredMessage="Preencha o campo senha" />
 				</div>
 			</div>
 
@@ -69,9 +89,11 @@
 					<p:outputLabel value="Data de nascimento: " />
 					<p:inputMask class="dataDeNsacimento"
 						value="#{cadastrarUsuarioBean.dataNascimento}" mask="99/99/9999"
-						required="true" requiredMessage="Preencha o campo data de nascimento"
+						required="true"
+						requiredMessage="Preencha o campo data de nascimento"
 						validatorMessage="Informe uma data válida">
-						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza" />
+						<f:convertDateTime pattern="dd/MM/yyyy"
+							timeZone="America/Fortaleza" />
 					</p:inputMask>
 				</div>
 
@@ -165,17 +187,24 @@
 					errorClass="messages-list-item erro"
 					infoClass="messages-list-item sucesso" />
 			</div>
-			
-		    <p:remoteCommand name="alunoRemoteCommand" action="#{cadastrarUsuarioBean.instanciarAluno}" immediate="true"/>
-		    <p:remoteCommand name="instrutorRemoteCommand" action="#{cadastrarUsuarioBean.instanciarInstrutor}" immediate="true"/>
-		    <p:remoteCommand name="coordenadorUnidadeRemoteCommand" action="#{cadastrarUsuarioBean.instanciarCoordenadorUnidade}" immediate="true"/>
-		    <p:remoteCommand name="coordenadorGeralRemoteCommand" action="#{cadastrarUsuarioBean.instanciarCoordenadorGeral}" immediate="true"/>
-				
+
+			<p:remoteCommand name="alunoRemoteCommand"
+				action="#{cadastrarUsuarioBean.instanciarAluno}" immediate="true" />
+			<p:remoteCommand name="instrutorRemoteCommand"
+				action="#{cadastrarUsuarioBean.instanciarInstrutor}"
+				immediate="true" />
+			<p:remoteCommand name="coordenadorUnidadeRemoteCommand"
+				action="#{cadastrarUsuarioBean.instanciarCoordenadorUnidade}"
+				immediate="true" />
+			<p:remoteCommand name="coordenadorGeralRemoteCommand"
+				action="#{cadastrarUsuarioBean.instanciarCoordenadorGeral}"
+				immediate="true" />
+
 		</h:form>
 	</ui:define>
 
 	<ui:define name="scripts">
-		<h:panelGroup id="scripts">		
+		<h:panelGroup id="scripts">
 			<h:outputScript name="consultarCEP.js" library="js" />
 			<h:outputScript name="exibirCampo.js" library="js" />
 		</h:panelGroup>
