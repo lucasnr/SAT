@@ -2,6 +2,8 @@ package br.gov.rn.saogoncalo.telecentro.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -88,4 +90,5 @@ public class Turma implements Serializable {
 		LocalDate hoje = LocalDate.now();
 		return hoje.isAfter(this.getDataInicio()) && hoje.isBefore(this.getDataFim());
 	}
+		
 }
