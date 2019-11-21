@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -26,6 +27,11 @@ public class TurmaServiceImpl implements TurmaService, Serializable {
 	@Override
 	public Optional<Turma> buscarPorCodigo(String codigo) {
 		return dao.buscarPorCodigo(codigo);
+	}
+
+	@Override
+	public List<Turma> listar() {
+		return dao.listar(0, 0);
 	}
 	
 }
