@@ -33,5 +33,10 @@ public class TurmaServiceImpl implements TurmaService, Serializable {
 	public List<Turma> listar() {
 		return dao.listar(0, 0);
 	}
+
+	@Override
+	public boolean salvar(Turma turma) {
+		return dao.salvar(turma);
+	}
 	
 }
