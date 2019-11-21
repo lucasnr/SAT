@@ -7,19 +7,15 @@
 	flex-wrap: wrap;
 }
 
-.cadastrarUsuariosForm {
+.cadastrarAulaForm {
 	background: white;
 	box-shadow: 0px 1px 4px #aaa;
-	padding: 2em;
+	padding: 1em;
 	width: 100%;
 	max-width: 960px;
-	overflow-y: scroll;
-	border-radius: 10px;
-	border: 1px solid #a9a9a9;
-	
 }
 
-.cadastrarUsuariosForm-header-title {
+.cadastrarAulaForm-header-title {
 	text-align: center;
 	margin-bottom: 1.5em;
 	margin-top: 1em;
@@ -28,17 +24,17 @@
 	font-family: 'Aprova';
 }
 
-.cadastrarUsuariosForm-group {
+.cadastrarAulaForm-group {
 	color: #a9a9a9;
 	margin: 1em 0;
 }
 
-.cadastrarUsuariosForm-group div {
+.cadastrarAulaForm-group div {
 	width: 100%;
 	padding: 0.5em;
 }
 
-.cadastrarUsuariosForm-group input {
+.cadastrarAulaForm-group input {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -46,7 +42,7 @@
 	outline: none;
 }
 
-.cadastrarUsuariosForm-group select {
+.cadastrarAulaForm-group select {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -54,7 +50,7 @@
 	outline: none;
 }
 
-.cadastrarUsuariosForm-group selectItem {
+.cadastrarAulaForm-group selectItem {
 	border-radius: 999px;
 	border: 1px solid #a9a9a9;;
 	padding: .70em;
@@ -168,58 +164,8 @@ label {
 }
 
 @media (min-width : 960px) {
-	.cadastrarUsuariosForm-group {
+	.cadastrarAulaForm-group {
 		display: flex;
 	}
-}
-
-.divEtapas {
-display: flex !important;
-}
-}
-
-.divMax {
-	height: 400px;
-	padding-top: 1em;
-	overflow-y: scroll;
-	border: 1px solid #a9a9a9;
-	border-radius: 10px;
-}
-
-.unidades { 
-	color: inherit;
-	text-decoration:none;
-	font-size: 1.8em;
-	font-family: 'Aprova';
-	font-weight: 300;
-	display: flex;
-	justify-content: space-between;	 
-} 
-
-.unidades1 {
-	color: inherit;
-	text-decoration: none;
-}
-
-.unidades-botton {
-	background-color: #d7d7d7;
-	padding: 0.6em;
-	border-radius: 10px;
-	margin-bottom: 1em;
-}
-
-.divUnidades {
-	border: 10px grey;
-}
-
-.subtitulos {
-	font-size: 1.3em;
-	font-family: 'Aprova';
-	color: #4c4c4c;
-	
-}
-
-.fas {
-	margin-top: 0.5em;
 }
 

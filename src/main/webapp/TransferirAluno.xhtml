@@ -15,7 +15,7 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="transferirAluno.css" library="css" />
-		<h:outputStylesheet name="errorMessages.css" library="css/block" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<ui:define name="conteudo">
@@ -51,9 +51,10 @@
 					update="@form" />
 			</div>
 
-			<div class="errorMessages">
-				<h:messages styleClass="errorMessages-list"
-					errorClass="errorMessages-list-item" />
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
 			</div>
 		</h:form>
 	</ui:define>

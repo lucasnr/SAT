@@ -1,0 +1,27 @@
+@font-face {
+  src: url(../font/Aprova-Regular.woff2);
+  font-family: 'Aprova'; }
+.messages {
+  width: 100%; }
+  .messages .messages-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding: 0 1em;}
+    .messages .messages-list .messages-list-item {
+      padding: .5em;
+	  color: white;
+      font-family: 'Aprova';
+      margin-bottom: 5px;
+      border-radius: 5px;
+      }
+      
+    .messages .messages-list .messages-list-item.erro {
+      background-color: #dc3545 !important;
+    }
+    .messages .messages-list .messages-list-item.sucesso {
+      background-color: #28a745 !important;
+    }
+
+/*# sourceMappingURL=errorMessages.css.map */

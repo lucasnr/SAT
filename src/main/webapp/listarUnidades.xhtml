@@ -9,47 +9,49 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="listarUnidades.css" library="css" />
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
 		<h:outputStylesheet name="errorMessages.css" library="css/block" />
 	</ui:define>
-	
+
 	<f:metadata>
-			<!--  <f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam> -->
-			<f:event listener="#{listarUnidadesBean.carregarUnidades}" type="preRenderView"></f:event>		
+		<!--  <f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam> -->
+		<f:event listener="#{listarUnidadesBean.carregarUnidades}"
+			type="preRenderView"></f:event>
 	</f:metadata>
 
 	<ui:define name="conteudo">
 
 		<h:form styleClass="cadastrarUsuariosForm">
 
-				<div class="divMax">
-				
-					<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO TELECENTRO</h1>
-				
-					<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">	
-				
-				
-							<div class="unidades-botton">
-							
-								<a href="exibirUnidade.xhtml" class="unidades">						
-									<span>
-									#{unidade.nome}
-									</span>
-									
-										<i class="fas fa-search"></i>
-								</a>
-								
-									<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
-						
-							</div>
-							
-					</ui:repeat>
-					
-				</div>
-				
-				
+			<div class="divMax">
 
+				<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO
+					TELECENTRO</h1>
+
+				<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
+
+
+
+					<div class="unidades-botton">
+
+						<a href="exibirUnidade.xhtml" class="unidades"> <span>
+								#{unidade.nome} </span> <i class="fas fa-search"></i>
+						</a>
+
+						<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
+
+					</div>
+
+
+
+				</ui:repeat>
+
+
+
+
+			</div>
 		</h:form>
-		
+
 	</ui:define>
 
 </ui:composition>

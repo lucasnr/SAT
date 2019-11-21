@@ -11,15 +11,16 @@
 	<ui:define name="estilos">
 		<h:outputStylesheet name="index.css" library="css"/>
 		<h:outputStylesheet name="loginForm.css" library="css/block"/>
-		<h:outputStylesheet name="errorMessages.css" library="css/block"/>
+		<h:outputStylesheet name="messages.css" library="css/block"/>
 	</ui:define>
 	
 	<ui:define name="conteudo">
 
-            <div class="errorMessages">
-	            <h:messages styleClass="errorMessages-list" errorClass="errorMessages-list-item"/>
-            </div>
-
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
            
            <h:form>
            

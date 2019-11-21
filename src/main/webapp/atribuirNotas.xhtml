@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="notas.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form styleClass="cadastrarUsuariosForm">
+			<h1 class="cadastrarUsuariosForm-header-title">Atribuir Notas</h1>
+			
+			<div class="divEtapas">
+					<h:button value="Etapa 1" outcome="home.xhtml"
+					styleClass="etapas-btn" />
+					<h:button value="Etapa 2" outcome="home.xhtml"
+					styleClass="etapas-btn" />
+					<h:button value="Etapa 3" outcome="home.xhtml"
+					styleClass="etapas-btn" />
+					<h:button value="Etapa 4" outcome="home.xhtml"
+					styleClass="etapas-btn" />
+					<h:button value="Etapa 5" outcome="home.xhtml"
+					styleClass="etapas-btn" />
+			</div>
+			
+			<div class="divMax">
+				<ui:repeat var="aluno" value="#{AtribuirNotasBean.turma.alunos}">
+					#{aluno.nome} (#{aluno.matricula}) 		
+				</ui:repeat>
+			</div>
+			
+
+			<div class="group-btn">
+				<h:button value="Cancelar" outcome="home.xhtml"
+					styleClass="cancelar-btn" />
+				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
+					styleClass="salvar-btn" value="Salvar" process="@form"
+					update="@form" />
+			</div>
+		</h:form>
+	</ui:define>
+
+	
+
+</ui:composition>
+</html>
