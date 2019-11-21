@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
@@ -66,6 +67,8 @@ public class AtualizarUsuarioBean implements Serializable {
 	}
 
 	public void atualizar() {
+		LocalDate dataNascimentoLD = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		usuario.setDataNascimento(dataNascimentoLD);
 		boolean atualizou = service.atualizar(usuario);
 		if (atualizou)
 			FacesMessageUtil.addSuccessMessage("Usuário atualizado com sucesso");
