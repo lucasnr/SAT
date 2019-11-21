@@ -25,7 +25,9 @@
                             Meus dados
                         </a>
                     </li>
-                    <li class="optionList-list-item">
+                    
+                    <h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
+						<li class="optionList-list-item">
                         <a href="" class="optionList-list-link">
                             <i class="fas fa-book-open optionList-list-icon"></i>
                             Minha turma
@@ -37,7 +39,59 @@
                             Google sala de aula
                         </a>
                     </li>
-
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'COORDENADOR_GERAL'}">
+						<li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-address-book"></i>
+                            Cadastrar Ususário
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="far fa-address-book"></i>
+                            Atualizar Cadastro
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-random"></i>
+                            Tranferir Aluno
+                        </a>
+                    </li>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+						<li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-address-book"></i>
+                            Cadastrar Ususário
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="far fa-address-book"></i>
+                            Atualizar Cadastro
+                        </a>
+                    </li>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'INSTRUTOR'}">
+						<li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fas fa-book-open optionList-list-icon"></i>
+                            Minhas turmas
+                        </a>
+                    </li>
+                    <li class="optionList-list-item">
+                        <a href="" class="optionList-list-link">
+                            <i class="fab fa-google optionList-list-icon"></i>
+                            Google sala de aula
+                        </a>
+                    </li>
+					</h:panelGroup>
+                    
                     <li class="optionList-list-item">
                         <h:form style="display: flex; width: 100%">
 	                        <h:commandLink action="#{sessionBean.deslogar}" styleClass="optionList-list-link">
