@@ -22,32 +22,40 @@
 					Perfil: <br /> <span>#{sessionBean.usuario.perfil}</span>
 				</div>
 
-				<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
+				<h:panelGroup layout="block"
+					rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
 					<div>
-						Unidade:<br /> <span>#{sessionBean.usuario.turma.unidade.nome}</span>
+						Unidade:<br />
+						<h:button value="#{sessionBean.usuario.turma.unidade.nome}"
+							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.unidade.id}"
+							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
-				<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'INSTRUTOR' or sessionBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+				<h:panelGroup layout="block"
+					rendered="#{sessionBean.usuario.perfil eq 'INSTRUTOR' or sessionBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
 					<div>
-						Unidade:<br /> <span>#{sessionBean.usuario.unidade.nome}</span>
+						Unidade:<br />
+						<h:button value="#{sessionBean.usuario.unidade.nome}"
+							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.unidade.id}"
+							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
-				
-				
+
+
 			</div>
 
 			<div class="meusDados-dados">
-				<div style="width:100%">
+				<div style="width: 100%">
 					Nome:<br /> <span>#{sessionBean.usuario.nome}</span>
 				</div>
 			</div>
 
 			<div class="meusDados-dados">
 				<div>
-					Data de Nascimento: <br />
-					<span>					
-						<h:outputText value="#{sessionBean.dataNascimento()}">
-							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza"/> 				
+					Data de Nascimento: <br /> <span> <h:outputText
+							value="#{sessionBean.dataNascimento()}">
+							<f:convertDateTime pattern="dd/MM/yyyy"
+								timeZone="America/Fortaleza" />
 						</h:outputText>
 					</span>
 
