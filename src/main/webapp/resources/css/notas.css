@@ -78,6 +78,7 @@ label {
 	background-color: #1881be !important;
 	margin: 1em auto !important;
 	display: block !important;
+	
 }
 
 .salvar-btn, .cancelar-btn {
@@ -184,4 +185,22 @@ label {
 	overflow-y: scroll;
 	border: 1px solid #a9a9a9;
 	border-radius: 10px;
+	display: block;
 }
+
+.notas input {
+	border-radius: 20px;
+    width: 5em;
+    display: flex;
+    
+}
+
+.notas {
+	display: flex;
+	background-color: #e9e9e9;
+	padding: 1.5em;
+	border-radius: 20px;
+	justify-content: space-between;
+	margin-bottom: 1em; 
+}
+
