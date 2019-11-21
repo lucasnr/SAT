@@ -17,7 +17,7 @@ import lombok.Setter;
 
 @Named
 @ViewScoped
-public class AtualizarCadastroTurmaBean implements Serializable {
+public class AtualizarTurmaBean implements Serializable {
 	
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class AtualizarCadastroTurmaBean implements Serializable {
 	@Getter @Setter
 	private Long id;
 
-	public AtualizarCadastroTurmaBean() {
+	public AtualizarTurmaBean() {
 		turma = new Turma();
 	}
 	

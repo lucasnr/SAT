@@ -15,8 +15,8 @@
 	<ui:define name="conteudo">
 
 		<f:metadata>
-			<f:viewParam name="id" value="#{atualizarCadastroTurmaBean.id}" />
-			<f:event listener="#{atualizarCadastroTurmaBean.carregarTurma}" type="preRenderView" />
+			<f:viewParam name="id" value="#{atualizarTurmaBean.id}" />
+			<f:event listener="#{atualizarTurmaBean.carregarTurma}" type="preRenderView" />
 		</f:metadata>
 
 		<h:form styleClass="form">
@@ -28,7 +28,7 @@
 
 					<div class="a">
 						<h:outputLabel value="Turno:" />
-						<h:selectOneMenu value="#{atualizarCadastroTurmaBean.turma.turno}"
+						<h:selectOneMenu value="#{atualizarTurmaBean.turma.turno}"
 							required="true" requiredMessage="Selecione o turno">
 							<f:selectItem itemLabel="" itemValue="" />
 							<f:selectItem itemLabel="Matutino" itemValue="MATUTINO" />
@@ -41,7 +41,7 @@
 					<div class="a">
 						<h:outputLabel for="" value="Matrícula Instrutor:" />
 						<h:inputText immediate="true"
-							value="#{atualizarCadastroTurmaBean.turma.instrutor.matricula}"
+							value="#{atualizarTurmaBean.turma.instrutor.matricula}"
 							required="true" requiredMessage="Informe a matrícula do instrutor" />
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 					</div>
 
 					<div>
-						<h:commandButton action="#{atualizarCadastroTurmaBean.atualizar}" value="Atualizar" class="atualizar" />
+						<h:commandButton action="#{atualizarTurmaBean.atualizar}" value="Atualizar" class="atualizar" />
 					</div>
 				</div>
 
