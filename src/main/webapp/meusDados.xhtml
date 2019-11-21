@@ -52,8 +52,10 @@
 
 			<div class="meusDados-dados">
 				<div>
-					Data de Nascimento: <br /> <span> <h:outputText
-							value="#{sessionBean.dataNascimento()}">
+					Data de Nascimento: <br /> 
+					<span> 
+						<h:outputText
+							value="#{sessionBean.dataNascimento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"
 								timeZone="America/Fortaleza" />
 						</h:outputText>
@@ -82,13 +84,16 @@
 
 			<div class="meusDados-dados">
 				<div>
-					Matricula:<br /> <span>#{sessionBean.usuario.matricula}</span>
+					Matrícula:<br /> <span>#{sessionBean.usuario.matricula}</span>
 				</div>
 
 				<h:panelGroup layout="block"
 					rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
 					<div>
-						Código da Turma: <br /> <span>#{sessionBean.usuario.turma.codigo}</span>
+						Código da Turma: <br /> 
+						<h:button value="#{sessionBean.usuario.turma.codigo}"
+							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.id}"
+							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
 			</div>

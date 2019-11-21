@@ -24,14 +24,14 @@ public final class GeradorDeMatricula implements Visitor {
 		Integer trimestre = DataUtil.getTrimestre();
 		Turma turmaDoAluno = aluno.getTurma();
 		Long idDaUnidade = turmaDoAluno.getUnidade().getId();
-		String codigoDaTurma = turmaDoAluno.getCodigo();
+		Long idDaTurma = turmaDoAluno.getId();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
 		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
 		matricula.append(String.format("%02d", idDaUnidade));
-		matricula.append(codigoDaTurma);
+		matricula.append(String.format("%03d", idDaTurma));
 		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
