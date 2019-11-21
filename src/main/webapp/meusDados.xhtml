@@ -52,8 +52,10 @@
 
 			<div class="meusDados-dados">
 				<div>
-					Data de Nascimento: <br /> <span> <h:outputText
-							value="#{sessionBean.dataNascimento()}">
+					Data de Nascimento: <br /> 
+					<span> 
+						<h:outputText
+							value="#{sessionBean.dataNascimento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"
 								timeZone="America/Fortaleza" />
 						</h:outputText>
