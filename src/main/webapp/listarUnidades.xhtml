@@ -25,8 +25,8 @@
 			<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
 				
 				<div>
-					#{unidade.nome}
-<!-- 					<h:		 -->
+					<h:button value="#{unidade.nome}"
+							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.id}"/>
 				</div>
 				
 				
