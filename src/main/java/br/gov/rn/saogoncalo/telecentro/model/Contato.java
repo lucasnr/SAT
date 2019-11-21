@@ -1,5 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,8 +18,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "CONTATO")
-public class Contato {
+public class Contato implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "PESSOA_ID", columnDefinition = "INT")
 	private Long id;

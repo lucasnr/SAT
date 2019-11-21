@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import br.gov.rn.saogoncalo.telecentro.dao.UsuarioDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Contato;
@@ -49,13 +54,19 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 		Endereco endereco = pessoa.getEndereco();
 		Contato contato = pessoa.getContato();
 		
-		if(enderecoNotSaved(endereco)) {
-			findEnderecoOrSave(session, pessoa, endereco);
+		try {			
+			if(enderecoNotSaved(endereco)) {
+				findEnderecoOrSave(session, pessoa, endereco);
+			}
+			session.save(pessoa);
+			contato.setId(pessoa.getId());
+			session.save(contato);
+			session.save(obj);
+		} catch (Exception e) {
+			endereco.setId(0l);
+			contato.setId(0l);
+			throw e;
 		}
-		session.save(pessoa);
-		contato.setId(pessoa.getId());
-		session.save(contato);
-		session.save(obj);
 	}
 
 	private void findEnderecoOrSave(Session session, Pessoa pessoa, Endereco endereco) {
@@ -70,4 +81,21 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 	private boolean enderecoNotSaved(Endereco endereco) {
 		return endereco.getId() == null || endereco.getId() == 0;
 	}
+
+	@Override
+	public Long buscarUltimoId() {
+		Session session = getSession();
+		session.getTransaction().begin();
+		
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<? extends Usuario> criteriaQuery = builder.createQuery(type);
+		Root<? extends Usuario> root = criteriaQuery.from(type);
+		criteriaQuery.orderBy(builder.desc(root.get("id")));
+		Query<? extends Usuario> query = session.createQuery(criteriaQuery);
+		Usuario usuario = query.setMaxResults(1).uniqueResult();
+		
+		session.getTransaction().commit();
+		return usuario.getId();
+	}
+	
 }

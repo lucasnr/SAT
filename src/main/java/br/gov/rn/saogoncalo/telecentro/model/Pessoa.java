@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -27,8 +28,12 @@ import lombok.Data;
 @Builder
 @Entity
 @Table(name = "PESSOA")
-public class Pessoa {
+public class Pessoa implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(columnDefinition = "INT")

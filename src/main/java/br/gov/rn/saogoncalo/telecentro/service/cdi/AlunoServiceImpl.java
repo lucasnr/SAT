@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -8,7 +9,12 @@ import br.gov.rn.saogoncalo.telecentro.dao.AlunoDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Aluno;
 import br.gov.rn.saogoncalo.telecentro.service.AlunoService;
 
-public class AlunoServiceImpl implements AlunoService {
+public class AlunoServiceImpl implements AlunoService, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public Optional<Aluno> buscarUltimoAlunoDaTurma(String codigoDaTurma) {

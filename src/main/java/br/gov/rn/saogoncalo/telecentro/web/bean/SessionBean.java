@@ -28,7 +28,7 @@ public class SessionBean implements Serializable {
 		return "index?faces-redirect=true";
 	}
 
-	public Date dataNascimento() {
+	public Date getDataNascimento() {
 		return Date.from(usuario.getDataNascimento().atStartOfDay(ZoneId.systemDefault()).toInstant());
 	}
 }

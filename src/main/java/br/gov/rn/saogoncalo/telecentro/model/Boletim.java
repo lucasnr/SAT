@@ -24,8 +24,12 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = { "aluno", "modulo" })
 @Entity
 @Table(name = "BOLETIM")
-public class Boletim {
+public class Boletim implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@EmbeddedId
 	private BoletimId id;
 	@ManyToOne(fetch = FetchType.LAZY)

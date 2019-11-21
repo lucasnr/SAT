@@ -10,67 +10,75 @@ import br.gov.rn.saogoncalo.telecentro.util.DataUtil;
 
 public final class GeradorDeMatricula implements Visitor {
 	
-	private GeradorDeMatricula() {
-	}
+	private Long ordem;
 
+
+	private GeradorDeMatricula(Long lastId) {
+		this.ordem = lastId + 1;
+	}
+	
 	@Override
 	public String visit(Aluno aluno) {
 		String anoAtual = DataUtil.getAnoAtual();
-		String tipoDeUsuario = "AL";
+		String tipoDeUsuario = "4";
 		Integer trimestre = DataUtil.getTrimestre();
 		Turma turmaDoAluno = aluno.getTurma();
 		Long idDaUnidade = turmaDoAluno.getUnidade().getId();
-		String codigoDaTurma = turmaDoAluno.getCodigo();
+		Long idDaTurma = turmaDoAluno.getId();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
+		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
-		matricula.append(String.format("%02d", trimestre));
 		matricula.append(String.format("%02d", idDaUnidade));
-		matricula.append(codigoDaTurma);
+		matricula.append(String.format("%03d", idDaTurma));
+		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
 
 	@Override
 	public String visit(Instrutor instrutor) {
 		String anoAtual = DataUtil.getAnoAtual();
-		String tipoDeUsuario = "IN";
+		String tipoDeUsuario = "3";
 		Integer trimestre = DataUtil.getTrimestre();
 		Long idDaUnidade = instrutor.getUnidade().getId();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
+		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
-		matricula.append(String.format("%02d", trimestre));
 		matricula.append(String.format("%02d", idDaUnidade));
+		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
 
 	@Override
 	public String visit(CoordenadorUnidade coordenadorUnidade) {
 		String anoAtual = DataUtil.getAnoAtual();
-		String tipoDeUsuario = "CU";
+		String tipoDeUsuario = "2";
 		Integer trimestre = DataUtil.getTrimestre();
 		Long idDaUnidade = coordenadorUnidade.getUnidade().getId();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
+		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
-		matricula.append(String.format("%02d", trimestre));
 		matricula.append(String.format("%02d", idDaUnidade));
+		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
 
 	@Override
 	public String visit(CoordenadorGeral coordenadorGeral) {
 		String anoAtual = DataUtil.getAnoAtual();
-		String tipoDeUsuario = "CG";
+		String tipoDeUsuario = "1";
 		Integer trimestre = DataUtil.getTrimestre();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
+		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
-		matricula.append(String.format("%02d", trimestre));
+		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
 
@@ -79,8 +87,8 @@ public final class GeradorDeMatricula implements Visitor {
 		throw new RuntimeException("Matriculas não podem ser geradas para usuários sem perfil");
 	}
 
-	public static String gerar(Usuario usuario) {
-		return usuario.accept(new GeradorDeMatricula());
+	public static String gerar(Usuario usuario, Long lastId) {
+		return usuario.accept(new GeradorDeMatricula(lastId));
 	}
 	
 	

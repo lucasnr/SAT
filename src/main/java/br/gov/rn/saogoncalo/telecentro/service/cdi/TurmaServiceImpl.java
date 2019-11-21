@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -8,8 +9,12 @@ import br.gov.rn.saogoncalo.telecentro.dao.TurmaDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Turma;
 import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
 
-public class TurmaServiceImpl implements TurmaService {
+public class TurmaServiceImpl implements TurmaService, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private TurmaDAO dao;
 	

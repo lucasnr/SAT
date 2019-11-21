@@ -1,5 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +30,12 @@ import lombok.experimental.Delegate;
 @Entity
 @Table(name = "USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Visitable {
+public class Usuario implements Visitable, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
