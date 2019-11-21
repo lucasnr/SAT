@@ -5,51 +5,31 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-
-
-<h:head></h:head>
-
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="messages.css" library="css/block" />
 		<h:outputStylesheet name="atulizarCT.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-	
-	<f:metadata>
-		<f:viewParam name="id" value="#{atualizarCadastroTurmaBean.id}"></f:viewParam>
-	<f:event listener="#{atualizarCadastroTurmaBean.carregarTurma}" type="preRenderView"></f:event> 
-	</f:metadata>
 
+		<f:metadata>
+			<f:viewParam name="id" value="#{atualizarCadastroTurmaBean.id}" />
+			<f:event listener="#{atualizarCadastroTurmaBean.carregarTurma}" type="preRenderView" />
+		</f:metadata>
 
 		<h:form styleClass="form">
 
 			<div class="d1">
-				<h1 class="titulo">ATUALIZAR TURMAS</h1>
+				<h1 class="titulo">ATUALIZAR TURMA</h1>
 
-<!-- 				<div class="Gp1"> -->
-<!-- 					<div class="a"> -->
-<!-- 						<h:outputLabel for="" value="">Periodo:</h:outputLabel> -->
-<!-- 						<p:inputText/> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-
-				<div class="Gp1"> 
-<!-- 					<div class="a"> -->
-<!-- 						<h:outputLabel value="Unidade:"/> -->
-<!-- 						<h:selectOneMenu  value="#{AtulializarCadastroDeTurmas}" class=" unidade"> -->
-<!-- 							<f:selectItem itemLabel="selecione a unidade" itemValue="" /> -->
-<!-- 							<f:selectItem itemLabel=""  itemValue="" /> -->
-<!-- 							<f:selectItem itemLabel="l" itemValue="" /> -->
-<!-- 							<f:selectItem itemLabel="d" itemValue="" /> -->
-						
-<!-- 						</h:selectOneMenu> -->
-<!-- 					</div> -->
+				<div class="Gp1">
 
 					<div class="a">
-						<h:outputLabel  value="Turno:"/>
-						<h:selectOneMenu value="#{atualizarCadastroTurmaBean.turma.turno}" required="true" requiredMessage="Selecione o turno" > 
+						<h:outputLabel value="Turno:" />
+						<h:selectOneMenu value="#{atualizarCadastroTurmaBean.turma.turno}"
+							required="true" requiredMessage="Selecione o turno">
 							<f:selectItem itemLabel="" itemValue="" />
 							<f:selectItem itemLabel="Matutino" itemValue="MATUTINO" />
 							<f:selectItem itemLabel="Vespertino" itemValue="VESPERTINO" />
@@ -59,38 +39,28 @@
 					</div>
 
 					<div class="a">
-						<h:outputLabel  for="" value="Matrícula Instrutor:"/>
-						<h:inputText value="#{atualizarCadastroTurmaBean.turma.instrutor.matricula}" required="true" requiredMessage="Informe a matrícula do instrutor" />
+						<h:outputLabel for="" value="Matrícula Instrutor:" />
+						<h:inputText immediate="true"
+							value="#{atualizarCadastroTurmaBean.turma.instrutor.matricula}"
+							required="true" requiredMessage="Informe a matrícula do instrutor" />
 					</div>
 				</div>
-
-
-				<div>
-					<h1 class="titulo">ADICIONAR ALUNO</h1>
-				</div>
-
-
-				<div class="DMatrA">
-					<h:outputLabel for="" value="Matricula Aluno:"/>
-					<p:inputText placeholder="Matricula"/>
-					<p:commandButton icon="pi pi-search" styleClass="" />
-				</div>
-
-				<div class="DMatrA">
-					<p:inputTextarea/>
-				</div>
-
 
 				<div class="butoes">
 					<div>
-						<p:commandButton value="Cancelar" class="cancelar"></p:commandButton>
+						<h:button value="Cancelar" outcome="index.xhtml" class="cancelar" />
 					</div>
 
 					<div>
-						<p:commandButton value="Salvar" class="salvar"></p:commandButton>
+						<h:commandButton action="#{atualizarCadastroTurmaBean.atualizar}" value="Atualizar" class="atualizar" />
 					</div>
 				</div>
 
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
 			</div>
 
 		</h:form>
