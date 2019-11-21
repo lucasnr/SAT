@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="selecionarTurma.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form styleClass="selecionarTurmaForm">
+			<h1 class="selecionarTurmaForm-header-title">TURMA #{sessionBean.usuario.perfil}</h1>
+			
+			
+
+			<div class="optionList">
+				<ul class="optionList-list">
+					<li class="optionList-list-item">
+                        <a href="meusDados.xhtml" class="optionList-list-link">
+                            <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Atualizar Dados
+                        </a>
+                    </li>
+                    
+                    <li class="optionList-list-item">
+                        <a href="meusDados.xhtml" class="optionList-list-link">
+                            <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Atualizar Boletim
+                        </a>
+                    </li>
+                    
+                    <li class="optionList-list-item">
+                        <a href="meusDados.xhtml" class="optionList-list-link">
+                            <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Cadastra Aula
+                        </a>
+                    </li>
+                    
+                    <li class="optionList-list-item">
+                        <a href="meusDados.xhtml" class="optionList-list-link">
+                            <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Atribuir Frequência
+                        </a>
+                    </li>
+                    <!-- 
+				<h:button value="Atualizar Dados" outcome="AtualizaCadadastroTurma.xhtml"/>
+				
+				<h:button value="Atualizar Boletim" outcome="atribuirNotas.xhtml"/>
+					
+				<h:button value="Cadastra Aula" outcome="cadastraAula.xhtml"/>
+						
+				<h:button value="Atualizar Dados" outcome="AtualizaCadadastroTurma.xhtml"/>
+				-->
+					
+			</ul>
+			</div>
+
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
