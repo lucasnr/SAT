@@ -95,6 +95,7 @@ CREATE TABLE `boletim` (
 
 LOCK TABLES `boletim` WRITE;
 /*!40000 ALTER TABLE `boletim` DISABLE KEYS */;
+INSERT INTO `boletim` VALUES (9,1,0),(9,2,0),(9,3,0),(9,4,0),(9,5,0),(10,1,0),(10,2,0),(10,3,0),(10,4,0),(10,5,0),(11,1,0),(11,2,0),(11,3,0),(11,4,0),(11,5,0),(12,1,0),(12,2,0),(12,3,0),(12,4,0),(12,5,0),(13,1,0),(13,2,0),(13,3,0),(13,4,0),(13,5,0),(14,1,0),(14,2,0),(14,3,0),(14,4,0),(14,5,0),(15,1,0),(15,2,0),(15,3,0),(15,4,0),(15,5,0),(16,1,0),(16,2,0),(16,3,0),(16,4,0),(16,5,0),(17,1,0),(17,2,0),(17,3,0),(17,4,0),(17,5,0),(18,1,0),(18,2,0),(18,3,0),(18,4,0),(18,5,0),(19,1,0),(19,2,0),(19,3,0),(19,4,0),(19,5,0),(20,1,0),(20,2,0),(20,3,0),(20,4,0),(20,5,0),(21,1,0),(21,2,0),(21,3,0),(21,4,0),(21,5,0),(23,1,0),(23,2,0),(23,3,0),(23,4,0),(23,5,0),(24,1,0),(24,2,0),(24,3,0),(24,4,0),(24,5,0);
 /*!40000 ALTER TABLE `boletim` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,7 +216,7 @@ CREATE TABLE `endereco` (
   `NUMERO` varchar(20) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `BAIRRO` (`BAIRRO`,`LOGRADOURO`,`NUMERO`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +225,7 @@ CREATE TABLE `endereco` (
 
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (1,'59104000','IGAPÓ','AVENIDA BACHAREL TOMAZ LANDIM','1590'),(2,'50000000','DUBAI','BUDJI KHALIFA','S/N'),(3,'30000000','CENTRO','AVENIDA RIO BRANCO','33'),(4,'20000000','QUINTAS','RUA DOS PEGAS','667'),(5,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','257'),(6,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','1'),(7,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','2'),(8,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','4'),(9,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','235'),(10,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','234'),(11,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','258'),(12,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','482'),(13,'59291-631','Centro','Rua 31 de Março','379'),(14,'59291-631','Centro','Rua 31 de Março','908');
+INSERT INTO `endereco` VALUES (1,'59104000','IGAPÓ','AVENIDA BACHAREL TOMAZ LANDIM','1590'),(2,'50000000','DUBAI','BUDJI KHALIFA','S/N'),(3,'30000000','CENTRO','AVENIDA RIO BRANCO','33'),(4,'20000000','QUINTAS','RUA DOS PEGAS','667'),(5,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','257'),(6,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','1'),(7,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','2'),(8,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','4'),(9,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','235'),(10,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','234'),(11,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','258'),(12,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','482'),(13,'59291-631','Centro','Rua 31 de Março','379'),(14,'59291-631','Centro','Rua 31 de Março','908'),(16,'59297-482','Santo Antônio do Potengi','Rua Boanerges Mendes da Silva','998');
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +312,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (5,'Anderson Lucio','804.283.110-24','464.161.818','2001-07-03','2019-11-21 15:08:25','OUTRO',5),(6,'Anderson Lucio','824.961.940-48','524.184.846','2001-07-03','2019-11-21 15:14:31','MASCULINO',6),(7,'Anderson Lucio Santos','880.883.590-15','626.262.962','2002-07-03','2019-11-21 15:15:19','MASCULINO',7),(8,'Anderson Lucio Lucio','008.039.850-29','654.194.848','2001-07-03','2019-11-21 15:15:55','MASCULINO',8),(9,'Anderson dos Santos Lucio','610.928.890-00','515.418.941','2001-07-03','2019-11-21 15:25:42','MASCULINO',9),(10,'Lucas do Nascimento','865.369.150-20','564.841.321','2001-07-03','2019-11-21 15:26:34','MASCULINO',10),(11,'Humberto','283.053.080-22','694.416.161','2001-07-03','2019-11-21 15:27:26','MASCULINO',10),(12,'Hugo','023.942.280-59','498.461.616','2001-07-03','2019-11-21 15:28:24','MASCULINO',10),(13,'Pierre','468.942.410-15','626.121.518','2001-07-03','2019-11-21 15:29:04','MASCULINO',10),(14,'Islane','968.256.980-01','216.148.484','2001-07-03','2019-11-21 15:29:46','MASCULINO',10),(15,'Allan','729.737.140-87','548.941.185','2001-07-03','2019-11-21 15:30:26','MASCULINO',10),(16,'Julio','996.278.690-82','654.135.184','2001-07-03','2019-11-21 15:30:56','MASCULINO',10),(17,'Renali','123.487.440-74','854.611.561','2001-07-03','2019-11-21 15:31:50','FEMININO',10),(18,'Elissandra','846.532.110-86','561.561.847','2001-07-03','2019-11-21 15:32:30','FEMININO',10),(21,'João Daniel','367.437.660-11','656.211.589','2001-07-03','2019-11-21 15:34:06','MASCULINO',10),(23,'Nathália','129.126.670-46','651.631.561','2001-07-03','2019-11-21 15:38:48','FEMININO',10),(24,'Brayan','988.571.570-32','626.494.111','2001-07-03','2019-11-21 15:39:26','MASCULINO',11),(25,'Guilherme','980.316.850-96','894.121.484','2001-07-03','2019-11-21 15:40:18','MASCULINO',10),(26,'Beatriz','876.645.240-67','216.156.165','2001-07-03','2019-11-21 15:41:09','FEMININO',10),(27,'Hellen','150.463.770-47','894.610.156','2001-07-03','2019-11-21 15:41:40','FEMININO',12),(28,'Paulo Afonso','387.768.640-06','339.999.993','2000-07-23','2019-11-21 18:37:03','MASCULINO',13),(29,'Drazio Vraunelas','832.616.630-81','898.989.899','2000-07-23','2019-11-21 18:39:28','MASCULINO',14);
+INSERT INTO `pessoa` VALUES (5,'Anderson Lucio','804.283.110-24','464.161.818','2001-07-03','2019-11-21 15:08:25','OUTRO',5),(6,'Anderson Lucio','824.961.940-48','524.184.846','2001-07-03','2019-11-21 15:14:31','MASCULINO',6),(7,'Anderson Lucio Santos','880.883.590-15','626.262.962','2002-07-03','2019-11-21 15:15:19','MASCULINO',7),(8,'Lucas do Nascimento Ribeiro Filho','687.669.080-60','654.194.848','2000-07-21','2019-11-21 15:15:55','MASCULINO',13),(9,'Anderson dos Santos Lucio','610.928.890-00','515.418.941','2001-07-03','2019-11-21 15:25:42','MASCULINO',9),(10,'Lucas do Nascimento','865.369.150-20','564.841.321','2001-07-03','2019-11-21 15:26:34','MASCULINO',10),(11,'Humberto','283.053.080-22','694.416.161','2001-07-03','2019-11-21 15:27:26','MASCULINO',10),(12,'Hugo','023.942.280-59','498.461.616','2001-07-03','2019-11-21 15:28:24','MASCULINO',10),(13,'Pierre','468.942.410-15','626.121.518','2001-07-03','2019-11-21 15:29:04','MASCULINO',10),(14,'Islane','968.256.980-01','216.148.484','2001-07-03','2019-11-21 15:29:46','MASCULINO',10),(15,'Allan','729.737.140-87','548.941.185','2001-07-03','2019-11-21 15:30:26','MASCULINO',10),(16,'Julio','996.278.690-82','654.135.184','2001-07-03','2019-11-21 15:30:56','MASCULINO',10),(17,'Renali','123.487.440-74','854.611.561','2001-07-03','2019-11-21 15:31:50','FEMININO',10),(18,'Elissandra','846.532.110-86','561.561.847','2001-07-03','2019-11-21 15:32:30','FEMININO',10),(21,'João Daniel','367.437.660-11','656.211.589','2001-07-03','2019-11-21 15:34:06','MASCULINO',10),(23,'Nathália','129.126.670-46','651.631.561','2001-07-03','2019-11-21 15:38:48','FEMININO',10),(24,'Brayan','988.571.570-32','626.494.111','2001-07-03','2019-11-21 15:39:26','MASCULINO',11),(25,'Guilherme','980.316.850-96','894.121.484','2001-07-03','2019-11-21 15:40:18','MASCULINO',10),(26,'Beatriz','876.645.240-67','216.156.165','2001-07-03','2019-11-21 15:41:09','FEMININO',10),(27,'Hellen','150.463.770-47','894.610.156','2001-07-03','2019-11-21 15:41:40','FEMININO',12),(28,'Paulo Afonso','387.768.640-06','339.999.993','2000-07-23','2019-11-21 18:37:03','MASCULINO',13),(29,'Drazio Vraunelas','832.616.630-81','898.989.899','2000-07-23','2019-11-21 18:39:28','MASCULINO',14);
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,7 +373,7 @@ CREATE TABLE `turma` (
 
 LOCK TABLES `turma` WRITE;
 /*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES (2,'20190401V','2019-01-01','2019-04-01','VESPERTINO',6,1),(3,'20190401M','2019-04-01','2019-07-01','MATUTINO',7,1),(4,'20190401N','2019-04-01','2019-07-01','NOTURNO',7,1);
+INSERT INTO `turma` VALUES (2,'20190401V','2019-01-01','2019-04-01','MATUTINO',8,1),(3,'20190401M','2019-04-01','2019-07-01','MATUTINO',8,1),(4,'20190401N','2019-04-01','2019-07-01','NOTURNO',8,1);
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,4 +470,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-21 19:53:18
+-- Dump completed on 2019-11-21 21:10:25
