@@ -8,7 +8,7 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
-		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="listarUnidades.css" library="css" />
 		<h:outputStylesheet name="errorMessages.css" library="css/block" />
 	</ui:define>
 	
@@ -20,19 +20,36 @@
 	<ui:define name="conteudo">
 
 		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO TELECENTRO</h1>
 
-			<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
+				<div class="divMax">
 				
-				<div>
-					#{unidade.nome}
-<!-- 					<h:		 -->
+					<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO TELECENTRO</h1>
+				
+					<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">	
+				
+				
+							<div class="unidades-botton">
+							
+								<a href="exibirUnidade.xhtml" class="unidades">						
+									<span>
+									#{unidade.nome}
+									</span>
+									
+										<i class="fas fa-search"></i>
+								</a>
+								
+									<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
+						
+							</div>
+							
+					</ui:repeat>
+					
 				</div>
 				
 				
-			</ui:repeat>
 
 		</h:form>
+		
 	</ui:define>
 
 </ui:composition>
