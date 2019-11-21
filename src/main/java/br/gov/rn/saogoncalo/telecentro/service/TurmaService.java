@@ -10,4 +10,5 @@ public interface TurmaService {
 	public Optional<Turma> buscarPorId(Long id);
 	public Optional<Turma> buscarPorCodigo(String codigo);
 	public List<Turma> listar();
+	public boolean salvar(Turma turma);
 }

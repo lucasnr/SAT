@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="messages.css" library="css/block" />
+		<h:outputStylesheet name="cadastroTurma.css" library="css" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form styleClass="formulario">
+		
+			<div class="alinhar">			
+				<div class="grupo">
+					<h:outputLabel value="Data Inicio" />
+					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataInicio}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza" />
+					</p:inputMask>
+				</div>
+				<div class="grupo">
+					<h:outputLabel value="Data Fim" />
+					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataFim}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza" />
+					</p:inputMask>
+				</div>
+				<div class="grupo">
+					<h:outputLabel value="Turno" />
+					<h:selectOneMenu value="#{cadastrarTurmaBean.turma.turno}">
+						<f:selectItem itemLabel="Matutino" itemValue="MATUTINO"/>
+						<f:selectItem itemLabel="Vespertino" itemValue="VESPERTINO"/>
+						<f:selectItem itemLabel="Noturno" itemValue="NOTURNO"/>
+					</h:selectOneMenu>
+				</div>
+			</div>
+			
+			<div class="alinhar">			
+				<div class="grupo">
+					<h:outputLabel value="Unidade" />
+					<h:selectOneMenu value="#{cadastrarTurmaBean.unidadeId}">
+						<f:selectItems value="#{cadastrarTurmaBean.unidades()}" var="unidade" 
+							itemLabel="#{unidade.nome}" itemValue="#{unidade.id}" />
+					</h:selectOneMenu>
+				</div>
+				<div class="grupo">
+					<h:outputLabel value="Matrícula do Instrutor" />
+					<h:inputText value="#{cadastrarTurmaBean.matriculaInstrutor}" />
+				</div>
+			</div>
+			
+			<div class="botoes">			
+				<h:button styleClass="botao" outcome="index.xhtml" value="Cancelar" />
+				<h:commandButton styleClass="botao" actionListener="#{cadastrarTurmaBean.salvar}" value="Salvar" />
+			</div>
+
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>
