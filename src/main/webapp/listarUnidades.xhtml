@@ -33,11 +33,15 @@
 
 
 					<div class="unidades-botton">
+					
+						
 
-						<a href="exibirUnidade.xhtml" class="unidades"> <span>
-								#{unidade.nome} </span> <i class="fas fa-search"></i>
-						</a>
+<!-- 						mudar link para a pagina de vitoria assim que esta estiver pronta -->
+						<h:link outcome="atribuirNotas.xhtml?id=#{unidade.id}" class="unidades"> 
+						<span>#{unidade.nome} </span> <i class="fas fa-search"></i>
+						</h:link>
 
+						
 						<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
 
 					</div>
