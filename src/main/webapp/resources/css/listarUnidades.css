@@ -1,0 +1,225 @@
+.main {
+	background-color: #FCFCFC;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.cadastrarUsuariosForm {
+	background: white;
+	box-shadow: 0px 1px 4px #aaa;
+	padding: 2em;
+	width: 100%;
+	max-width: 960px;
+	overflow-y: scroll;
+	border-radius: 10px;
+	border: 1px solid #a9a9a9;
+	
+}
+
+.cadastrarUsuariosForm-header-title {
+	text-align: center;
+	margin-bottom: 1.5em;
+	margin-top: 1em;
+	font-weight: bold;
+	font-size: 2em;
+	font-family: 'Aprova';
+}
+
+.cadastrarUsuariosForm-group {
+	color: #a9a9a9;
+	margin: 1em 0;
+}
+
+.cadastrarUsuariosForm-group div {
+	width: 100%;
+	padding: 0.5em;
+}
+
+.cadastrarUsuariosForm-group input {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.cadastrarUsuariosForm-group select {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.cadastrarUsuariosForm-group selectItem {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+label {
+	display: block;
+	margin-left: .5em;
+	margin-bottom: .2em;
+	font-family: 'Aprova';
+}
+
+.cancelar-btn , .salvar-btn {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	border-radius: 999px;
+	padding: .5em 4em !important;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Aprova';
+	background-color: #1881be !important;
+}
+
+.group-btn {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	justify-content: space-between;
+	display: flex;
+}
+
+/* Responsividade */
+
+@media (max-width : 500px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 19em;
+		margin: auto !important;
+	    display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 19em;
+		margin: 1em auto !important;
+	    display: block !important;
+	}
+}
+
+@media (max-width : 360px) {
+	.group-btn {
+   		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16em;
+		margin: auto !important;
+	    display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 16em;
+		margin: 1em auto !important;
+	    display: block !important;
+	}
+}
+
+@media (max-width : 320px) {
+	.group-btn {
+    	display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 14em !important;
+		margin: auto !important;
+   		display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 14em !important;
+		margin: 1em auto !important;
+    	display: block !important;
+	}
+}
+
+@media (max-width : 375px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16.5em;
+		margin: auto !important;
+    	display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 16.5em;
+		margin: 1em auto !important;
+    	display: block !important;
+	}
+}
+
+@media (min-width : 960px) {
+	.cadastrarUsuariosForm-group {
+		display: flex;
+	}
+}
+
+.divEtapas {
+display: flex !important;
+}
+}
+
+.divMax {
+	height: 400px;
+	padding-top: 1em;
+	overflow-y: scroll;
+	border: 1px solid #a9a9a9;
+	border-radius: 10px;
+}
+
+.unidades { 
+	color: inherit;
+	text-decoration:none;
+	font-size: 1.8em;
+	font-family: 'Aprova';
+	font-weight: 300;
+	display: flex;
+	justify-content: space-between;	 
+} 
+
+.unidades1 {
+	color: inherit;
+	text-decoration: none;
+}
+
+.unidades-botton {
+	background-color: #d7d7d7;
+	padding: 0.6em;
+	border-radius: 10px;
+	margin-bottom: 1em;
+}
+
+.divUnidades {
+	border: 10px grey;
+}
+
+.subtitulos {
+	font-size: 1.3em;
+	font-family: 'Aprova';
+	color: #4c4c4c;
+	
+}
+
+.fas {
+	margin-top: 0.5em;
+}
+
