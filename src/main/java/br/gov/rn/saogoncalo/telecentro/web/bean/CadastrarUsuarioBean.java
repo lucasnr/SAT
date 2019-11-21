@@ -16,8 +16,10 @@ import br.gov.rn.saogoncalo.telecentro.model.CoordenadorGeral;
 import br.gov.rn.saogoncalo.telecentro.model.CoordenadorUnidade;
 import br.gov.rn.saogoncalo.telecentro.model.Instrutor;
 import br.gov.rn.saogoncalo.telecentro.model.Perfil;
+import br.gov.rn.saogoncalo.telecentro.model.Turma;
 import br.gov.rn.saogoncalo.telecentro.model.Unidade;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
+import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
 import br.gov.rn.saogoncalo.telecentro.service.UnidadeService;
 import br.gov.rn.saogoncalo.telecentro.service.UsuarioService;
 import lombok.Getter;
@@ -44,6 +46,10 @@ public class CadastrarUsuarioBean implements Serializable {
 	@Setter
 	private Long unidadeId;
 
+	@Getter
+	@Setter
+	private Long turmaId;
+
 	public CadastrarUsuarioBean() {
 		usuario = new Usuario();
 	}
@@ -65,11 +71,18 @@ public class CadastrarUsuarioBean implements Serializable {
 			Optional<Unidade> unidade = unidadeService.buscarPorId(unidadeId);
 			if (unidade.isPresent())
 				coordenadorUnidade.setUnidade(unidade.get());
+		} else if (usuario.getPerfil() == Perfil.ALUNO) {
+			Aluno aluno = (Aluno) usuario;
+			Optional<Turma> turma = turmaService.buscarPorId(turmaId);
+			if (turma.isPresent())
+				aluno.setTurma(turma.get());
 		}
 
 		boolean salvou = service.salvar(usuario);
 		if (salvou) {
 			System.out.println("Deu certo");
+			usuario = new Usuario();
+			dataNascimento = new Date();
 		} else {
 			System.out.println("Deu ruim");
 		}
@@ -84,6 +97,13 @@ public class CadastrarUsuarioBean implements Serializable {
 
 	public List<Unidade> unidades() {
 		return unidadeService.listar();
+	}
+
+	@Inject
+	private TurmaService turmaService;
+
+	public List<Turma> turmas() {
+		return turmaService.listar();
 	}
 
 	public void instanciarAluno() {

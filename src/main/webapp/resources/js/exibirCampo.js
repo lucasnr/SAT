@@ -3,8 +3,6 @@
  * @author Anderson dos Santos Lucio
  */
 
-$(".divUnidade").hide();
-
 function perfilOnChangeAction() {
 	var valor = $(".perfil").val();
 
@@ -20,12 +18,19 @@ function perfilOnChangeAction() {
 	} else if (valor == 'COORDENADOR_GERAL') {
 		console.log("coordenador geral")
 		coordenadorGeralRemoteCommand();
-	}
+	} 
 
-	// toggle unidade
+	// toggle unidade e turma
 	if (valor == 'INSTRUTOR' || valor == 'COORDENADOR_UNIDADE') {
 		$(".divUnidade").show();
-	} else if (valor == 'ALUNO' || valor == 'COORDENADOR_GERAL') {
+		$(".divTurma").hide();
+	} else if (valor == 'ALUNO') { 
 		$(".divUnidade").hide();
+		$(".divTurma").show();
+	} else if (valor == 'COORDENADOR_GERAL') {
+		$(".divUnidade").hide();
+		$(".divTurma").hide();
 	}
 };
+
+
