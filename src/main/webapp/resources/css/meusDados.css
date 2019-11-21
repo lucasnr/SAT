@@ -61,3 +61,14 @@
 	margin: auto;
 	display: block;
 }
+
+.btnRedirect{
+	cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 100%;
+    font-family: 'Aprova';
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
