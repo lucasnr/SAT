@@ -14,7 +14,7 @@ import lombok.Setter;
 
 @Named
 @ViewScoped
-public class exibirUnidadeBean implements Serializable {
+public class ExibirUnidadeBean implements Serializable {
 
 	/**
 	 * 
