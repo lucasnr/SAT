@@ -1,0 +1,171 @@
+.main {
+	background-color: #FCFCFC;
+	flex: 1;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.minhasTurmasForm {
+	background: white;
+	box-shadow: 0px 1px 4px #aaa;
+	padding: 1em;
+	width: 100%;
+	max-width: 960px;
+}
+
+.minhasTurmasForm-header-title {
+	text-align: center;
+	margin-bottom: 1.5em;
+	margin-top: 1em;
+	font-weight: bold;
+	font-size: 2em;
+	font-family: 'Aprova';
+}
+
+.minhasTurmasForm-group {
+	color: #a9a9a9;
+	margin: 1em 0;
+}
+
+.minhasTurmasForm-group div {
+	width: 100%;
+	padding: 0.5em;
+}
+
+.minhasTurmasForm-group input {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.minhasTurmasForm-group select {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.minhasTurmasForm-group selectItem {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+label {
+	display: block;
+	margin-left: .5em;
+	margin-bottom: .2em;
+	font-family: 'Aprova';
+}
+
+.cancelar-btn , .salvar-btn {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	border-radius: 999px;
+	padding: .5em 4em !important;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Aprova';
+	background-color: #1881be !important;
+}
+
+.group-btn {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	justify-content: space-between;
+	display: flex;
+}
+
+/* Responsividade */
+
+@media (max-width : 500px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 19em;
+		margin: auto !important;
+	    display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 19em;
+		margin: 1em auto !important;
+	    display: block !important;
+	}
+}
+
+@media (max-width : 360px) {
+	.group-btn {
+   		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16em;
+		margin: auto !important;
+	    display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 16em;
+		margin: 1em auto !important;
+	    display: block !important;
+	}
+}
+
+@media (max-width : 320px) {
+	.group-btn {
+    	display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 14em !important;
+		margin: auto !important;
+   		display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 14em !important;
+		margin: 1em auto !important;
+    	display: block !important;
+	}
+}
+
+@media (max-width : 375px) {
+	.group-btn {
+		display: block;
+	}
+	
+	.salvar-btn {
+		margin-top: 1em;
+		width: 16.5em;
+		margin: auto !important;
+    	display: block !important;
+	}
+	
+	.cancelar-btn {
+		width: 16.5em;
+		margin: 1em auto !important;
+    	display: block !important;
+	}
+}
+
+@media (min-width : 960px) {
+	.minhasTurmasForm-group {
+		display: block;
+	}
+}
+

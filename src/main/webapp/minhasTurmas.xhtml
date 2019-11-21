@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="minhasTurmas.css" library="css" />
+		<h:outputStylesheet name="notas.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form styleClass="minhasTurmasForm">
+			<h1 class="minhasTurmasForm-header-title">MINHAS TURMAS</h1>
+
+			<div class="divMax">
+				<ui:repeat var="turma" value="#{minhasTurmasBean.instrutor.turma}">
+					#{turma.codigo}
+				</ui:repeat>
+			</div>
+
+			<div class="group-btn">
+				<h:button value="Cancelar" outcome="home.xhtml"
+					styleClass="cancelar-btn" />
+				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
+					styleClass="salvar-btn" value="Salvar" process="@form"
+					update="@form" />
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</xhtml>
