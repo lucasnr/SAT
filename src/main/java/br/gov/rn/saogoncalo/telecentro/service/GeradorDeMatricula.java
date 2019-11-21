@@ -96,17 +96,17 @@ public final class GeradorDeMatricula implements Visitor {
 
 		String numeroEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 4);
 		int ordemDoUltimoAluno = Integer.parseInt(numeroEmString);
-		
+
 		int ordemDoNovoAluno = ordemDoUltimoAluno + 1;
-		
+
 		String ordemDoNovoAlunoString = String.format("%04d", ordemDoNovoAluno);
 		String ordem = ordemDoNovoAlunoString;
 		char[] ord = ordem.toCharArray();
-		
-		
+
 		// yyyy u t pp ss aa
 		// 2016 1 1 01 001 0001
-		// ano tipoUsuario trimestre unidadeTelecentro ordemCadastroTurma ordemCadastroAluno
+		// ano tipoUsuario trimestre unidadeTelecentro ordemCadastroTurma
+		// ordemCadastroAluno
 
 		char[] mat = null;
 		String palavra = matricula;
@@ -132,7 +132,7 @@ public final class GeradorDeMatricula implements Visitor {
 		mat[8] = tur[7];
 		mat[9] = tur[8];
 		mat[10] = tur[9];
-		
+
 		// Alteração na ordem de cadastro do aluno
 		mat[11] = ord[0];
 		mat[12] = ord[1];
@@ -142,7 +142,7 @@ public final class GeradorDeMatricula implements Visitor {
 		String novaMatricula = "";
 		for (int i = 0; i < mat.length; i++) {
 			novaMatricula += mat[i];
-		} 
+		}
 		return novaMatricula;
 	}
 }
