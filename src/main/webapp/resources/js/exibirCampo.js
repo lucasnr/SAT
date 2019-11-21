@@ -3,6 +3,9 @@
  * @author Anderson dos Santos Lucio
  */
 
+$(".divUnidade").hide(0);
+$(".divTurma").hide(0);
+
 function perfilOnChangeAction() {
 	var valor = $(".perfil").val();
 
@@ -18,19 +21,25 @@ function perfilOnChangeAction() {
 	} else if (valor == 'COORDENADOR_GERAL') {
 		console.log("coordenador geral")
 		coordenadorGeralRemoteCommand();
-	} 
+	}
 
 	// toggle unidade e turma
 	if (valor == 'INSTRUTOR' || valor == 'COORDENADOR_UNIDADE') {
-		$(".divUnidade").show();
-		$(".divTurma").hide();
-	} else if (valor == 'ALUNO') { 
-		$(".divUnidade").hide();
-		$(".divTurma").show();
+		$(".divUnidade").show(1000);
+		$(".divTurma").hide(1000);
+	} else if (valor == 'ALUNO') {
+		$(".divUnidade").hide(1000);
+		$(".divTurma").show(1000);
 	} else if (valor == 'COORDENADOR_GERAL') {
-		$(".divUnidade").hide();
-		$(".divTurma").hide();
+		$(".divUnidade").hide(1000);
+		$(".divTurma").hide(1000);
+	} else if (valor == 'null') {
+		$(".divUnidade").hide(1000);
+		$(".divTurma").hide(1000);
 	}
 };
 
+/* Limpar o campo perfil quando error */
 
+$('.perfil', '.cadastrarUsuariosForm').not(':button').val('')
+		.removeAttr('checked').removeAttr('selected');

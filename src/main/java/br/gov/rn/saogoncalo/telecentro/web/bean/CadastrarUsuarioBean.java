@@ -22,6 +22,7 @@ import br.gov.rn.saogoncalo.telecentro.model.Usuario;
 import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
 import br.gov.rn.saogoncalo.telecentro.service.UnidadeService;
 import br.gov.rn.saogoncalo.telecentro.service.UsuarioService;
+import br.gov.rn.saogoncalo.telecentro.util.FacesMessageUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -80,11 +81,13 @@ public class CadastrarUsuarioBean implements Serializable {
 
 		boolean salvou = service.salvar(usuario);
 		if (salvou) {
-			System.out.println("Deu certo");
+			FacesMessageUtil.addSuccessMessage("Usuário cadastrado com sucesso");
 			usuario = new Usuario();
-			dataNascimento = new Date();
+			dataNascimento = null;
+			turmaId = null;
+			unidadeId = null;
 		} else {
-			System.out.println("Deu ruim");
+			FacesMessageUtil.addErrorMessage("Erro ao tentar cadastrar o usuário");
 		}
 	}
 
