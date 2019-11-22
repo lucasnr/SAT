@@ -28,4 +28,9 @@ public class AlunoServiceImpl implements AlunoService, Serializable {
 	public Optional<Aluno> buscarPorMatricula(String matricula) {
 		return dao.buscarPorMatricula(matricula);
 	}
+
+	@Override
+	public boolean atualizar(Aluno aluno) {
+		return dao.atualizar(aluno);
+	}
 }

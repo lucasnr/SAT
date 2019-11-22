@@ -9,4 +9,6 @@ public interface AlunoService {
 	public Optional<Aluno> buscarUltimoAlunoDaTurma(String codigoDaTurma);
 
 	public Optional<Aluno> buscarPorMatricula(String matricula);
+
+	public boolean atualizar(Aluno aluno);
 }
