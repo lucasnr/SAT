@@ -204,3 +204,19 @@ label {
 	margin-bottom: 1em; 
 }
 
+
+.nome {
+	flex: 1;
+}
+
+.campos {
+	display: flex;
+    flex: 2;
+    justify-content: space-between;	
+}
+
+.campos input {
+	padding: .5em;
+	border: 1px solid grey;
+	text-align: center;
+}
