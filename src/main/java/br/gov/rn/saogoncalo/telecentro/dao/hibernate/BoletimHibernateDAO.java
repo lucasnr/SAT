@@ -16,12 +16,13 @@ public class BoletimHibernateDAO extends AbstractHibernateDAO<Boletim, BoletimId
 
 	@Override
 	public boolean atualizarTodos(List<Boletim> boletins) {
-		Session session = getSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.getTransaction().begin();
 		
 		boletins.forEach(b -> session.update(b));
 		
 		session.getTransaction().commit();
+		session.close();
 		return true;
 	}
 	
