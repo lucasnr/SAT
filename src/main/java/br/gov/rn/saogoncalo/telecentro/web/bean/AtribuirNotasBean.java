@@ -9,9 +9,12 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.gov.rn.saogoncalo.telecentro.model.Aluno;
 import br.gov.rn.saogoncalo.telecentro.model.Boletim;
 import br.gov.rn.saogoncalo.telecentro.model.Turma;
+import br.gov.rn.saogoncalo.telecentro.service.BoletimService;
 import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
+import br.gov.rn.saogoncalo.telecentro.util.FacesMessageUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,6 +46,30 @@ public class AtribuirNotasBean implements Serializable{
 			turma = optional.get();
 		} else {
 			//nao encontrou a turma com o id
+		}
+	}
+	
+	@Inject
+	private BoletimService boletimService;
+	
+	public void atribuirNotas() {
+		
+		List<Boletim> boletins = new ArrayList<>();
+		List<Aluno> alunos = turma.getAlunos();
+		
+		for (Aluno aluno : alunos) {
+			
+			for (Boletim b : aluno.getBoletins()) {
+				boletins.add(b);
+			}
+			
+		}
+		
+		boolean atualizouTodos = boletimService.atualizarTodos(boletins);
+		if (atualizouTodos) {
+			FacesMessageUtil.addSuccessMessage("Boletins atualizados com sucesso");
+		} else {
+			FacesMessageUtil.addErrorMessage("Falha ao atualizar boletins");
 		}
 	}
 }
