@@ -12,7 +12,7 @@ import br.gov.rn.saogoncalo.telecentro.service.UnidadeService;
 import lombok.Getter;
 import lombok.Setter;
 
-@Named
+@Named(value="exibirUnidadeBean")
 @ViewScoped
 public class ExibirUnidadeBean implements Serializable {
 
