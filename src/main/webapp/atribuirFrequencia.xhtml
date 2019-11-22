@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="notas.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<f:metadata>
+			<f:viewParam name="id" value="#{atribuirNotasBean.id}" />
+			<f:event type="preRenderView"
+				listener="#{atribuirNotasBean.carregarTurmaPorId}" />
+		</f:metadata>
+
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">ATRIBUIR FREQUÊNCIA</h1>
+
+			<div class="divMax">
+				<ui:repeat var="aluno" value="#{atribuirNotasBean.turma.alunos}">
+
+					<div class="notas">#{aluno.nome}
+					<h:selectBooleanCheckbox value="#{selectBooleanView.value1}"/>
+					
+					
+					</div>
+				</ui:repeat>
+			</div>
+
+			<div class="grupo-botao">
+				<h:button value="Cancelar" outcome="home.xhtml" styleClass="botao" />
+
+				<p:commandButton action="#{cadastrarAulaBean.registrarAula}"
+					styleClass="botao" value="Salvar" process="@form" update="@form" />
+			</div>
+
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>
+
