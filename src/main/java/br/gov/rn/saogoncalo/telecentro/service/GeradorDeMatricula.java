@@ -24,14 +24,14 @@ public final class GeradorDeMatricula implements Visitor {
 		Integer trimestre = DataUtil.getTrimestre();
 		Turma turmaDoAluno = aluno.getTurma();
 		Long idDaUnidade = turmaDoAluno.getUnidade().getId();
-		String codigoDaTurma = turmaDoAluno.getCodigo();
+		Long idDaTurma = turmaDoAluno.getId();
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
 		matricula.append(trimestre);
 		matricula.append(tipoDeUsuario);
 		matricula.append(String.format("%02d", idDaUnidade));
-		matricula.append(codigoDaTurma);
+		matricula.append(String.format("%03d", idDaTurma));
 		matricula.append(String.format("%04d", ordem));
 		return matricula.toString();
 	}
@@ -92,8 +92,10 @@ public final class GeradorDeMatricula implements Visitor {
 	}
 	
 	
-	public static String gerarNovaMatricula(String matricula, String cod_turma_destino, String matriculaDoUltimoAluno) {
-
+	public static String gerarNovaMatricula(String matricula, Turma turma, String matriculaDoUltimoAluno) {
+		Long idDaUnidade = turma.getUnidade().getId();
+		Long idDaTurma = turma.getId();
+		
 		String numeroEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 2);
 		int ordemDoUltimoAluno = Integer.parseInt(numeroEmString);
 		
@@ -104,21 +106,18 @@ public final class GeradorDeMatricula implements Visitor {
 		char[] ord = ordem.toCharArray();
 		
 		
-		// yyyy uu tt pp ss aa
-		// 2016 01 01 01 01 01
-		// ano tipoUsuario trimestre unidadeTelecentro ordemCadastroTurma
-		// ordemCadastroAluno
+		// ano trimestre tipoDeUsuario unidade turma ordemDoAluno
+		// 2016 1 1 01 001 0001
 
 		char[] mat = null;
 		String palavra = matricula;
 		mat = palavra.toCharArray();
 
-		// yyyy uu tt ss
-		// 2016 02 02 02
-		// ano unidadeTelecentro trimestre ordemCadastroTurma
+		// ano trimestre unidade turno
+		// 2016 1 02 M
 
 		char[] tur = null;
-		String trasnferir = cod_turma_destino;
+		String trasnferir = String.format("%03d", idDaTurma);
 		tur = trasnferir.toCharArray();
 
 		// Alteração na unidade do Telecentro do aluno

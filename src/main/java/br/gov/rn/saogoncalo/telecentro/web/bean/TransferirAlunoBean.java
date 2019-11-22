@@ -41,8 +41,8 @@ public class TransferirAlunoBean {
 			if(optionalDaTurma.isPresent()) {
 				Optional<Aluno> ultimoAlunoDaTurma = alunoService.buscarUltimoAlunoDaTurma(codigoDaTurma);
 				if (ultimoAlunoDaTurma.isPresent()) {
-					String matriculaDoUltimoAluno = ultimoAlunoDaTurma.get().getMatricula();;
-					String novaMatricula = GeradorDeMatricula.gerarNovaMatricula(matricula, codigoDaTurma, matriculaDoUltimoAluno);
+					String matriculaDoUltimoAluno = ultimoAlunoDaTurma.get().getMatricula();
+					String novaMatricula = GeradorDeMatricula.gerarNovaMatricula(matricula, optionalDaTurma.get(), matriculaDoUltimoAluno);
 					aluno.setMatricula(novaMatricula);
 				}
 				
