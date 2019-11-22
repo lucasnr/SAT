@@ -30,7 +30,7 @@
 					<h:outputLabel value="Matrícula do aluno: " />
 					<p:inputMask class="matricula"
 						value="#{transferirAlunoBean.matricula}" required="true"
-						requiredMessage="Preencha o campo código da turma" mask="99999999999999"/>
+						requiredMessage="Preencha o campo matrícula do aluno" mask="999999999999999"/>
 				</div>
 			</div>
 			
@@ -39,15 +39,15 @@
 					<h:outputLabel value="Código da turma de destino: " />
 					<p:inputMask class="cod_turma_destino"
 						value="#{transferirAlunoBean.codigoDaTurma}" required="true"
-						requiredMessage="Preencha o campo código da turma" mask="9999999999"/>
+						requiredMessage="Preencha o campo código da turma" mask="99999999a"/>
 				</div>
 			</div>
 
 			<div class="group-btn">
 				<h:button value="Cancelar" outcome="home.xhtml"
 					styleClass="cancelar-btn" />
-				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
-					styleClass="salvar-btn" value="Salvar" process="@form"
+				<p:commandButton action="#{transferirAlunoBean.transferir}"
+					styleClass="salvar-btn" value="Transferir" process="@form"
 					update="@form" />
 			</div>
 
