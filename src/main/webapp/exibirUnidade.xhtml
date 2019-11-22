@@ -8,11 +8,11 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
-		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="exibirUnidade.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-
 		 
 		<f:metadata>
 			<f:viewParam name="id" value="#{exibirUnidadeBean.id}"></f:viewParam>
@@ -20,89 +20,89 @@
 		</f:metadata>
 	
 
-		<h:form styleClass="cadastrarUsuariosForm">
+		<h:form styleClass="form mainDiv">
+			<h3 class="titulo">UNIDADE</h3>
 
-			<div>	
-				<div class="col-md-2">
-			 			<h:outputLabel value="Nome:" />
-			 		</div>		
-				#{exibirUnidadeBean.unidade.nome}
+			<div class="alinhar">			
+				<div>	
+		 			<h:outputLabel value="Nome:" />
+			 		<div class="mostrar">		
+						#{exibirUnidadeBean.unidade.nome}
+					</div>
+				</div>
+				
+				<div>
+		 			<h:outputLabel value="Quant.Equipamentos:" />
+					<div class="mostrar">
+						#{exibirUnidadeBean.unidade.quantidadeEquipamentos}
+			 		</div>
+				</div>
 			</div>
 			
-			<div>
-				<div class="col-md-2">
-			 			<h:outputLabel value="Quant.Equipamentos:" />
-			 		</div>
-				#{exibirUnidadeBean.unidade.quantidadeEquipamentos}
-			</div>
-			<div>
-				<div class="col-md-2">
+				<div class="alinhar">
+					<div>
 			 			<h:outputLabel value="Cep:" />
-			 		</div>
+			 		<div class="mostrar">
 				#{exibirUnidadeBean.unidade.endereco.cep}
+				</div>
 			</div>
 			<div>
-				<div class="col-md-2">
 			 			<h:outputLabel value="Bairro:" />
-			 		</div>
+			 		<div class="mostrar">
 				#{exibirUnidadeBean.unidade.endereco.bairro}
+				</div>
 			</div>
-			<div>
-				<div class="col-md-2">
+		</div>
+			<div class="alinhar">
+				<div>
 			 			<h:outputLabel value="Logradouro:" />
-			 		</div>
+			 		<div class="mostrar">
 				#{exibirUnidadeBean.unidade.endereco.logradouro}
-			</div>
-			<div>
-				<div class="col-md-2">
+						</div>
+					</div>
+					<div>
 			 			<h:outputLabel value="Número:" />
-			 		</div>
+			 		<div class="mostrar">
 				#{exibirUnidadeBean.unidade.endereco.numero}
+					</div>
+				</div>
 			</div>
-			
+				<h3 class="titulo">TURMAS</h3>
 			 <ui:repeat var="turma" value="#{exibirUnidadeBean.unidade.turmas}">
 			 	<div class="row">
-			 		<div class="col-md-2">
+			 		<div class="alinhar">
 			 			<h:outputLabel value="Cód.:" />
 			 		</div>
-			 		<div class="col-md-10">
+			 		<div class="alinhar">
 			 			<h:outputText value="#{turma.codigo}" />
 			 		</div>
-			 		<div class="col-md-2">
+			 		<div class="alinhar">
 			 			<h:outputLabel value="Turno:" />
 			 		</div>
-			 		<div class="col-md-10">
+			 		<div class="alinhar">
 			 			<h:outputText value="#{turma.turno}" />
 			 		</div>
-			 		<div class="col-md-2">
+			 		<div class="alinhar">
 			 			<h:outputLabel value="Data de Inicio:" />
 			 		</div>
-			 		<div class="col-md-10">
+			 		<div class="alinhar">
 			 			<h:outputText id="dataInicio" value="#{turma.dataInicio}">
 			 				<f:converter converterId="localDateFacesConverter" for="dataInicio"/>
 			 			</h:outputText>
 			 		</div>
-			 		<div class="col-md-2">
+			 		<div class="alinhar">
 			 			<h:outputLabel value="Data de Termino :" />
 			 		</div>
-			 		<div class="col-md-10">
+			 		<div class="alinhar">
 			 			<h:outputText id="dataFim" value="#{turma.dataFim}">
 			 				<f:converter converterId="localDateFacesConverter" for="dataFim"/>
 			 			</h:outputText>
 			 		</div>
-			 		<div class="col-md-2">
+			 		<div class="alinhar">
 			 			<h:outputLabel value="Instrutor:" />
 			 		</div>
-			 		<div class="col-md-10">
+			 		<div class="alinhar">
 			 			<h:outputText value="#{turma.instrutor.nome}" />
-			 		</div>
-			 		<div class="col-md-2">
-			 			<h:outputLabel value="Alunos:" />
-			 		</div>
-			 		<div class="col-md-10">
-			 			<ui:repeat var="aluno" value="#{turma.alunos}">
-			 				<h:outputText value="#{aluno.nome}" />
-			 			</ui:repeat>
 			 		</div>
 			 		
 			 	</div>
