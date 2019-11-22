@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,UAGC;EAFG,GAAG,EAAE,iCAAiC;EACtC,WAAW,EAAE,QAAQ;ACCzB,cAAe;EACd,KAAK,EAAE,IAAI;EAER,kCAAoB;IAChB,UAAU,EAAE,IAAI;IAChB,UAAU,EAAE,IAAI;IAChB,aAAa,EAAE,GAAG;IAClB,aAAa,EAAE,GAAG;IAClB,OAAO,EAAE,KAAK;IACd,gBAAgB,ECRT,kBAAiB;IDUxB,2DAAyB;MACrB,OAAO,EAAE,KAAK;MACd,KAAK,EAAE,KAAK;MDVpB,WAAW,EAAE,QAAQ",
-"sources": ["../sass/_fonts.scss","../sass/block/errorMessages.scss","../sass/_colors.scss"],
-"names": [],
-"file": "errorMessages.css"
-}

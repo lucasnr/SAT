@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,KAAM;EACF,gBAAgB,ECCJ,OAAO;EDAnB,IAAI,EAAE,CAAC;EEeP,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EAUvB,cAAc,EAAE,MAAM;EAKtB,SAAS,EAAE,IAAI;ECtBX,0CAAgD;IHZxD,KAAM;MAKE,cAAc,EAAE,GAAG;EAGvB,gBAAW;IACP,UAAU,EAAE,gBAAgB;;AAIpC,WAAY;EACR,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,OAAO;EGJX,0CAAgD;IHCxD,WAAY;MAKJ,OAAO,EAAE,KAAK",
-"sources": ["sass/index.scss","sass/_colors.scss","sass/_flexbox.scss","sass/_media-queries.scss"],
-"names": [],
-"file": "index.css"
-}
