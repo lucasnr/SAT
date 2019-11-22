@@ -1,6 +1,9 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 
 import javax.faces.view.ViewScoped;
@@ -9,7 +12,9 @@ import javax.inject.Named;
 
 import br.gov.rn.saogoncalo.telecentro.model.Aula;
 import br.gov.rn.saogoncalo.telecentro.model.Turma;
+import br.gov.rn.saogoncalo.telecentro.service.AulaService;
 import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
+import br.gov.rn.saogoncalo.telecentro.util.FacesMessageUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,8 +38,12 @@ public class CadastrarAulaBean implements Serializable {
 		@Inject
 		private TurmaService turmaService;
 
-//		@Inject
-//		private AulaService aulaService;
+		@Inject
+		private AulaService aulaService;
+		
+		@Getter
+		@Setter
+		private Date data;
 		
 		public void carregarTurma() {
 			Optional<Turma> turma = turmaService.buscarPorId(turmaId);
@@ -45,7 +54,15 @@ public class CadastrarAulaBean implements Serializable {
 			}
 		}
 		
-		public void registrarAula(){
-			
+		public String registrarAula(){
+			LocalDateTime dataAula = data.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+			aula.setData(dataAula);
+			boolean salvou = aulaService.salvar(aula);
+			if (salvou) {
+				return "atribuirFrequencia.xhtml?id="+aula.getId();
+			} else {
+				FacesMessageUtil.addErrorMessage("Erro ao cadastrar aula");
+				return null;
+			}
 		}
 }
