@@ -24,11 +24,11 @@
 			<h1 class="cadastrarUsuariosForm-header-title">Atribuir Notas</h1>
 
 			<div class="divEtapas">
-				<h:button value="Etp 1" styleClass="etapas-btn" />
-				<h:button value="Etp 2" styleClass="etapas-btn" />
-				<h:button value="Etp 3" styleClass="etapas-btn" />
-				<h:button value="Etp 4" styleClass="etapas-btn" />
-				<h:button value="Etp 5" styleClass="etapas-btn" />
+				<div class="etapas-btn">Etapa 1</div>
+				<div class="etapas-btn">Etapa 2</div>
+				<div class="etapas-btn">Etapa 3</div>
+				<div class="etapas-btn">Etapa 4</div>
+				<div class="etapas-btn">Etapa 5</div>
 			</div>
 
 			<div class="divMax">
@@ -36,12 +36,15 @@
 					<div>
 
 						<div class="notas">
-							<span> #{aluno.nome} </span>
-							<h:inputText value="#{aluno.nota1}" />
-							<h:inputText value="#{aluno.nota2}" />
-							<h:inputText value="#{aluno.nota3}" />
-							<h:inputText value="#{aluno.nota4}" />
-							<h:inputText value="#{aluno.nota5}" />
+							<span class="nome"> #{aluno.nome} </span>
+							
+							<div class="campos">							
+								<h:inputText value="#{aluno.boletins.get(0).nota}" />
+								<h:inputText value="#{aluno.boletins.get(1).nota}" />
+								<h:inputText value="#{aluno.boletins.get(2).nota}" />
+								<h:inputText value="#{aluno.boletins.get(3).nota}" />
+								<h:inputText value="#{aluno.boletins.get(4).nota}" />
+							</div>
 						</div>
 					</div>
 				</ui:repeat>
