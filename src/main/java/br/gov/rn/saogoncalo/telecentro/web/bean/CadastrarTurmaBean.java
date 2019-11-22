@@ -91,11 +91,4 @@ public class CadastrarTurmaBean {
 		return unidadeService.listar();
 	}
 	
-	public Date getDataInicio() {
-		return Date.from(turma.getDataInicio().atStartOfDay(ZoneId.systemDefault()).toInstant());
-	}
-	public Date getDataFim() {
-		return Date.from(turma.getDataFim().atStartOfDay(ZoneId.systemDefault()).toInstant());
-	}
-	
 }
