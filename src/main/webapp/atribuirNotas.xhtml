@@ -41,15 +41,15 @@
 							<span class="nome"> #{aluno.nome} </span>
 
 							<div class="campos">
-								<p:inputNumber decimalPlaces="0" maxValue="100" value="#{aluno.boletins.get(0).nota}"
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(0).nota}"
 									styleClass="campo" />
-								<p:inputNumber decimalPlaces="0" maxValue="100" value="#{aluno.boletins.get(1).nota}"
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(1).nota}"
 									styleClass="campo" />
-								<p:inputNumber decimalPlaces="0" maxValue="100" value="#{aluno.boletins.get(2).nota}"
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(2).nota}"
 									styleClass="campo" />
-								<p:inputNumber decimalPlaces="0" maxValue="100" value="#{aluno.boletins.get(3).nota}"
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(3).nota}"
 									styleClass="campo" />
-								<p:inputNumber decimalPlaces="0" maxValue="100" value="#{aluno.boletins.get(4).nota}"
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(4).nota}"
 									styleClass="campo" />
 							</div>
 						</div>
@@ -63,6 +63,11 @@
 				<p:commandButton styleClass="botao" action="#{atribuirNotasBean.atribuirNotas}" value="Atribuir notas" />
 			</div>
 
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
 		</h:form>
 	</ui:define>
 
