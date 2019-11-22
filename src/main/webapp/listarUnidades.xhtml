@@ -9,8 +9,8 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="listarUnidades.css" library="css" />
-		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
-		<h:outputStylesheet name="errorMessages.css" library="css/block" />
+		<h:outputStylesheet name="meusDados.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<f:metadata>
@@ -36,8 +36,7 @@
 					
 						
 
-<!-- 						mudar link para a pagina de vitoria assim que esta estiver pronta -->
-						<h:link outcome="atribuirNotas.xhtml?id=#{unidade.id}" class="unidades"> 
+						<h:link outcome="exibirUnidade.xhtml?id=#{unidade.id}" class="unidades"> 
 						<span>#{unidade.nome} </span> <i class="fas fa-search"></i>
 						</h:link>
 
@@ -51,9 +50,9 @@
 				</ui:repeat>
 
 
-
-
 			</div>
+			
+			<h:button outcome="home.xhtml" value="Voltar" styleClass="btn" />
 		</h:form>
 
 	</ui:define>
