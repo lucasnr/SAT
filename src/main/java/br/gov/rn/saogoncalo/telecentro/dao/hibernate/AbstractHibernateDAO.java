@@ -38,6 +38,8 @@ public class AbstractHibernateDAO<T, PK> implements AbstractDAO<T, PK> {
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			throw e;
+		} finally {
+			session.close();
 		}
 	}
 	
