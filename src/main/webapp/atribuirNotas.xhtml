@@ -25,30 +25,42 @@
 			<h1 class="titulo">Atribuir Notas</h1>
 
 			<div class="divEtapas">
-				<div class="botao">Etapa 1</div>
-				<div class="botao">Etapa 2</div>
-				<div class="botao">Etapa 3</div>
-				<div class="botao">Etapa 4</div>
-				<div class="botao">Etapa 5</div>
+				<div class="botao">Etapa1</div>
+				<div class="botao">Etapa2</div>
+				<div class="botao">Etapa3</div>
+				<div class="botao">Etapa4</div>
+				<div class="botao">Etapa5</div>
 			</div>
 
 			<div class="divMax">
+
 				<ui:repeat var="aluno" value="#{atribuirNotasBean.turma.alunos}">
 					<div>
 
 						<div class="notas">
 							<span class="nome"> #{aluno.nome} </span>
-							
-							<div class="campos">							
-								<h:inputText value="#{aluno.boletins.get(0).nota}" styleClass="campo" />
-								<h:inputText value="#{aluno.boletins.get(1).nota}" styleClass="campo" />
-								<h:inputText value="#{aluno.boletins.get(2).nota}" styleClass="campo" />
-								<h:inputText value="#{aluno.boletins.get(3).nota}" styleClass="campo" />
-								<h:inputText value="#{aluno.boletins.get(4).nota}" styleClass="campo" />
+
+							<div class="campos">
+								<h:inputText value="#{aluno.boletins.get(0).nota}"
+									styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(1).nota}"
+									styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(2).nota}"
+									styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(3).nota}"
+									styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(4).nota}"
+									styleClass="campo" />
 							</div>
 						</div>
 					</div>
 				</ui:repeat>
+
+			</div>
+
+			<div class="grupo-botao">
+				<h:button value="Cancelar" outcome="home.xhtml" styleClass="botao" />
+				<p:commandButton styleClass="botao" action="#{atribuirNotasBean.atribuirNotas}" value="Atribuir notas" />
 			</div>
 
 		</h:form>
