@@ -19,6 +19,7 @@ import br.gov.rn.saogoncalo.telecentro.model.Perfil;
 import br.gov.rn.saogoncalo.telecentro.model.Turma;
 import br.gov.rn.saogoncalo.telecentro.model.Unidade;
 import br.gov.rn.saogoncalo.telecentro.model.Usuario;
+import br.gov.rn.saogoncalo.telecentro.service.AlunoService;
 import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
 import br.gov.rn.saogoncalo.telecentro.service.UnidadeService;
 import br.gov.rn.saogoncalo.telecentro.service.UsuarioService;
@@ -62,33 +63,57 @@ public class CadastrarUsuarioBean implements Serializable {
 		LocalDate localDate = parseDataNascimentoToLocalDate();
 		usuario.setDataNascimento(localDate);
 
-		if (usuario.getPerfil() == Perfil.INSTRUTOR) {
-			Instrutor instrutor = (Instrutor) usuario;
-			Optional<Unidade> unidade = unidadeService.buscarPorId(unidadeId);
-			if (unidade.isPresent())
-				instrutor.setUnidade(unidade.get());
-		} else if (usuario.getPerfil() == Perfil.COORDENADOR_UNIDADE) {
-			CoordenadorUnidade coordenadorUnidade = (CoordenadorUnidade) usuario;
-			Optional<Unidade> unidade = unidadeService.buscarPorId(unidadeId);
-			if (unidade.isPresent())
-				coordenadorUnidade.setUnidade(unidade.get());
-		} else if (usuario.getPerfil() == Perfil.ALUNO) {
-			Aluno aluno = (Aluno) usuario;
-			Optional<Turma> turma = turmaService.buscarPorId(turmaId);
-			if (turma.isPresent())
-				aluno.setTurma(turma.get());
+		Perfil perfil = usuario.getPerfil();
+		if (perfil == Perfil.INSTRUTOR) {
+			prepararInstrutor();
+		} else if (perfil == Perfil.COORDENADOR_UNIDADE) {
+			prepararCoordenadorDeUnidade();
+		} else if (perfil == Perfil.ALUNO) {
+			prepararAluno();
 		}
 
-		boolean salvou = service.salvar(usuario);
+		boolean salvou = false;
+		
+		if (perfil == Perfil.ALUNO) {
+			Aluno aluno = (Aluno) usuario;
+			salvou = alunoService.salvar(aluno);
+		} else {			
+			salvou = service.salvar(usuario);
+		}
 		if (salvou) {
 			FacesMessageUtil.addSuccessMessage("Usuário cadastrado com sucesso");
-			usuario = new Usuario();
-			dataNascimento = null;
-			turmaId = null;
-			unidadeId = null;
+			limparCampos();
 		} else {
 			FacesMessageUtil.addErrorMessage("Erro ao tentar cadastrar o usuário");
 		}
+	}
+
+	private void limparCampos() {
+		usuario = new Usuario();
+		dataNascimento = null;
+		turmaId = null;
+		unidadeId = null;
+	}
+	
+	private void prepararAluno() {
+		Aluno aluno = (Aluno) usuario;
+		Optional<Turma> turma = turmaService.buscarPorId(turmaId);
+		if (turma.isPresent())
+			aluno.setTurma(turma.get());
+	}
+
+	private void prepararCoordenadorDeUnidade() {
+		CoordenadorUnidade coordenadorUnidade = (CoordenadorUnidade) usuario;
+		Optional<Unidade> unidade = unidadeService.buscarPorId(unidadeId);
+		if (unidade.isPresent())
+			coordenadorUnidade.setUnidade(unidade.get());
+	}
+
+	private void prepararInstrutor() {
+		Instrutor instrutor = (Instrutor) usuario;
+		Optional<Unidade> unidade = unidadeService.buscarPorId(unidadeId);
+		if (unidade.isPresent())
+			instrutor.setUnidade(unidade.get());
 	}
 
 	private LocalDate parseDataNascimentoToLocalDate() {
@@ -98,12 +123,15 @@ public class CadastrarUsuarioBean implements Serializable {
 	@Inject
 	private UnidadeService unidadeService;
 
+	@Inject
+	private TurmaService turmaService;
+
+	@Inject
+	private AlunoService alunoService;
+
 	public List<Unidade> unidades() {
 		return unidadeService.listar();
 	}
-
-	@Inject
-	private TurmaService turmaService;
 
 	public List<Turma> turmas() {
 		return turmaService.listar();

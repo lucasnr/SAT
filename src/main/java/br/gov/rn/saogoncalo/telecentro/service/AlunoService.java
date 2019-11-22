@@ -11,4 +11,6 @@ public interface AlunoService {
 	public Optional<Aluno> buscarPorMatricula(String matricula);
 
 	public boolean atualizar(Aluno aluno);
+
+	public boolean salvar(Aluno aluno);
 }
