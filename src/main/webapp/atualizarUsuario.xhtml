@@ -25,12 +25,21 @@
 
 			<div class="grupo">
 				<div>
-					<h:outputLabel value="Perfil: " />
-					<h:selectOneMenu styleClass="perfil campo" value="#{atualizarUsuarioBean.usuario.perfil}">
-						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
-						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
-						<f:selectItem itemLabel="Coordenador de Unidade" itemValue="COORDENADOR_UNIDADE" />
-					</h:selectOneMenu>
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'ALUNO'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Aluno"/>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'INSTRUTOR'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Instrutor"/>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Coordenador de Unidade"/>
+					</h:panelGroup>
+					
 				</div>
 
 				<div>
@@ -82,7 +91,9 @@
 
 				<div>
 					<h:outputLabel value="CPF: " />
-					<p:inputMask mask="999.999.999-99" styleClass="cpf campo" value="#{atualizarUsuarioBean.usuario.cpf}"/>
+					<p:inputMask mask="999.999.999-99" styleClass="cpf campo" value="#{atualizarUsuarioBean.usuario.cpf}">
+					<f:validator validatorId="CpfValidator" />
+					</p:inputMask>
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
@@ -121,7 +132,9 @@
 
 				<div>
 					<h:outputLabel value="Email: " />
-					<h:inputText styleClass="email campo" value="#{atualizarUsuarioBean.usuario.contato.email}" />
+					<h:inputText styleClass="email campo" value="#{atualizarUsuarioBean.usuario.contato.email}">
+						<f:validator validatorId="emailValidator" />
+					</h:inputText>
 				</div>
 
 				<div>
