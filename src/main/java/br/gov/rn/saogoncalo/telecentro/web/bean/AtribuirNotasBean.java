@@ -18,7 +18,7 @@ import br.gov.rn.saogoncalo.telecentro.util.FacesMessageUtil;
 import lombok.Getter;
 import lombok.Setter;
 
-@Named
+@Named(value="atribuirNotasBean")
 @ViewScoped
 public class AtribuirNotasBean implements Serializable{
 
@@ -26,9 +26,6 @@ public class AtribuirNotasBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@Getter
-	private List<Boletim> boletins = new ArrayList<>();
 	
 	@Getter
 	@Setter
@@ -58,11 +55,9 @@ public class AtribuirNotasBean implements Serializable{
 		List<Aluno> alunos = turma.getAlunos();
 		
 		for (Aluno aluno : alunos) {
-			
 			for (Boletim b : aluno.getBoletins()) {
 				boletins.add(b);
 			}
-			
 		}
 		
 		boolean atualizouTodos = boletimService.atualizarTodos(boletins);
