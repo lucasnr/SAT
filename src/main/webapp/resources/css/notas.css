@@ -18,6 +18,14 @@
 		display: flex !important;
 	}
 }
+.divEtapas {
+    flex: 2;
+    border-radius: 20px;
+	display: flex !important;
+	justify-content: flex-end;	
+	text-align: center;
+	margin-right: 30px;
+}
 
 .divMax {
 	margin-top: 1em;
@@ -51,7 +59,7 @@
 .campos {
 	display: flex;
     flex: 2;
-    justify-content: space-between;	
+    justify-content: flex-end;	
 }
 
 .campos input {
