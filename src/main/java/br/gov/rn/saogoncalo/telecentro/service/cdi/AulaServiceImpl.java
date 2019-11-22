@@ -1,13 +1,19 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
+import java.io.Serializable;
+
 import javax.inject.Inject;
 
 import br.gov.rn.saogoncalo.telecentro.dao.AulaDAO;
 import br.gov.rn.saogoncalo.telecentro.model.Aula;
 import br.gov.rn.saogoncalo.telecentro.service.AulaService;
 
-public class AulaServiceImpl implements AulaService {
+public class AulaServiceImpl implements AulaService, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private AulaDAO dao;
 	
