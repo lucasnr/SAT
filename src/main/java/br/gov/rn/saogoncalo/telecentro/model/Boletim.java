@@ -2,8 +2,6 @@ package br.gov.rn.saogoncalo.telecentro.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -45,21 +42,6 @@ public class Boletim implements Serializable {
 		this.modulo = modulo;
 		this.nota = nota;
 		this.id = new BoletimId(aluno.getUsuarioId(), modulo.getId());
-	}
-
-	@Embeddable
-	@Data
-	@AllArgsConstructor
-	@NoArgsConstructor
-	public class BoletimId implements Serializable {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		@Column(name = "ALUNO_ID", columnDefinition = "INT")
-		private Long alunoId;
-		@Column(name = "MODULO_ID", columnDefinition = "INT")
-		private Long moduloId;
 	}
 
 }
