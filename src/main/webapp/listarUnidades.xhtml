@@ -9,7 +9,7 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="listarUnidades.css" library="css" />
-		<h:outputStylesheet name="meusDados.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
@@ -21,20 +21,13 @@
 
 	<ui:define name="conteudo">
 
-		<h:form styleClass="cadastrarUsuariosForm">
+		<h:form styleClass="form mainDiv">
 
 			<div class="divMax">
-
-				<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO
-					TELECENTRO</h1>
+				<h1 class="titulo">UNIDADES DO TELECENTRO</h1>
 
 				<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
-
-
-
 					<div class="unidades-botton">
-					
-						
 
 						<h:link outcome="exibirUnidade.xhtml?id=#{unidade.id}" class="unidades"> 
 						<span>#{unidade.nome} </span> <i class="fas fa-search"></i>
@@ -42,20 +35,15 @@
 
 						
 						<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
-
 					</div>
-
-
 
 				</ui:repeat>
 
-
 			</div>
 			
-			<h:button outcome="home.xhtml" value="Voltar" styleClass="btn" />
+			<h:button outcome="home.xhtml" value="Voltar" styleClass="botao" />
 		</h:form>
 
 	</ui:define>
-
 </ui:composition>
 </html>

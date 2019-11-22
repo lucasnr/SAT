@@ -10,12 +10,13 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="meusDados.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<div class="meusDados-bg">
-			<h3 class="meusDados-header">MEUS DADOS</h3>
+		<div class="mainDiv">
+			<h3 class="titulo">MEUS DADOS</h3>
 
 			<div class="meusDados-dados">
 				<div>
@@ -94,7 +95,7 @@
 			</div>
 
 
-			<h:button value="Voltar" outcome="home.xhtml" class="btn" />
+			<h:button value="Voltar" outcome="home.xhtml" class="botao" />
 
 		</div>
 

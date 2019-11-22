@@ -8,6 +8,7 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
@@ -19,14 +20,13 @@
 			<f:event listener="#{atualizarUsuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
 		</f:metadata>
 
-		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">ATUALIZAR CADASTRO</h1>
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">ATUALIZAR CADASTRO</h1>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Perfil: " />
-					<h:selectOneMenu class="perfil" value="#{atualizarUsuarioBean.usuario.perfil}">
-						<f:selectItem itemLabel="Selecione um perfil" itemValue="" />
+					<h:selectOneMenu styleClass="perfil campo" value="#{atualizarUsuarioBean.usuario.perfil}">
 						<f:selectItem itemLabel="Aluno" itemValue="ALUNO" />
 						<f:selectItem itemLabel="Instrutor" itemValue="INSTRUTOR" />
 						<f:selectItem itemLabel="Coordenador de Unidade" itemValue="COORDENADOR_UNIDADE" />
@@ -37,7 +37,7 @@
 				
 					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'ALUNO'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.turma.unidade.id}">
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.turma.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
@@ -45,7 +45,7 @@
 					
 					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.unidade.id}">
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
@@ -53,7 +53,7 @@
 					
 					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'INSTRUTOR'}">
 						<h:outputLabel value="Unidade: " />
-						<h:selectOneMenu class="unidade" value="#{atualizarUsuarioBean.usuario.unidade.id}">
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.unidade.id}">
 							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
 							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
 						</h:selectOneMenu>
@@ -62,18 +62,18 @@
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Nome: " />
-					<h:inputText class="nome" value="#{atualizarUsuarioBean.usuario.nome}" />
+					<h:inputText styleClass="nome campo" value="#{atualizarUsuarioBean.usuario.nome}" />
 					
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<p:outputLabel value="Data de nascimento:"/>
-					<p:inputMask class="dataDeNsacimento" value="#{atualizarUsuarioBean.dataNascimento}" mask="99/99/9999">
+					<p:inputMask styleClass="dataDeNsacimento campo" value="#{atualizarUsuarioBean.dataNascimento}" mask="99/99/9999">
 					<f:convertDateTime pattern="dd/MM/yyyy"/> 
 					</p:inputMask>
 					
@@ -82,52 +82,51 @@
 
 				<div>
 					<h:outputLabel value="CPF: " />
-					<p:inputMask mask="999.999.999-99" class="cpf" value="#{atualizarUsuarioBean.usuario.cpf}"/>
+					<p:inputMask mask="999.999.999-99" styleClass="cpf campo" value="#{atualizarUsuarioBean.usuario.cpf}"/>
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
-					<p:inputMask mask="999.999.999" class="rg" value="#{atualizarUsuarioBean.usuario.rg}"/>
+					<p:inputMask mask="999.999.999" styleClass="rg campo" value="#{atualizarUsuarioBean.usuario.rg}"/>
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				
 				<div>
 					<h:outputLabel value="CEP: " />
-					<p:inputMask mask="99999-999" class="cep" value="#{atualizarUsuarioBean.usuario.endereco.cep}"/>
+					<p:inputMask mask="99999-999" styleClass="cep campo" value="#{atualizarUsuarioBean.usuario.endereco.cep}"/>
 				</div>
 				
 				<div>
 					<h:outputLabel value="Bairro: " />
-					<h:inputText class="bairro" value="#{atualizarUsuarioBean.usuario.endereco.bairro}" />
+					<h:inputText styleClass="bairro campo" value="#{atualizarUsuarioBean.usuario.endereco.bairro}" />
 				</div>
 				<div>
 					<h:outputLabel value="Logradouro: " />
-					<h:inputText class="logradouro"
+					<h:inputText styleClass="logradouro campo"
 						value="#{atualizarUsuarioBean.usuario.endereco.logradouro}" />
 				</div>
 				<div>
 					<h:outputLabel value="Número: " />
-					<h:inputText class="numero" value="#{atualizarUsuarioBean.usuario.endereco.numero}" />
+					<h:inputText styleClass="numero campo" value="#{atualizarUsuarioBean.usuario.endereco.numero}" />
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Telefone: " />
-					<p:inputMask class="telefone" value="#{atualizarUsuarioBean.usuario.contato.telefone}"
+					<p:inputMask styleClass="telefone campo" value="#{atualizarUsuarioBean.usuario.contato.telefone}"
 						mask="(99) 99999-9999" />
 				</div>
 
 				<div>
 					<h:outputLabel value="Email: " />
-					<h:inputText class="email" value="#{atualizarUsuarioBean.usuario.contato.email}" />
+					<h:inputText styleClass="email campo" value="#{atualizarUsuarioBean.usuario.contato.email}" />
 				</div>
 
 				<div>
 					<h:outputLabel value="Sexo: " />
-					<h:selectOneMenu class="sexo" value="#{atualizarUsuarioBean.usuario.sexo}">
-						<f:selectItem itemLabel="Selecione o sexo" itemValue="" />
+					<h:selectOneMenu styleClass="sexo campo" value="#{atualizarUsuarioBean.usuario.sexo}">
 						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
 						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
 						<f:selectItem itemLabel="Outro" itemValue="OUTRO" />
@@ -135,8 +134,8 @@
 				</div>
 			</div>
 
-			<div class="group-btn">
-				<p:commandButton action="#{atualizarUsuarioBean.atualizar}" styleClass="salvar-btn"
+			<div class="grupo-botao">
+				<p:commandButton action="#{atualizarUsuarioBean.atualizar}" styleClass="botao"
 					value="Atualizar" process="@form" update="@form" />
 			</div>
 

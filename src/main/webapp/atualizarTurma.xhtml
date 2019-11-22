@@ -9,7 +9,8 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="messages.css" library="css/block" />
-		<h:outputStylesheet name="atulizarCT.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="atualizarTurma.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
@@ -19,40 +20,36 @@
 			<f:event listener="#{atualizarTurmaBean.carregarTurma}" type="preRenderView" />
 		</f:metadata>
 
-		<h:form styleClass="form">
+		<h:form styleClass="form mainDiv">
 
-			<div class="d1">
 				<h1 class="titulo">ATUALIZAR TURMA</h1>
 
 				<div class="Gp1">
-
 					<div class="a">
 						<h:outputLabel value="Turno:" />
-						<h:selectOneMenu value="#{atualizarTurmaBean.turma.turno}"
+						<h:selectOneMenu value="#{atualizarTurmaBean.turma.turno}" styleClass="campo"
 							required="true" requiredMessage="Selecione o turno">
-							<f:selectItem itemLabel="" itemValue="" />
 							<f:selectItem itemLabel="Matutino" itemValue="MATUTINO" />
 							<f:selectItem itemLabel="Vespertino" itemValue="VESPERTINO" />
 							<f:selectItem itemLabel="Noturno" itemValue="NOTURNO" />
 						</h:selectOneMenu>
-
 					</div>
 
 					<div class="a">
 						<h:outputLabel for="" value="Matrícula Instrutor:" />
-						<h:inputText immediate="true"
+						<h:inputText immediate="true" styleClass="campo"
 							value="#{atualizarTurmaBean.turma.instrutor.matricula}"
 							required="true" requiredMessage="Informe a matrícula do instrutor" />
 					</div>
 				</div>
 
-				<div class="butoes">
+				<div class="grupo-botao">
 					<div>
-						<h:button value="Cancelar" outcome="index.xhtml" class="cancelar" />
+						<h:button value="Cancelar" outcome="index.xhtml" styleClass="botao" />
 					</div>
 
 					<div>
-						<h:commandButton action="#{atualizarTurmaBean.atualizar}" value="Atualizar" class="atualizar" />
+						<h:commandButton action="#{atualizarTurmaBean.atualizar}" value="Atualizar" styleClass="botao" />
 					</div>
 				</div>
 
@@ -61,8 +58,6 @@
 					errorClass="messages-list-item erro"
 					infoClass="messages-list-item sucesso" />
 			</div>
-			</div>
-
 		</h:form>
 	</ui:define>
 </ui:composition>

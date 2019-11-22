@@ -8,6 +8,7 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="notas.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
@@ -20,15 +21,15 @@
 				listener="#{atribuirNotasBean.carregarTurmaPorId}" />
 		</f:metadata>
 
-		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">Atribuir Notas</h1>
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">Atribuir Notas</h1>
 
 			<div class="divEtapas">
-				<div class="etapas-btn">Etapa 1</div>
-				<div class="etapas-btn">Etapa 2</div>
-				<div class="etapas-btn">Etapa 3</div>
-				<div class="etapas-btn">Etapa 4</div>
-				<div class="etapas-btn">Etapa 5</div>
+				<div class="botao">Etapa 1</div>
+				<div class="botao">Etapa 2</div>
+				<div class="botao">Etapa 3</div>
+				<div class="botao">Etapa 4</div>
+				<div class="botao">Etapa 5</div>
 			</div>
 
 			<div class="divMax">
@@ -39,11 +40,11 @@
 							<span class="nome"> #{aluno.nome} </span>
 							
 							<div class="campos">							
-								<h:inputText value="#{aluno.boletins.get(0).nota}" />
-								<h:inputText value="#{aluno.boletins.get(1).nota}" />
-								<h:inputText value="#{aluno.boletins.get(2).nota}" />
-								<h:inputText value="#{aluno.boletins.get(3).nota}" />
-								<h:inputText value="#{aluno.boletins.get(4).nota}" />
+								<h:inputText value="#{aluno.boletins.get(0).nota}" styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(1).nota}" styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(2).nota}" styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(3).nota}" styleClass="campo" />
+								<h:inputText value="#{aluno.boletins.get(4).nota}" styleClass="campo" />
 							</div>
 						</div>
 					</div>
