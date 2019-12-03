@@ -2,7 +2,6 @@ package br.gov.rn.saogoncalo.telecentro.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,22 +40,13 @@ public class RegistroAula implements Serializable {
 	@JoinColumn(name = "AULA_ID", insertable = false, updatable = false)
 	private Aula aula;
 	
-	private Boolean presente;
+	private boolean presente;
 	
-	public boolean isPresente() {
-		return this.presente.booleanValue();
+	public RegistroAula(Aluno aluno, Aula aula) {
+		super();
+		this.aluno = aluno;
+		this.aula = aula;
+		this.presente = false;
+		this.id = new RegistroAulaId(aluno.getUsuarioId(), aula.getId());
 	}
-}
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class RegistroAulaId implements Serializable {/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Column(name = "ALUNO_ID", columnDefinition = "INT")
-	private Long alunoId;
-	@Column(name = "AULA_ID", columnDefinition = "INT")
-	private Long aulaId;
 }
