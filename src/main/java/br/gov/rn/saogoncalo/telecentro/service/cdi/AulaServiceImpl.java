@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.service.cdi;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,11 @@ public class AulaServiceImpl implements AulaService, Serializable {
 	@Override
 	public boolean salvar(Aula aula) {
 		return dao.salvar(aula);
+	}
+
+	@Override
+	public Optional<Aula> buscarPorId(Long id) {
+		return dao.buscarPorId(id);
 	}
 
 }
