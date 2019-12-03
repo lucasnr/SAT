@@ -6,7 +6,11 @@ import java.time.Year;
 public class DataUtil {
 
 	public static Integer getTrimestre() {
-		Integer mesAtual = LocalDate.now().getMonthValue();
+		return getTrimestre(LocalDate.now());
+	}
+	
+	public static Integer getTrimestre(LocalDate data) {
+		Integer mesAtual = data.getMonthValue();
 		Integer trimestre = null;
 		if (mesAtual <= 3)
 			trimestre = 1;

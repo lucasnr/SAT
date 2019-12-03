@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -47,6 +48,7 @@ public class Aluno extends Usuario implements Visitable, Serializable {
 	
 	public Aluno() {
 		super(Perfil.ALUNO);
+		this.boletins = new ArrayList<>();
 	}
 	
 	@Builder
@@ -86,6 +88,10 @@ public class Aluno extends Usuario implements Visitable, Serializable {
 	@Override
 	public String accept(Visitor visitor) {
 		return visitor.visit(this);
+	}
+
+	public void addBoletim(Boletim boletim) {
+		this.boletins.add(boletim);
 	}
 	
 }

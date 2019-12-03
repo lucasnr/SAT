@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="exibirUnidade.css" library="css" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+		 
+		<f:metadata>
+			<f:viewParam name="id" value="#{exibirUnidadeBean.id}"></f:viewParam>
+			<f:event listener="#{exibirUnidadeBean.carregarUnidade}" type="preRenderView"></f:event>		
+		</f:metadata>
+	
+
+		<h:form styleClass="form mainDiv">
+			<h3 class="titulo">UNIDADE</h3>
+
+			<div class="alinhar">			
+				<div>	
+		 			<h:outputLabel value="Nome:" />
+			 		<div class="mostrar">		
+						#{exibirUnidadeBean.unidade.nome}
+					</div>
+				</div>
+				
+				<div>
+		 			<h:outputLabel value="Quant.Equipamentos:" />
+					<div class="mostrar">
+						#{exibirUnidadeBean.unidade.quantidadeEquipamentos}
+			 		</div>
+				</div>
+			</div>
+			
+				<div class="alinhar">
+					<div>
+			 			<h:outputLabel value="Cep:" />
+			 		<div class="mostrar">
+				#{exibirUnidadeBean.unidade.endereco.cep}
+				</div>
+			</div>
+			<div>
+			 			<h:outputLabel value="Bairro:" />
+			 		<div class="mostrar">
+				#{exibirUnidadeBean.unidade.endereco.bairro}
+				</div>
+			</div>
+		</div>
+			<div class="alinhar">
+				<div>
+			 			<h:outputLabel value="Logradouro:" />
+			 		<div class="mostrar">
+				#{exibirUnidadeBean.unidade.endereco.logradouro}
+						</div>
+					</div>
+					<div>
+			 			<h:outputLabel value="Número:" />
+			 		<div class="mostrar">
+				#{exibirUnidadeBean.unidade.endereco.numero}
+					</div>
+				</div>
+			</div>
+				<h3 class="titulo">TURMAS</h3>
+			 <ui:repeat var="turma" value="#{exibirUnidadeBean.unidade.turmas}">
+			 	<div class="row">
+			 		<div class="alinhar">
+			 			<h:outputLabel value="Cód.:" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputText value="#{turma.codigo}" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputLabel value="Turno:" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputText value="#{turma.turno}" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputLabel value="Data de Inicio:" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputText id="dataInicio" value="#{turma.dataInicio}">
+			 				<f:converter converterId="localDateFacesConverter" for="dataInicio"/>
+			 			</h:outputText>
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputLabel value="Data de Termino :" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputText id="dataFim" value="#{turma.dataFim}">
+			 				<f:converter converterId="localDateFacesConverter" for="dataFim"/>
+			 			</h:outputText>
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputLabel value="Instrutor:" />
+			 		</div>
+			 		<div class="alinhar">
+			 			<h:outputText value="#{turma.instrutor.nome}" />
+			 		</div>
+			 		
+			 	</div>
+			 </ui:repeat>
+			 
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

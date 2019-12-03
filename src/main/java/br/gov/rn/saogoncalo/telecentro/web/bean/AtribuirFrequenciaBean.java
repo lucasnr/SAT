@@ -1,8 +1,9 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
+import java.io.Serializable;
 import java.util.Optional;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,36 +12,44 @@ import br.gov.rn.saogoncalo.telecentro.service.TurmaService;
 import lombok.Getter;
 import lombok.Setter;
 
-@Named
-@RequestScoped
-public class AtualizarCadastroTurmaBean {
-	
-	@Getter @Setter
-	private Turma turma;
-	
-	@Getter @Setter
-	private Long id;
 
-	public AtualizarCadastroTurmaBean() {
-		turma = new Turma();
+@Named
+@ViewScoped
+public class AtribuirFrequenciaBean implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
-	}
+	
+	
+	@Getter
+	@Setter
+	private Long id;
+	
+	@Getter
+	@Setter	
+	private Long aulaId;
+	
+	@Getter
+	@Setter
+	private Turma turma;
 	
 	@Inject
 	private TurmaService service;
 	
-	public void carregarTurma() {
+	
+	public void carregarTurmaPorId() {
 		Optional<Turma> optional = service.buscarPorId(id);
 		if(optional.isPresent()) {
-			this.turma = optional.get();
+			turma = optional.get();
+		} else {
+			//nao encontrou a turma com o id
 		}
-		else {
-			System.out.println("erro");
-		}
+	}
+	
+	public void atribuirFrequencia() {
+		
 	}
 	
 	
 	
-	
-
 }

@@ -8,32 +8,42 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
-		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
-		<h:outputStylesheet name="errorMessages.css" library="css/block" />
+		<h:outputStylesheet name="listarUnidades.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
-	
+
 	<f:metadata>
-			<!--  <f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam> -->
-			<f:event listener="#{listarUnidadesBean.carregarUnidades}" type="preRenderView"></f:event>		
+		<!--  <f:viewParam name="id" value="#{usuarioBean.id}"></f:viewParam> -->
+		<f:event listener="#{listarUnidadesBean.carregarUnidades}"
+			type="preRenderView"></f:event>
 	</f:metadata>
 
 	<ui:define name="conteudo">
 
-		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">UNIDADES DO TELECENTRO</h1>
+		<h:form styleClass="form mainDiv">
 
-			<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
-				
-				<div>
-					<h:button value="#{unidade.nome}"
-							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.id}"/>
-				</div>
-				
-				
-			</ui:repeat>
+			<div class="divMax">
+				<h1 class="titulo">UNIDADES DO TELECENTRO</h1>
 
+				<ui:repeat var="unidade" value="#{listarUnidadesBean.lista}">
+					<div class="unidades-botton">
+
+						<h:link outcome="exibirUnidade.xhtml?id=#{unidade.id}" class="unidades"> 
+						<span>#{unidade.nome} </span> <i class="fas fa-search"></i>
+						</h:link>
+
+						
+						<h3 class="subtitulos">#{unidade.endereco.logradouro}</h3>
+					</div>
+
+				</ui:repeat>
+
+			</div>
+			
+			<h:button outcome="home.xhtml" value="Voltar" styleClass="botao" />
 		</h:form>
-	</ui:define>
 
+	</ui:define>
 </ui:composition>
 </html>

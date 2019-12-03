@@ -1,0 +1,45 @@
+.divMax {
+	padding-top: 1em;
+	border-radius: 10px;
+}
+
+.unidades { 
+	color: inherit;
+	text-decoration:none;
+	font-size: 1.8em;
+	font-family: 'Aprova';
+	font-weight: 300;
+	display: flex;
+	justify-content: space-between;	 
+} 
+
+.unidades1 {
+	color: inherit;
+	text-decoration: none;
+}
+
+.unidades-botton {
+	background-color: #d7d7d7;
+	padding: 0.6em;
+	border-radius: 10px;
+	margin-bottom: 1em;
+}
+
+.divUnidades {
+	border: 10px grey;
+}
+
+.subtitulos {
+	font-size: 1.3em;
+	font-family: 'Aprova';
+	color: #4c4c4c;
+}
+
+.fas {
+	margin-top: 0.5em;
+}
+
+.botao {
+	display: block;
+	margin: auto;
+}

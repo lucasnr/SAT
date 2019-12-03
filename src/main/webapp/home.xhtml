@@ -20,10 +20,10 @@
             <div class="optionList">
                 <ul class="optionList-list">
                     <li class="optionList-list-item">
-                        <a href="meusDados.xhtml" class="optionList-list-link">
+                        <h:link outcome="meusDados.xhtml" styleClass="optionList-list-link">
                             <i class="fas fa-address-card optionList-list-icon"></i> 
                             Meus dados
-                        </a>
+                        </h:link>
                     </li>
                     
                     <h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
@@ -43,38 +43,52 @@
 					
 					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'COORDENADOR_GERAL'}">
 						<li class="optionList-list-item">
-                        <a href="" class="optionList-list-link">
-                            <i class="fas fa-address-book"></i>
-                            Cadastrar Ususário
-                        </a>
-                    </li>
-                    <li class="optionList-list-item">
-                        <a href="" class="optionList-list-link">
-                            <i class="far fa-address-book"></i>
-                            Atualizar Cadastro
-                        </a>
-                    </li>
-                    <li class="optionList-list-item">
-                        <a href="" class="optionList-list-link">
-                            <i class="fas fa-random"></i>
-                            Tranferir Aluno
-                        </a>
-                    </li>
+                        <h:link outcome="cadastrarUsuario.xhtml" class="optionList-list-link">
+                            <i class="fas fa-address-book optionList-list-icon"></i>
+                            Cadastrar Usuário
+                        </h:link>
+	                    </li>
+	                    <li class="optionList-list-item">
+	                        <a href="" class="optionList-list-link">
+	                            <i class="far fa-address-book optionList-list-icon"></i>
+	                            Atualizar Cadastro
+	                        </a>
+	                    </li>
+	                    <li class="optionList-list-item">
+	                        <h:link outcome="listarUnidades.xhtml" styleClass="optionList-list-link">
+	                            <i class="fas fa-building optionList-list-icon"></i>
+	                            Listar Unidades
+	                        </h:link>
+	                    </li>
+	                    <li class="optionList-list-item">
+	                        <h:link outcome="transferirAluno.xhtml" styleClass="optionList-list-link">
+	                            <i class="fas fa-random optionList-list-icon"></i>
+	                            Transferir Aluno
+	                        </h:link>
+	                    </li>
 					</h:panelGroup>
 					
 					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
 						<li class="optionList-list-item">
-                        <a href="" class="optionList-list-link">
-                            <i class="fas fa-address-book"></i>
-                            Cadastrar Ususário
-                        </a>
-                    </li>
-                    <li class="optionList-list-item">
-                        <a href="" class="optionList-list-link">
-                            <i class="far fa-address-book"></i>
-                            Atualizar Cadastro
-                        </a>
-                    </li>
+	                        <h:link outcome="cadastrarUsuario.xhtml" class="optionList-list-link">
+	                            <i class="fas fa-address-book optionList-list-icon"></i>
+	                            Cadastrar Usuário
+	                        </h:link>
+                    	</li>
+                    	
+                    	<li class="optionList-list-item">
+	                        <h:link outcome="exibirUnidade.xhtml?id=#{sessionBean.usuario.unidade.id}" class="optionList-list-link">
+	                            <i class="fas fa-building optionList-list-icon"></i>
+	                            Minha Unidade
+	                        </h:link>
+                    	</li>
+                    	
+	                    <li class="optionList-list-item">
+	                        <a href="" class="optionList-list-link">
+	                            <i class="far fa-address-book optionList-list-icon"></i>
+	                            Atualizar Cadastro
+	                        </a>
+	                    </li>
 					</h:panelGroup>
 					
 					<h:panelGroup layout="block" rendered="#{sessionBean.usuario.perfil eq 'INSTRUTOR'}">

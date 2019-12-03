@@ -8,46 +8,70 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="notas.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<ui:define name="conteudo">
 
-		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">Atribuir Notas</h1>
-			
-			<div class="divEtapas">
-					<h:button value="Etapa 1" outcome="home.xhtml"
-					styleClass="etapas-btn" />
-					<h:button value="Etapa 2" outcome="home.xhtml"
-					styleClass="etapas-btn" />
-					<h:button value="Etapa 3" outcome="home.xhtml"
-					styleClass="etapas-btn" />
-					<h:button value="Etapa 4" outcome="home.xhtml"
-					styleClass="etapas-btn" />
-					<h:button value="Etapa 5" outcome="home.xhtml"
-					styleClass="etapas-btn" />
-			</div>
-			
-			<div class="divMax">
-				<ui:repeat var="aluno" value="#{AtribuirNotasBean.turma.alunos}">
-					#{aluno.nome} (#{aluno.matricula}) 		
-				</ui:repeat>
-			</div>
-			
+		<f:metadata>
+			<f:viewParam name="id" value="#{atribuirNotasBean.id}" />
+			<f:event type="preRenderView"
+				listener="#{atribuirNotasBean.carregarTurmaPorId}" />
+		</f:metadata>
 
-			<div class="group-btn">
-				<h:button value="Cancelar" outcome="home.xhtml"
-					styleClass="cancelar-btn" />
-				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
-					styleClass="salvar-btn" value="Salvar" process="@form"
-					update="@form" />
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">Atribuir Notas</h1>
+
+			<div class="divEtapas">
+				<div class="botao">Etapa1</div>
+				<div class="botao">Etapa2</div>
+				<div class="botao">Etapa3</div>
+				<div class="botao">Etapa4</div>
+				<div class="botao">Etapa5</div>
+			</div>
+
+			<div class="divMax">
+
+				<ui:repeat var="aluno" value="#{atribuirNotasBean.turma.alunos}">
+					<div>
+
+						<div class="notas">
+							<span class="nome"> #{aluno.nome} </span>
+
+							<div class="campos">
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(0).nota}"
+									styleClass="campo" />
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(1).nota}"
+									styleClass="campo" />
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(2).nota}"
+									styleClass="campo" />
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(3).nota}"
+									styleClass="campo" />
+								<p:inputNumber decimalPlaces="0" minValue="0" maxValue="100" value="#{aluno.boletins.get(4).nota}"
+									styleClass="campo" />
+							</div>
+						</div>
+					</div>
+				</ui:repeat>
+
+			</div>
+
+			<div class="grupo-botao">
+				<h:button value="Cancelar" outcome="home.xhtml" styleClass="botao" />
+				<p:commandButton styleClass="botao" action="#{atribuirNotasBean.atribuirNotas}" value="Atribuir notas" />
+			</div>
+
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
 			</div>
 		</h:form>
 	</ui:define>
 
-	
+
 
 </ui:composition>
 </html>

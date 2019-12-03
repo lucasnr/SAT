@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template/_index.xhtml">
+
+	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="messages.css" library="css/block" />
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<f:metadata>
+			<f:viewParam name="id" value="#{atualizarUsuarioBean.id}"></f:viewParam>
+			<f:event listener="#{atualizarUsuarioBean.carregarUsuario}" type="preRenderView"></f:event>		
+		</f:metadata>
+
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">ATUALIZAR CADASTRO</h1>
+
+			<div class="grupo">
+				<div>
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'ALUNO'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Aluno"/>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'INSTRUTOR'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Instrutor"/>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+						<h:outputLabel value="Perfil: " />
+						<h:outputLabel styleClass="perfil campo" value="Coordenador de Unidade"/>
+					</h:panelGroup>
+					
+				</div>
+
+				<div>
+				
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'ALUNO'}">
+						<h:outputLabel value="Unidade: " />
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.turma.unidade.id}">
+							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
+							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'COORDENADOR_UNIDADE'}">
+						<h:outputLabel value="Unidade: " />
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.unidade.id}">
+							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
+							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" rendered="#{atualizarUsuarioBean.usuario.perfil eq 'INSTRUTOR'}">
+						<h:outputLabel value="Unidade: " />
+						<h:selectOneMenu styleClass="unidade campo" value="#{atualizarUsuarioBean.usuario.unidade.id}">
+							<f:selectItem itemLabel="Selecione uma unidade" itemValue="" />
+							<f:selectItem itemLabel="Unidade de Santo Antonio" itemValue="1" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+
+				</div>
+			</div>
+
+			<div class="grupo">
+				<div>
+					<h:outputLabel value="Nome: " />
+					<h:inputText styleClass="nome campo" value="#{atualizarUsuarioBean.usuario.nome}" />
+					
+				</div>
+			</div>
+
+			<div class="grupo">
+				<div>
+					<p:outputLabel value="Data de nascimento:"/>
+					<p:inputMask styleClass="dataDeNsacimento campo" value="#{atualizarUsuarioBean.dataNascimento}" mask="99/99/9999">
+					<f:convertDateTime pattern="dd/MM/yyyy"/> 
+					</p:inputMask>
+					
+						
+				</div>
+
+				<div>
+					<h:outputLabel value="CPF: " />
+					<p:inputMask mask="999.999.999-99" styleClass="cpf campo" value="#{atualizarUsuarioBean.usuario.cpf}">
+					<f:validator validatorId="CpfValidator" />
+					</p:inputMask>
+				</div>
+				<div>
+					<h:outputLabel value="RG: " />
+					<p:inputMask mask="999.999.999" styleClass="rg campo" value="#{atualizarUsuarioBean.usuario.rg}"/>
+				</div>
+			</div>
+
+			<div class="grupo">
+				
+				<div>
+					<h:outputLabel value="CEP: " />
+					<p:inputMask mask="99999-999" styleClass="cep campo" value="#{atualizarUsuarioBean.usuario.endereco.cep}"/>
+				</div>
+				
+				<div>
+					<h:outputLabel value="Bairro: " />
+					<h:inputText styleClass="bairro campo" value="#{atualizarUsuarioBean.usuario.endereco.bairro}" />
+				</div>
+				<div>
+					<h:outputLabel value="Logradouro: " />
+					<h:inputText styleClass="logradouro campo"
+						value="#{atualizarUsuarioBean.usuario.endereco.logradouro}" />
+				</div>
+				<div>
+					<h:outputLabel value="Número: " />
+					<h:inputText styleClass="numero campo" value="#{atualizarUsuarioBean.usuario.endereco.numero}" />
+				</div>
+			</div>
+
+			<div class="grupo">
+				<div>
+					<h:outputLabel value="Telefone: " />
+					<p:inputMask styleClass="telefone campo" value="#{atualizarUsuarioBean.usuario.contato.telefone}"
+						mask="(99) 99999-9999" />
+				</div>
+
+				<div>
+					<h:outputLabel value="Email: " />
+					<h:inputText styleClass="email campo" value="#{atualizarUsuarioBean.usuario.contato.email}">
+						<f:validator validatorId="emailValidator" />
+					</h:inputText>
+				</div>
+
+				<div>
+					<h:outputLabel value="Sexo: " />
+					<h:selectOneMenu styleClass="sexo campo" value="#{atualizarUsuarioBean.usuario.sexo}">
+						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+						<f:selectItem itemLabel="Outro" itemValue="OUTRO" />
+					</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="grupo-botao">
+				<p:commandButton action="#{atualizarUsuarioBean.atualizar}" styleClass="botao"
+					value="Atualizar" process="@form" update="@form" />
+			</div>
+
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

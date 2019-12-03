@@ -9,28 +9,29 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="messages.css" library="css/block" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="cadastroTurma.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<h:form styleClass="formulario">
+		<h:form styleClass="form mainDiv">
 		
 			<div class="alinhar">			
 				<div class="grupo">
 					<h:outputLabel value="Data Inicio" />
-					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataInicio}">
+					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataInicio}" styleClass="campo">
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza" />
 					</p:inputMask>
 				</div>
 				<div class="grupo">
 					<h:outputLabel value="Data Fim" />
-					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataFim}">
+					<p:inputMask mask="99/99/9999" value="#{cadastrarTurmaBean.dataFim}" styleClass="campo">
 						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Fortaleza" />
 					</p:inputMask>
 				</div>
 				<div class="grupo">
 					<h:outputLabel value="Turno" />
-					<h:selectOneMenu value="#{cadastrarTurmaBean.turma.turno}">
+					<h:selectOneMenu value="#{cadastrarTurmaBean.turma.turno}" styleClass="campo">
 						<f:selectItem itemLabel="Matutino" itemValue="MATUTINO"/>
 						<f:selectItem itemLabel="Vespertino" itemValue="VESPERTINO"/>
 						<f:selectItem itemLabel="Noturno" itemValue="NOTURNO"/>
@@ -41,18 +42,18 @@
 			<div class="alinhar">			
 				<div class="grupo">
 					<h:outputLabel value="Unidade" />
-					<h:selectOneMenu value="#{cadastrarTurmaBean.unidadeId}">
+					<h:selectOneMenu value="#{cadastrarTurmaBean.unidadeId}" styleClass="campo">
 						<f:selectItems value="#{cadastrarTurmaBean.unidades()}" var="unidade" 
 							itemLabel="#{unidade.nome}" itemValue="#{unidade.id}" />
 					</h:selectOneMenu>
 				</div>
 				<div class="grupo">
 					<h:outputLabel value="Matrícula do Instrutor" />
-					<h:inputText value="#{cadastrarTurmaBean.matriculaInstrutor}" />
+					<h:inputText value="#{cadastrarTurmaBean.matriculaInstrutor}" styleClass="campo" />
 				</div>
 			</div>
 			
-			<div class="botoes">			
+			<div class="grupo-botao">			
 				<h:button styleClass="botao" outcome="index.xhtml" value="Cancelar" />
 				<h:commandButton styleClass="botao" actionListener="#{cadastrarTurmaBean.salvar}" value="Salvar" />
 			</div>

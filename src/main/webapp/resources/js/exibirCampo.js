@@ -41,5 +41,4 @@ function perfilOnChangeAction() {
 
 /* Limpar o campo perfil quando error */
 
-$('.perfil, .turma, .unidade', '.cadastrarUsuariosForm').not(':button').val('')
-		.removeAttr('checked').removeAttr('selected');
+$('.perfil, .unidade, .turma', '.cadastrarUsuariosForm').not(':button').removeAttr('checked').removeAttr('selected');

@@ -92,57 +92,54 @@ public final class GeradorDeMatricula implements Visitor {
 	}
 	
 	
-	public static String gerarNovaMatricula(String matricula, String cod_turma_destino, String matriculaDoUltimoAluno) {
-
-		String numeroEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 4);
-		int ordemDoUltimoAluno = Integer.parseInt(numeroEmString);
-
+	public static String gerarNovaMatricula(String antigaMatricula, Turma turma, String matriculaDoUltimoAluno) {
+		Long idDaUnidade = turma.getUnidade().getId();
+		Long idDaTurma = turma.getId();
+		
+		String ordemDoUltimoAlunoEmString = matriculaDoUltimoAluno.substring(matriculaDoUltimoAluno.length() - 4);
+		int ordemDoUltimoAluno = Integer.parseInt(ordemDoUltimoAlunoEmString);
+		
 		int ordemDoNovoAluno = ordemDoUltimoAluno + 1;
-
+		
 		String ordemDoNovoAlunoString = String.format("%04d", ordemDoNovoAluno);
 		String ordem = ordemDoNovoAlunoString;
-		char[] ord = ordem.toCharArray();
-
-		// yyyy u t pp ss aa
+		char[] ordemArray = ordem.toCharArray();
+		
+		
+		// ano trimestre tipoDeUsuario unidade turma ordemDoAluno
 		// 2016 1 1 01 001 0001
-		// ano tipoUsuario trimestre unidadeTelecentro ordemCadastroTurma
-		// ordemCadastroAluno
 
-		char[] mat = null;
-		String palavra = matricula;
-		mat = palavra.toCharArray();
-		System.out.println(mat.length);
+		char[] antigaMatriculaArray = antigaMatricula.toCharArray();
 
-		// yyyy uu t ss
-		// 2016 02 2 002
-		// ano unidadeTelecentro trimestre ordemCadastroTurma
+		// ano trimestre unidade turno
+		// 2016 1 02 M
 
-		char[] tur = null;
-		String trasnferir = cod_turma_destino;
-		tur = trasnferir.toCharArray();
+		String ordemDaTurmaEmString = String.format("%03d", idDaTurma); // 3 posicoes
+		char[] ordemDaTurma = ordemDaTurmaEmString.toCharArray();
+		
+		String ordemDaUnidadeEmString = String.format("%02d", idDaUnidade);
+		char[] ordemDaUnidade = ordemDaUnidadeEmString.toCharArray();
 
-		// Alteração na unidade do Telecentro do aluno
-		mat[6] = tur[4];
-		mat[7] = tur[5];
-
-		// Alteração no trimestre do aluno
-		mat[5] = tur[6];
+		// Alteração na ordem da unidade
+		antigaMatriculaArray[6] = ordemDaUnidade[0];
+		antigaMatriculaArray[7] = ordemDaUnidade[1];
 
 		// Alteração na ordem de cadastro da turma do aluno
-		mat[8] = tur[7];
-		mat[9] = tur[8];
-		mat[10] = tur[9];
-
+		antigaMatriculaArray[8] = ordemDaTurma[0];
+		antigaMatriculaArray[9] = ordemDaTurma[1];
+		antigaMatriculaArray[10] = ordemDaTurma[2];
+		
 		// Alteração na ordem de cadastro do aluno
-		mat[11] = ord[0];
-		mat[12] = ord[1];
-		mat[13] = ord[2];
-		mat[14] = ord[3];
+		antigaMatriculaArray[11] = ordemArray[0];
+		antigaMatriculaArray[12] = ordemArray[1];
+		antigaMatriculaArray[13] = ordemArray[2];
+		antigaMatriculaArray[14] = ordemArray[3];
 
 		String novaMatricula = "";
-		for (int i = 0; i < mat.length; i++) {
-			novaMatricula += mat[i];
-		}
+		for (int i = 0; i < antigaMatriculaArray.length; i++) {
+			novaMatricula += antigaMatriculaArray[i];
+		} 
 		return novaMatricula;
 	}
+	
 }

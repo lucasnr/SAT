@@ -9,6 +9,7 @@
 
 	<ui:define name="estilos">
 		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="notas.css" library="css" />
 		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
@@ -16,41 +17,29 @@
 	<ui:define name="conteudo">
 
 		<f:metadata>
-			<f:viewParam name="id" value="#{cadastrarAulaBean.turmaId}" />
-			<f:event type="preRenderView"
-				listener="#{cadastrarAulaBean.carregarTurma}" />
+			<f:viewParam name="id" value="#{atribuirFrequenciaBean.id}" />
+			<f:viewAction action="#{atribuirFrequenciaBean.carregarTurmaPorId}"/>
 		</f:metadata>
 
 		<h:form styleClass="form mainDiv">
-			<h1 class="titulo">CADASTRAR AULA</h1>
+			<h1 class="titulo">ATRIBUIR FREQUÊNCIA</h1>
 
+			<div class="divMax">
+				<ui:repeat var="aluno" value="#{atribuirFrequenciaBean.turma.alunos}">
 
-			<div class="grupo">
-
-				<div>
-					<h:outputLabel value="Descrição: " />
-					<h:inputText styleClass="descricao campo"
-						value="#{cadastrarAulaBean.aula.descricao}" 
-						required="true" requiredMessage="Preencha o campo descrição" />
-				</div>
-
-				<div>
-					<h:outputLabel value="Data da Aula" />
-					<p:inputMask styleClass="campo" id="dataAula"
-						value="#{cadastrarAulaBean.data}" mask="99/99/9999 99:99"
-						requiredMessage="Preencha o campo data de aula"
-						required="true" validatorMessage="Informe uma data válida" >						
-						
-						<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Fortaleza" />
-					</p:inputMask>
-				</div>
+					<div class="notas">#{aluno.nome}
+					<h:selectBooleanCheckbox value="#{selectBooleanView.value1}"/>
+					
+					
+					</div>
+				</ui:repeat>
 			</div>
 
 			<div class="grupo-botao">
 				<h:button value="Cancelar" outcome="home.xhtml" styleClass="botao" />
 
-				<p:commandButton action="#{cadastrarAulaBean.registrarAula}"
-					styleClass="botao" value="Salvar" process="@form" update="@form"/>
+				<p:commandButton action="#{atribuirFrequenciaBean.atribuirFrequencia}"
+					styleClass="botao" value="Salvar" process="@form" update="@form" />
 			</div>
 
 			<div class="messages">
@@ -58,14 +47,11 @@
 					errorClass="messages-list-item erro"
 					infoClass="messages-list-item sucesso" />
 			</div>
+
 		</h:form>
 	</ui:define>
 
 </ui:composition>
 
 </html>
-
-
-
-
 

@@ -10,12 +10,13 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="meusDados.css" library="css" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<div class="meusDados-bg">
-			<h3 class="meusDados-header">MEUS DADOS</h3>
+		<div class="mainDiv">
+			<h3 class="titulo">MEUS DADOS</h3>
 
 			<div class="meusDados-dados">
 				<div>
@@ -27,7 +28,7 @@
 					<div>
 						Unidade:<br />
 						<h:button value="#{sessionBean.usuario.turma.unidade.nome}"
-							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.unidade.id}"
+							outcome="exibirUnidade.xhtml?id=#{sessionBean.usuario.turma.unidade.id}"
 							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
@@ -36,7 +37,7 @@
 					<div>
 						Unidade:<br />
 						<h:button value="#{sessionBean.usuario.unidade.nome}"
-							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.unidade.id}"
+							outcome="exibirUnidade.xhtml?id=#{sessionBean.usuario.unidade.id}"
 							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
@@ -53,14 +54,9 @@
 			<div class="meusDados-dados">
 				<div>
 					Data de Nascimento: <br /> 
-					<span> 
-						<h:outputText
-							value="#{sessionBean.dataNascimento}">
-							<f:convertDateTime pattern="dd/MM/yyyy"
-								timeZone="America/Fortaleza" />
-						</h:outputText>
-					</span>
-
+						<h:outputText id="dataNascimento" value="#{sessionBean.usuario.dataNascimento}">
+			 				<f:converter converterId="localDateFacesConverter" for="dataNascimento"/>
+			 			</h:outputText>
 				</div>
 				<div>
 					CPF:<br /> <span>#{sessionBean.usuario.cpf}</span>
@@ -90,16 +86,16 @@
 				<h:panelGroup layout="block"
 					rendered="#{sessionBean.usuario.perfil eq 'ALUNO'}">
 					<div>
-						Código da Turma: <br /> 
+						Código da Turma: <br />
 						<h:button value="#{sessionBean.usuario.turma.codigo}"
-							outcome="atualizarCadastroUsuario.xhtml?id=#{sessionBean.usuario.turma.id}"
+							outcome="exibirUnidade.xhtml?id=#{sessionBean.usuario.turma.id}"
 							class="btnRedirect" />
 					</div>
 				</h:panelGroup>
 			</div>
 
 
-			<h:button value="Voltar" outcome="home.xhtml" class="btn" />
+			<h:button value="Voltar" outcome="home.xhtml" class="botao" />
 
 		</div>
 

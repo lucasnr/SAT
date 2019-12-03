@@ -26,7 +26,7 @@ public class LocalDateFacesConverter implements Converter {
 
 		} catch (DateTimeParseException e) {
 
-			throw new ConverterException("O ano deve conter 4 dígitos. Exemplo: 13/11/2015.");
+			throw new ConverterException("O ano deve conter 4 dÃ­gitos. Exemplo: 13/11/2015.");
 		}
 
 		return localDate;

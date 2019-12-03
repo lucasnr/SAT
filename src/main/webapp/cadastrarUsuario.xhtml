@@ -14,19 +14,20 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<ui:define name="conteudo">
 
-		<h:form styleClass="cadastrarUsuariosForm">
-			<h1 class="cadastrarUsuariosForm-header-title">CADASTRAR USUÁRIO</h1>
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">CADASTRAR USUÁRIO</h1>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Perfil: " />
-					<h:selectOneMenu styleClass="perfil"
+					<h:selectOneMenu styleClass="perfil campo"
 						onchange="perfilOnChangeAction()"
 						value="#{cadastrarUsuarioBean.usuario.perfil}" required="true"
 						requiredMessage="Selecione um perfil">
@@ -45,7 +46,7 @@
 
 				<div class="divUnidade">
 					<h:outputLabel value="Unidade: " />
-					<h:selectOneMenu class="unidade"
+					<h:selectOneMenu styleClass="unidade campo"
 						value="#{cadastrarUsuarioBean.unidadeId}">
 						<f:selectItem itemLabel="Selecione uma unidade"
 							noSelectionOption="true" />
@@ -57,35 +58,35 @@
 
 				<div class="divTurma">
 					<h:outputLabel value="Turma: " />
-					<h:selectOneMenu class="turma"
+					<h:selectOneMenu styleClass="turma campo"
 						value="#{cadastrarUsuarioBean.turmaId}">
 						<f:selectItem itemLabel="Selecione uma turma"
-							noSelectionOption="true" itemValue="NULL" />
+							noSelectionOption="true" />
 						<f:selectItems value="#{cadastrarUsuarioBean.turmas()}"
 							var="turma" itemLabel="#{turma.codigo}" itemValue="#{turma.id}" />
 					</h:selectOneMenu>
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Nome: " />
-					<h:inputText class="nome"
+					<h:inputText styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.nome}" required="true"
 						requiredMessage="Preencha o campo nome" />
 				</div>
 				<div>
 					<h:outputLabel value="Senha: " />
-					<h:inputSecret class="senha"
+					<h:inputSecret styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.senha}" required="true"
 						requiredMessage="Preencha o campo senha" />
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<p:outputLabel value="Data de nascimento: " />
-					<p:inputMask class="dataDeNsacimento"
+					<p:inputMask styleClass="campo"
 						value="#{cadastrarUsuarioBean.dataNascimento}" mask="99/99/9999"
 						required="true"
 						requiredMessage="Preencha o campo data de nascimento"
@@ -97,7 +98,7 @@
 
 				<div>
 					<h:outputLabel value="CPF: " />
-					<p:inputMask class="cpf"
+					<p:inputMask styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.cpf}" mask="999.999.999-99"
 						required="true" requiredMessage="Preencha o campo CPF">
 						<f:validator validatorId="CpfValidator" />
@@ -105,44 +106,44 @@
 				</div>
 				<div>
 					<h:outputLabel value="RG: " />
-					<p:inputMask class="rg" value="#{cadastrarUsuarioBean.usuario.rg}"
+					<p:inputMask styleClass="campo" value="#{cadastrarUsuarioBean.usuario.rg}"
 						mask="999.999.999" required="true"
 						requiredMessage="Preencha o campo RG" />
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel for="cep" value="CEP: " />
-					<p:inputMask id="cep" styleClass="cep"
+					<p:inputMask id="cep"  styleClass="cep campo"
 						value="#{cadastrarUsuarioBean.usuario.endereco.cep}"
 						mask="99999-999" required="true"
 						requiredMessage="Preencha o campo CEP" />
 				</div>
 				<div>
 					<h:outputLabel value="Bairro: " />
-					<h:inputText id="bairro" styleClass="bairro"
+					<h:inputText id="bairro" styleClass="bairro campo"
 						value="#{cadastrarUsuarioBean.usuario.endereco.bairro}"
 						required="true" requiredMessage="Preencha o campo bairro" />
 				</div>
 				<div>
 					<h:outputLabel value="Logradouro: " />
-					<h:inputText id="logradouro" styleClass="logradouro"
+					<h:inputText id="logradouro" styleClass="logradouro campo"
 						value="#{cadastrarUsuarioBean.usuario.endereco.logradouro}"
 						required="true" requiredMessage="Preencha o campo logradouro" />
 				</div>
 				<div>
 					<h:outputLabel value="Número: " />
-					<h:inputText id="numero"
+					<h:inputText id="numero" styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.endereco.numero}"
 						required="true" requiredMessage="Preencha o campo número" />
 				</div>
 			</div>
 
-			<div class="cadastrarUsuariosForm-group">
+			<div class="grupo">
 				<div>
 					<h:outputLabel value="Telefone: " />
-					<p:inputMask class="telefone"
+					<p:inputMask styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.contato.telefone}"
 						mask="(99) 99999-9999" required="true"
 						requiredMessage="Preencha o campo telefone" />
@@ -151,7 +152,7 @@
 
 				<div>
 					<h:outputLabel value="E-mail: " />
-					<h:inputText id="email"
+					<h:inputText id="email" styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.contato.email}"
 						required="true" requiredMessage="Preencha o campo e-email">
 						<f:validator validatorId="emailValidator" />
@@ -160,7 +161,7 @@
 
 				<div>
 					<h:outputLabel value="Sexo: " />
-					<h:selectOneMenu class="sexo"
+					<h:selectOneMenu styleClass="campo"
 						value="#{cadastrarUsuarioBean.usuario.sexo}" required="true"
 						requiredMessage="Selecione o sexo">
 						<f:selectItem itemLabel="Selecione o sexo" itemValue=""
@@ -172,11 +173,11 @@
 				</div>
 			</div>
 
-			<div class="group-btn">
+			<div class="grupo-botao">
 				<h:button value="Cancelar" outcome="home.xhtml"
-					styleClass="cancelar-btn" />
+					styleClass="botao" />
 				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
-					styleClass="salvar-btn" value="Salvar" process="@form"
+					styleClass="botao" value="Salvar" process="@form"
 					update="@form scripts" />
 			</div>
 

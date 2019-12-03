@@ -69,6 +69,10 @@ public class Usuario implements Visitable, Serializable {
 		this.pessoa = new Pessoa();
 		this.perfil = perfil;
 	}
+	
+	public Long getUsuarioId() {
+		return this.id;
+	}
 
 	@Override
 	public String accept(Visitor visitor) {

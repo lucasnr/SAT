@@ -24,11 +24,30 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 	}
 	
 	@Override
-	public boolean atualizar(T obj) {
-		Pessoa pessoa = obj.getPessoa();
+	public boolean atualizar(T usuario) {
+		Pessoa pessoa = usuario.getPessoa();
 		Contato contato = pessoa.getContato();
+		Endereco antigoEndereco = pessoa.getEndereco();
+		
+		Endereco endereco = Endereco.builder()
+			.cep(antigoEndereco.getCep())
+			.bairro(antigoEndereco.getBairro())
+			.logradouro(antigoEndereco.getLogradouro())
+			.numero(antigoEndereco.getNumero())
+			.build();
+				
 		Session session = getSession();
 		session.getTransaction().begin();
+
+		EnderecoHibernateDAO enderecoDAO = new EnderecoHibernateDAO();
+		Optional<Endereco> optional = enderecoDAO.buscarPorBairroLogradouroNumero(endereco.getBairro(), endereco.getLogradouro(), endereco.getNumero());
+		if (optional.isPresent()) {
+			pessoa.setEndereco(optional.get());
+		} else {			
+			session.save(endereco);
+			pessoa.setEndereco(endereco);
+		}
+		
 		session.update(pessoa);
 		session.update(contato);
 		session.getTransaction().commit();
@@ -69,7 +88,7 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 		}
 	}
 
-	private void findEnderecoOrSave(Session session, Pessoa pessoa, Endereco endereco) {
+	protected final void findEnderecoOrSave(Session session, Pessoa pessoa, Endereco endereco) {
 		EnderecoHibernateDAO dao = new EnderecoHibernateDAO();
 		Optional<Endereco> optional = dao.buscarPorBairroLogradouroNumero(endereco.getBairro(), endereco.getLogradouro(), endereco.getNumero());
 		if(optional.isPresent())
@@ -78,7 +97,7 @@ public class UsuarioHibernateDAO<T extends Usuario> extends AbstractHibernateDAO
 			session.save(endereco);
 	}
 
-	private boolean enderecoNotSaved(Endereco endereco) {
+	protected final boolean enderecoNotSaved(Endereco endereco) {
 		return endereco.getId() == null || endereco.getId() == 0;
 	}
 
