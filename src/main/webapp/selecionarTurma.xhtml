@@ -4,6 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+	
+	
 
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
@@ -23,31 +25,34 @@
 				<ul class="optionList-list">
 					<li class="optionList-list-item">
                         <a href="meusDados.xhtml" class="optionList-list-link">
-                            <i class="fas fa-address-card optionList-list-icon"></i> 
-                            Atualizar Dados
+                          <div class="botao">  <i class="fas fa-address-card optionList-list-icon"></i> 
+                       Atualizar Dados </div>    
+                        </a>
+                    </li>
+                    <br></br>
+                    <li class="optionList-list-item">
+                        <a href="atribuirNotas.xhtml" class="optionList-list-link">
+                          <div class="botao">   <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Atualizar Boletim </div>
+                        </a>
+                    </li>
+                    <br></br>
+                    
+                    <li class="optionList-list-item">
+                        <a href="cadastrarAula.xhtml" class="optionList-list-link">
+                            <div class="botao"> <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Cadastra Aula </div>
+                        </a>
+                    </li>
+                    <br></br>
+                    <li class="optionList-list-item">
+                        <a href="atribuiFrequencia.xhtml" class="optionList-list-link">
+                           <div class="botao">  <i class="fas fa-address-card optionList-list-icon"></i> 
+                            Atribuir Frequência </div>
                         </a>
                     </li>
                     
-                    <li class="optionList-list-item">
-                        <a href="meusDados.xhtml" class="optionList-list-link">
-                            <i class="fas fa-address-card optionList-list-icon"></i> 
-                            Atualizar Boletim
-                        </a>
-                    </li>
-                    
-                    <li class="optionList-list-item">
-                        <a href="meusDados.xhtml" class="optionList-list-link">
-                            <i class="fas fa-address-card optionList-list-icon"></i> 
-                            Cadastra Aula
-                        </a>
-                    </li>
-                    
-                    <li class="optionList-list-item">
-                        <a href="meusDados.xhtml" class="optionList-list-link">
-                            <i class="fas fa-address-card optionList-list-icon"></i> 
-                            Atribuir Frequência
-                        </a>
-                    </li>
+             
                     <!-- 
 				<h:button value="Atualizar Dados" outcome="AtualizaCadadastroTurma.xhtml"/>
 				
