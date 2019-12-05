@@ -59,7 +59,7 @@ public class CadastrarAulaBean implements Serializable {
 			aula.setData(dataAula);
 			boolean salvou = aulaService.salvar(aula);
 			if (salvou) {
-				return "atribuirFrequencia.xhtml?id="+aula.getId();
+				return "atribuirFrequencia.xhtml?faces-redirect=true&id="+aula.getId();
 			} else {
 				FacesMessageUtil.addErrorMessage("Erro ao cadastrar aula");
 				return null;
