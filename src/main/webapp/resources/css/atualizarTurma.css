@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.mainDiv input, select {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.Gp1 {
+	display: flex;
+	margin-bottom: 1.5em;
+}
+
+.a {
+	margin: 5px;
+	flex: 1;
+}
+
+input, select, textarea {
+	width: 100%;
+}
+
+textarea {
+	height: 8em;
+	border-radius: 12px;
+}
+
+@media (max-width : 360px) {
+
+	.Gp1 {
+		display: block !important;
+	}
+
+	.a {
+		margin-bottom: 1em;
+	}
+
+	.grupo-botao {
+		flex-flow: column wrap;
+	}
+
+	.grupo-botao .botao {
+		margin-bottom: 1em;
+	}
+}
+
+@media (min-width: 960px) {
+	.mainDiv {
+		margin: 0 15px;
+	}
+}

@@ -1,32 +1,6 @@
-.main {
-	background-color: #FCFCFC;
-	flex: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.meusDados-bg {
-	background: white;
-	box-shadow: 0px 1px 4px #aaa;
-	padding: 1em;
-	width: 100%;
-	max-width: 900px;
-}
-
-.meusDados-bg span {
+.mainDiv span {
 	color: #a9a9a9;
 	font-weight: 500;
-}
-
-.meusDados-header {
-	text-align: center;
-	margin-bottom: 1.5em;
-	margin-top: 1em;
-	font-weight: bold;
-	font-size: 2em;
-	font-family: 'Aprova';
 }
 
 @media ( min-width : 562px) {
@@ -47,17 +21,7 @@
 	padding: 0.5em;
 }
 
-.btn {
-	cursor: pointer;
-	outline: none;
-	border: none;
-	border-radius: 999px;
-	padding: .5em 4em !important;
-	font-size: 1em;
-	text-transform: uppercase;
-	color: white;
-	font-family: 'Aprova';
-	background-color: #1881be !important;
+.botao {
 	margin: auto;
 	display: block;
 }

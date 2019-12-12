@@ -8,34 +8,55 @@
 <ui:composition template="WEB-INF/_template/_index.xhtml">
 
 	<ui:define name="estilos">
-		<h:outputStylesheet name="cadastrarAula.css" library="css" />
-		<h:outputStylesheet name="notas.css" library="css" />
+		<h:outputStylesheet name="cadastrarUsuarios.css" library="css" />
+		<h:outputStylesheet name="centerPage.css" library="css" />
 		<h:outputStylesheet name="messages.css" library="css/block" />
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<h:form styleClass="cadastrarAulaForm">
-			<h1 class="cadastrarAulaForm-header-title">CADASTRAR AULA</h1>
 
-			<div class="cadastrarAulaForm-group">
-				<h:outputLabel value="DESCRIÇÃO: " />
-				<h:inputText class="nome"
-					value="#{cadastrarUsuarioBean.usuario.nome}" required="true"
-					requiredMessage="Preencha o campo nome" />
+		<f:metadata>
+			<f:viewParam name="id" value="#{cadastrarAulaBean.turmaId}" />
+			<f:event type="preRenderView"
+				listener="#{cadastrarAulaBean.carregarTurma}" />
+		</f:metadata>
+
+		<h:form styleClass="form mainDiv">
+			<h1 class="titulo">CADASTRAR AULA</h1>
+
+
+			<div class="grupo">
+
+				<div>
+					<h:outputLabel value="Descrição: " />
+					<h:inputText styleClass="descricao campo"
+						value="#{cadastrarAulaBean.aula.descricao}" 
+						required="true" requiredMessage="Preencha o campo descrição" />
+				</div>
+
+				<div>
+					<h:outputLabel value="Data da Aula" />
+					<p:inputMask styleClass="campo" id="dataAula"
+						value="#{cadastrarAulaBean.data}" mask="99/99/9999 99:99"
+						requiredMessage="Preencha o campo data de aula"
+						required="true" validatorMessage="Informe uma data válida" >						
+						
+						<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Fortaleza" />
+					</p:inputMask>
+				</div>
 			</div>
 
-			<div class="divMax">
-				<ui:repeat var="aluno" value="#{AtribuirNotasBean.turma.alunos}">
-					#{aluno.nome} 	<h:inputText class="numero"/>
-				</ui:repeat>
+			<div class="grupo-botao">
+				<h:button value="Cancelar" outcome="home.xhtml" styleClass="botao" />
+
+				<h:commandButton action="#{cadastrarAulaBean.registrarAula}"
+					styleClass="botao" value="Salvar" />
 			</div>
 
-			<div class="group-btn">
-				<h:button value="Cancelar" outcome="home.xhtml"
-					styleClass="cancelar-btn" />
-				<p:commandButton action="#{cadastrarUsuarioBean.salvar}"
-					styleClass="salvar-btn" value="Salvar" process="@form"
-					update="@form" />
+			<div class="messages">
+				<h:messages styleClass="messages-list"
+					errorClass="messages-list-item erro"
+					infoClass="messages-list-item sucesso" />
 			</div>
 		</h:form>
 	</ui:define>

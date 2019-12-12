@@ -31,10 +31,7 @@ public class ListarUnidadesBean implements Serializable {
 	public void carregarUnidades() {
 		lista = service.listar();
 	}
-	
-	
-	
 	public String acao() {
-		return "exibirUnidade.xhtml?faces-redirect=true&id="; 
+		return "exibirUnidade.xhtml?faces-redirect=true&id=" ; 
 	}
 }

@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.telecentro.web.bean;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
@@ -17,7 +18,7 @@ import lombok.Setter;
 
 @Named
 @ViewScoped
-public class UsuarioBean implements Serializable {
+public class AtualizarUsuarioBean implements Serializable {
 
 	/**
 	 * 
@@ -66,11 +67,13 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void atualizar() {
+		LocalDate dataNascimentoLD = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		usuario.setDataNascimento(dataNascimentoLD);
 		boolean atualizou = service.atualizar(usuario);
 		if (atualizou)
-			FacesMessageUtil.addSuccessMessage("Deu certo");
+			FacesMessageUtil.addSuccessMessage("Usuário atualizado com sucesso");
 		else
-			FacesMessageUtil.addErrorMessage("Deu ruim");
+			FacesMessageUtil.addErrorMessage("Falha ao atualizar usuário");
 	}
 
 }

@@ -90,4 +90,5 @@ public class CadastrarTurmaBean {
 	public List<Unidade> unidades() {
 		return unidadeService.listar();
 	}
+	
 }

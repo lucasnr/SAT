@@ -88,4 +88,5 @@ public class Turma implements Serializable {
 		LocalDate hoje = LocalDate.now();
 		return hoje.isAfter(this.getDataInicio()) && hoje.isBefore(this.getDataFim());
 	}
+		
 }

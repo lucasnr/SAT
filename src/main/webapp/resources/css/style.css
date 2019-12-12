@@ -1,9 +1,48 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-/*# sourceMappingURL=style.css.map */
+.form label {
+  display: block;
+  font-family: 'Aprova';
+  margin-bottom: .2em;
+  margin-left: .5em;
+}
+
+.form .campo {
+  border: 1px solid #a9a9a9;
+  border-radius: 99999px;
+  padding: .70em;
+  width: 100%;
+  outline: none;
+}
+
+.form .grupo {
+  color: #a9a9a9;
+  margin: 1em 0;
+}
+
+.botao {
+  background-color: #1881be !important;
+  border: none;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Aprova';
+  font-size: 1em;
+  outline: none;
+  padding: .5em 2em !important;
+  text-transform: uppercase;
+}
+
+.grupo-botao {
+	display: flex;
+	justify-content: space-between;
+  margin: 2em 0;
+}

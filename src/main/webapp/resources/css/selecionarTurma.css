@@ -1,4 +1,24 @@
-@charset "UTF-8";
+
+}
+.optionList {
+	
+	backgroud-color: #00004;
+}
+
+.welcome {
+  font-family: 'Aprova';
+  margin-bottom: 2em; }
+  .welcome .welcome-text {
+    color: #1881be !important;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .welcome .welcome-user {
+    color: #232323;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase; }
+
 
 .main {
 	background-color: #FCFCFC;
@@ -9,72 +29,56 @@
 	flex-wrap: wrap;
 }
 
-.form {
-	width: 100%;
-	background-color: white;
-	border-radius: 20px;
-	max-width: 960px;
-}
-
-.d1 input, select {
-	border-radius: 999px;
-	border: 1px solid #a9a9a9;;
-	padding: .70em;
-	width: 100%;
-	outline: none;
-}
-.a{
-	margin: 5px;
-}
-
-
-select, textarea {
-	
-}
-
-}
-label {
-	display: block;
-}
-
-.Gp1 {
-	display: flex;
-	margin-bottom: 1.5em;
-}
-
-.Gp1 div {
-	flex: 1;
-}
-
-input, select, textarea {
-	width: 100%;
-	
-}
-
-textarea {
-	height: 8em;
-	border-radius: 12px;
-}
-
-select {
-	border-radius: 9992px;
-
-}
-
-.d1 {
-	padding: 2em;
+.selecionarTurmaForm {
+	background: white;
 	box-shadow: 0px 1px 4px #aaa;
+	padding: 1em;
 	width: 100%;
-	height: 100%;
+	max-width: 500px;
 }
 
-.titulo {
+.selecionarTurmaForm-header-title {
 	text-align: center;
 	margin-bottom: 1.5em;
 	margin-top: 1em;
 	font-weight: bold;
 	font-size: 2em;
 	font-family: 'Aprova';
+	
+}
+
+.selecionarTurmaForm-group {
+	color: #a9a9a9;
+	margin: 1em 0;
+}
+
+.selecionarTurmaForm-group div {
+	width: 100%;
+	padding: 0.5em;
+}
+
+.selecionarTurmaForm-group input {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.selecionarTurmaForm-group select {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
+}
+
+.selecionarTurmaForm-group selectItem {
+	border-radius: 999px;
+	border: 1px solid #a9a9a9;;
+	padding: .70em;
+	width: 100%;
+	outline: none;
 }
 
 label {
@@ -82,33 +86,29 @@ label {
 	margin-left: .5em;
 	margin-bottom: .2em;
 	font-family: 'Aprova';
-	color: #a9a9a9;
 }
 
-.cancelar, .salvar {
+.cancelar-btn , .salvar-btn {
 	cursor: pointer;
 	outline: none;
 	border: none;
 	border-radius: 999px;
 	padding: .5em 4em !important;
+	font-size: 1em;
 	text-transform: uppercase;
 	color: white;
 	font-family: 'Aprova';
 	background-color: #1881be !important;
 }
 
-.butoes {
+.group-btn {
 	margin-top: 2em;
 	margin-bottom: 2em;
 	justify-content: space-between;
 	display: flex;
 }
 
-
-
-
-/* responsividade*/
-
+/* Responsividade */
 
 @media (max-width : 500px) {
 	.group-btn {
@@ -130,18 +130,18 @@ label {
 }
 
 @media (max-width : 360px) {
-	.butoes {
+	.group-btn {
    		display: block;
 	}
 	
-	.salvar{
+	.salvar-btn {
 		margin-top: 1em;
 		width: 16em;
 		margin: auto !important;
 	    display: block !important;
 	}
 	
-	.cancelar{
+	.cancelar-btn {
 		width: 16em;
 		margin: 1em auto !important;
 	    display: block !important;
@@ -149,18 +149,18 @@ label {
 }
 
 @media (max-width : 320px) {
-	.butoes{
+	.group-btn {
     	display: block;
 	}
 	
-	.salvar {
+	.salvar-btn {
 		margin-top: 1em;
 		width: 14em !important;
 		margin: auto !important;
    		display: block !important;
 	}
 	
-	.cancelar{
+	.cancelar-btn {
 		width: 14em !important;
 		margin: 1em auto !important;
     	display: block !important;
@@ -168,18 +168,18 @@ label {
 }
 
 @media (max-width : 375px) {
-	.butoes {
+	.group-btn {
 		display: block;
 	}
 	
-	.salvar{
+	.salvar-btn {
 		margin-top: 1em;
 		width: 16.5em;
 		margin: auto !important;
     	display: block !important;
 	}
 	
-	.cancelar{
+	.cancelar-btn {
 		width: 16.5em;
 		margin: 1em auto !important;
     	display: block !important;
@@ -187,7 +187,8 @@ label {
 }
 
 @media (min-width : 960px) {
-	.form{
+	.transferirALunoForm-group {
 		display: flex;
 	}
 }
+

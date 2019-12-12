@@ -18,7 +18,7 @@ public class GeradorDeCodigoDeTurma {
 		
 		StringBuilder matricula = new StringBuilder();
 		matricula.append(anoAtual);
-		matricula.append(String.format("%02d", trimestre));
+		matricula.append(trimestre);
 		matricula.append(String.format("%02d", idDaUnidade));
 		matricula.append(turno);
 		return matricula.toString();
