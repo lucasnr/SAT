@@ -1,7 +1,7 @@
 # SAT
  Sistema Acadêmico Telecentro
 
-## O que é o projeto
+## Sobre
 
 Atualmente, o projeto denominado "Telecentro", oferecido pela Prefeitura Municipal de São Gonçalo do Amarante, visa incluir socialmente a população do município aos meios tecnológicos. Oferta-se, ao decorrer de três meses, um curso de informática básica com intuito de democratização do conhecimento.  
 Entretanto, apesar do Telecentro ser um centro tecnológico, **os métodos pedagógicos ainda são arcaicos e extremamente dependes de papéis**. Isso implica na **dificuldade de cadastro dos alunos, organização dos documentos e emissão de certificados de conclusão**. Dessa forma, **surgiu a necessidade de um sistema que permita gerenciamento das demandas acadêmicas e otimize o tempo de atendimento e gestão do processo.**  
