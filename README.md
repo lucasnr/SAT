@@ -4,8 +4,11 @@
 ## Sobre
 
 Atualmente, o projeto denominado "Telecentro", oferecido pela Prefeitura Municipal de São Gonçalo do Amarante, visa incluir socialmente a população do município aos meios tecnológicos. Oferta-se, ao decorrer de três meses, um curso de informática básica com intuito de democratização do conhecimento.  
+
 Entretanto, apesar do Telecentro ser um centro tecnológico, **os métodos pedagógicos ainda são arcaicos e extremamente dependes de papéis**. Isso implica na **dificuldade de cadastro dos alunos, organização dos documentos e emissão de certificados de conclusão**. Dessa forma, **surgiu a necessidade de um sistema que permita gerenciamento das demandas acadêmicas e otimize o tempo de atendimento e gestão do processo.**  
-Os dados dos estudantes, referentes ao Telecentro, atualmente são coletados por meio de **fichas que são preenchidas manualmente**, controladas pelos coordenadores e instrutores das unidades e, em seguida, enviadas para a emissão de certificados de conclusão. Todavia, não há um sistema de organização e estocagem desses dados, os quais podem ser **perdidos ou invalidados** por erros de escrita, por exemplo. Com isso, uma solução bem-sucedida incluiria **implantar um sistema de maior confiabilidade do serviço para o cidadão e assegurar a validade dos dados dos alunos**.  
+  
+Os dados dos estudantes, referentes ao Telecentro, atualmente são coletados por meio de **fichas que são preenchidas manualmente**, controladas pelos coordenadores e instrutores das unidades e, em seguida, enviadas para a emissão de certificados de conclusão. Todavia, não há um sistema de organização e estocagem desses dados, os quais podem ser **perdidos ou invalidados** por erros de escrita, por exemplo. Com isso, uma solução bem-sucedida incluiria **implantar um sistema de maior confiabilidade do serviço para o cidadão e assegurar a validade dos dados dos alunos**.
+  
 Considerando isso, para o Telecentro, esse software foi pensado como um sistema acadêmico **web** que permita o acesso dos alunos, instrutores e coordenadores (geral e de unidades) a uma plataforma unificada, onde estão disponíveis dados pertinentes ao contexto acadêmico do Telecentro. Nessa lógica, então, o projeto do **Sistema Acadêmico do Telecentro (SAT)** se propõe a resolver tais impasses à medida que oferecerá, entre outras possibilidades (descritas a seguir), o acesso de dados, o cadastro de aulas, a atribuição de notas e de frequências.
  
  ## Recursos do Sistema
